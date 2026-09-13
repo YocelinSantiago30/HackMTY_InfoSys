@@ -1,8 +1,10 @@
 const routingService = require("../services/routing.service");
 const HttpError = require("../utils/httpError");
 
+// Acepta también strings numéricos: Postgres devuelve columnas NUMERIC como
+// texto y el cliente suele reenviarlas tal cual.
 function isValidCoordinate(value) {
-  return typeof value === "number" && Number.isFinite(value);
+  return value !== null && value !== "" && Number.isFinite(Number(value));
 }
 
 async function getRoute(req, res) {

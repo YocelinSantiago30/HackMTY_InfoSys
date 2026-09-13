@@ -12,16 +12,17 @@ red para el tamaño de este proyecto. Es una aproximación consistente, no
 la distancia real de calles.
 """
 
+import json
 import math
 from typing import List, Optional
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, Header, HTTPException
 from ortools.constraint_solver import pywrapcp, routing_enums_pb2
 from pydantic import BaseModel
 
 app = FastAPI(title="SmartCourier AI - Optimization Service")
 
-STREET_FACTOR = 1.3  # debe coincidir con backend/src/services/routing.service.js
+STREET_FACTOR = 1.38  # debe coincidir con backend/src/services/routing.service.js
 
 
 class Point(BaseModel):
@@ -139,3 +140,110 @@ def optimize_batch(req: OptimizeBatchRequest):
         index = next_index
 
     return OptimizeBatchResponse(order=order_sequence, total_distance_km=total_distance_meters / 1000)
+
+
+# =============================================================================
+# COURIER — TIER 2: agente de estrategia
+# =============================================================================
+# Corre ENTRE pedidos (nunca dentro de la ventana de 50 ms del fast path).
+# Revisa el salario de reserva y la zona objetivo según hora, vehículo,
+# tiempo restante del turno, ritmo de ganancias y shocks activos, usando los
+# parámetros ENTRENADOS en seeds de ajuste (backend/scripts/courier/train.js).
+#
+# Requiere credencial (X-Model-Key == COURIER_MODEL_API_KEY). Con credencial
+# inválida o servicio caído, el backend sigue decidiendo con la última
+# estrategia y se marca como degradado.
+
+import os
+from datetime import datetime
+
+COURIER_MODELS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "models", "courier")
+_strategy_cache = {"mtime": None, "model": None}
+
+
+def load_strategy_model():
+    path = os.path.join(COURIER_MODELS_DIR, "strategy_model.json")
+    mtime = os.path.getmtime(path)
+    if _strategy_cache["mtime"] != mtime:
+        with open(path) as handle:
+            _strategy_cache["model"] = json.load(handle)
+        _strategy_cache["mtime"] = mtime
+    return _strategy_cache["model"]
+
+
+def load_demand_rates():
+    with open(os.path.join(COURIER_MODELS_DIR, "demand_model.json")) as handle:
+        return json.load(handle)["ratePerHour"]
+
+
+def hour_band(hour: int) -> str:
+    if 12 <= hour < 15:
+        return "lunch"
+    if 15 <= hour < 18:
+        return "afternoon"
+    if 18 <= hour < 22:
+        return "dinner"
+    if hour >= 22 or hour < 6:
+        return "night"
+    return "morning"
+
+
+class ActiveShock(BaseModel):
+    shock_type: str
+    zone: Optional[int] = None
+    multiplier: Optional[float] = None
+
+
+class StrategyRequest(BaseModel):
+    vehicle: str
+    sim_time: str
+    shift_start_time: str
+    shift_end_time: str
+    earnings_mxn: float = 0
+    orders_completed: int = 0
+    current_zone: Optional[int] = None
+    active_shocks: List[ActiveShock] = []
+    params: Optional[dict] = None  # solo para entrenamiento: parámetros candidatos
+
+
+@app.post("/strategy")
+def courier_strategy(req: StrategyRequest, x_model_key: Optional[str] = Header(default=None)):
+    expected = os.environ.get("COURIER_MODEL_API_KEY")
+    if not expected or x_model_key != expected:
+        raise HTTPException(status_code=401, detail="Credencial del modelo inválida")
+
+    model = load_strategy_model()
+    params = req.params or model["params"]
+    vehicle_params = params["vehicles"][req.vehicle]
+
+    now = datetime.fromisoformat(req.sim_time)
+    end = datetime.fromisoformat(req.shift_end_time)
+    remaining_min = (end - now).total_seconds() / 60
+    band = hour_band(now.hour)
+
+    wage = vehicle_params[band]
+    notes = [f"franja {band}"]
+    raining = any(s.shock_type == "rain" for s in req.active_shocks)
+    surge = any(s.shock_type == "surge" for s in req.active_shocks)
+    if raining:
+        wage *= params["rain_factor"]
+        notes.append("lluvia")
+    if surge:
+        wage *= params["surge_factor"]
+        notes.append("surge activo")
+    if remaining_min < params["end_taper_minutes"]:
+        wage *= params["end_taper_factor"]
+        notes.append(f"quedan {int(remaining_min)} min")
+
+    rates = load_demand_rates()
+    next_hour = str((now.hour + 1) % 24)
+    by_zone = rates[int(next_hour)] if isinstance(rates, list) else rates[next_hour]
+    target_zone = int(max(by_zone.items(), key=lambda item: item[1])[0])
+
+    return {
+        "reservation_wage_mxn_hr": round(wage, 2),
+        "target_zone": target_zone,
+        "reasoning": f"Reserva ${round(wage)}/h por {', '.join(notes)}; zona {target_zone} concentra más pedidos la próxima hora.",
+        "confidence": "medium" if (raining or surge) else "high",
+        "model_version": model.get("version", "unknown"),
+    }

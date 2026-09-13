@@ -1,24 +1,27 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Text } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import MapScreen from "../screens/MapScreen";
 import ComparisonScreen from "../screens/ComparisonScreen";
 import HistoryScreen from "../screens/HistoryScreen";
 import SettingsScreen from "../screens/SettingsScreen";
+import { AGENT_COLORS, TEXT_COLORS } from "../constants/theme";
 
 const Tab = createBottomTabNavigator();
 
 const TAB_ICONS = {
-  Map: "🗺️",
-  Comparison: "📊",
-  History: "📜",
-  Settings: "⚙️",
+  Map: "map",
+  Comparison: "bar-chart",
+  History: "receipt",
+  Settings: "settings",
 };
 
 function tabIcon(routeName) {
   return ({ focused }) => (
-    <Text style={{ fontSize: 20, opacity: focused ? 1 : 0.5 }}>
-      {TAB_ICONS[routeName]}
-    </Text>
+    <Ionicons
+      name={focused ? TAB_ICONS[routeName] : `${TAB_ICONS[routeName]}-outline`}
+      size={22}
+      color={focused ? AGENT_COLORS.SMARTCOURIER : TEXT_COLORS.muted}
+    />
   );
 }
 
@@ -28,6 +31,8 @@ export default function MainTabs() {
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarIcon: tabIcon(route.name),
+        tabBarActiveTintColor: AGENT_COLORS.SMARTCOURIER,
+        tabBarInactiveTintColor: TEXT_COLORS.muted,
       })}
     >
       <Tab.Screen name="Map" component={MapScreen} options={{ title: "Mapa" }} />

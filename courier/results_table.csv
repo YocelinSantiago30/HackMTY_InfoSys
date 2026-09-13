@@ -1,0 +1,17 @@
+# Results criterion, Courier.
+# Reporting seeds (held-out, never tuned on): 90001-90030 (30 shifts: moto/car/bike x 4/6/8 h x start 10:00/15:00/18:00)
+# Tuning seeds (demand model + strategy params + GreedyRate threshold): 1-54
+# Strategy model: courier-strategy-f7c1fe4e. GreedyRate threshold tuned on tuning seeds: 80 MXN/h.
+# earnings = net of fuel; mxn_per_hr over worked hours (shift + overtime); deadline_misses and safety_violations are totals over all shifts.
+# X+Safety = the same baseline forced through our five safety constraints (economics-vs-economics comparison).
+# Oracle = offline DP with full knowledge of orders and shocks; relaxes continuous-riding rules (upper bound, not a deployable policy).
+# OurAgent captures 71.24% of the Oracle mean earnings.
+policy,mean_earnings_mxn,median_earnings_mxn,mean_mxn_per_hr,accept_rate_pct,orders_completed,deadhead_pct_of_km,deadline_misses,safety_violations
+AcceptAll,543.71,500.84,87.42,100,8.43,30.56,2,87
+HighestPay,525.8,483.73,86.76,72.08,7.03,26.34,2,71
+NearestFirst,499.82,493.17,82.75,52.63,7.5,17.47,1,59
+GreedyRate,559.13,508.56,90.95,84.82,8.4,28.65,0,79
+AcceptAll+Safety,448.39,448.32,76.14,48.72,7.83,35.26,0,0
+GreedyRate+Safety,458.36,459.94,77.21,44.09,7.63,33.49,0,0
+OurAgent,466.17,480.9,78.88,31.18,7.1,29.74,0,0
+Oracle,654.33,589.69,111.71,42.73,10.17,33.46,0,129

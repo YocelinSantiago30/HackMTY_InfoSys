@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
   Alert,
@@ -8,170 +7,78 @@ import {
   Text,
   View,
 } from "react-native";
-import { useAuth } from "../contexts/AuthContext";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Ionicons } from "@expo/vector-icons";
+import { EMPTY_METRICS, useSimulation } from "../contexts/SimulationContext";
 import AgentMetricsCard from "../components/AgentMetricsCard";
 import CurrentOrderCard from "../components/CurrentOrderCard";
 import InjectEventPanel from "../components/InjectEventPanel";
 import DemoResultBanner from "../components/DemoResultBanner";
-import { disconnectSocket, joinSimulation } from "../services/socket";
-import { AGENT_COLORS, MIN_TOUCH_TARGET, TEXT_COLORS } from "../constants/theme";
-import {
-  createSimulationRequest,
-  getComparisonRequest,
-  pauseSimulationRequest,
-  resumeSimulationRequest,
-  startSimulationRequest,
-  stopSimulationRequest,
-} from "../api/simulation.api";
-
-const EMPTY_METRICS = {
-  totalEarnings: 0,
-  acceptedOrders: 0,
-  rejectedOrders: 0,
-  completedOrders: 0,
-  distanceKm: 0,
-  earningsPerMinute: 0,
-  earningsPerKm: 0,
-  idleMinutes: 0,
-  efficiencyScore: 0,
-};
-
-const REFRESH_INTERVAL_MS = 3000;
+import SpeedControl from "../components/SpeedControl";
+import { formatShiftClock } from "../utils/shiftClock";
+import { AGENT_COLORS, EVENT_ICONS, MIN_TOUCH_TARGET, TEXT_COLORS } from "../constants/theme";
 
 const EVENT_LABELS = {
-  SURGE_STARTED: "⚡ Surge activado",
-  SURGE_ENDED: "⚡ Surge terminado",
-  TRAFFIC_INCREASED: "🚗 Tráfico pesado",
-  TRAFFIC_DECREASED: "🚗 Tráfico normal",
-  ROAD_CLOSED: "🚧 Cierre vial",
-  ROAD_REOPENED: "🚧 Vía reabierta",
-  ORDER_CANCELLED: "❌ Pedido cancelado",
-  HIGH_DEMAND: "📈 Demanda alta",
-  LOW_DEMAND: "📉 Demanda baja",
-  URGENT_ORDER: "🔥 Pedido urgente",
+  SURGE_STARTED: "Surge activado",
+  SURGE_ENDED: "Surge terminado",
+  TRAFFIC_INCREASED: "Tráfico pesado",
+  TRAFFIC_DECREASED: "Tráfico normal",
+  ROAD_CLOSED: "Cierre vial",
+  ROAD_REOPENED: "Vía reabierta",
+  ORDER_CANCELLED: "Pedido cancelado",
+  HIGH_DEMAND: "Demanda alta",
+  LOW_DEMAND: "Demanda baja",
+  URGENT_ORDER: "Pedido urgente",
 };
 
+const TRAFFIC_LABELS = { LOW: "fluido", MEDIUM: "moderado", HIGH: "pesado", SEVERE: "severo" };
+
 export default function ComparisonScreen() {
-  const { token } = useAuth();
-
-  const [simulation, setSimulation] = useState(null);
-  const [isStarting, setIsStarting] = useState(false);
-  const [agents, setAgents] = useState({ BASELINE: EMPTY_METRICS, SMARTCOURIER: EMPTY_METRICS });
-  const [comparison, setComparison] = useState(null);
-  const [currentOrder, setCurrentOrder] = useState(null);
-  const [baselineDecision, setBaselineDecision] = useState(null);
-  const [smartDecision, setSmartDecision] = useState(null);
-  const [recentEvents, setRecentEvents] = useState([]);
-
-  const refreshIntervalRef = useRef(null);
-  const simulationIdRef = useRef(null);
-
-  useEffect(() => {
-    return () => {
-      stopRefreshLoop();
-      disconnectSocket();
-    };
-  }, []);
-
-  function stopRefreshLoop() {
-    if (refreshIntervalRef.current) {
-      clearInterval(refreshIntervalRef.current);
-      refreshIntervalRef.current = null;
-    }
-  }
-
-  async function refreshComparison(simulationId) {
-    try {
-      const data = await getComparisonRequest(simulationId);
-      if (data.agents) setAgents(data.agents);
-      if (data.comparison) setComparison(data.comparison);
-    } catch (error) {
-      // silencioso: el próximo tick de refresco lo vuelve a intentar
-    }
-  }
+  const {
+    simulation,
+    isStarting,
+    speed,
+    clock,
+    agents,
+    comparison,
+    currentOrder,
+    baselineDecision,
+    smartDecision,
+    recentEvents,
+    startDemo,
+    pause,
+    resume,
+    stop,
+    changeSpeed,
+  } = useSimulation();
 
   async function handleStart() {
-    setIsStarting(true);
-
     try {
-      const created = await createSimulationRequest({ mode: "DEMO" });
-      const started = await startSimulationRequest(created.id);
-
-      simulationIdRef.current = started.id;
-      setSimulation(started);
-      setCurrentOrder(null);
-      setBaselineDecision(null);
-      setSmartDecision(null);
-      setComparison(null);
-      setRecentEvents([]);
-
-      const socket = await joinSimulation(started.id, token);
-
-      socket.on("new_order", (order) => {
-        setCurrentOrder(order);
-        setBaselineDecision(null);
-        setSmartDecision(null);
-      });
-
-      socket.on("baseline_decision", (payload) => {
-        setBaselineDecision(payload);
-      });
-
-      socket.on("smart_decision", (payload) => {
-        setSmartDecision(payload);
-      });
-
-      socket.on("metrics_updated", () => {
-        refreshComparison(simulationIdRef.current);
-      });
-
-      socket.on("simulation_event", (payload) => {
-        setRecentEvents((prev) => [
-          { ...payload, id: `${payload.eventType}-${Date.now()}` },
-          ...prev,
-        ].slice(0, 5));
-      });
-
-      socket.on("simulation_paused", (updated) => setSimulation(updated));
-      socket.on("simulation_resumed", (updated) => setSimulation(updated));
-      socket.on("simulation_finished", (updated) => {
-        setSimulation(updated);
-        stopRefreshLoop();
-        refreshComparison(simulationIdRef.current);
-      });
-
-      refreshComparison(started.id);
-      refreshIntervalRef.current = setInterval(() => {
-        refreshComparison(simulationIdRef.current);
-      }, REFRESH_INTERVAL_MS);
+      await startDemo();
     } catch (error) {
-      Alert.alert("Error", error.response?.data?.message || error.message || "No se pudo iniciar la simulación");
-    } finally {
-      setIsStarting(false);
+      Alert.alert(
+        "Error",
+        error.response?.data?.message || error.message || "No se pudo iniciar la simulación"
+      );
     }
   }
 
-  async function handlePause() {
-    const updated = await pauseSimulationRequest(simulation.id);
-    setSimulation(updated);
+  async function handleSpeedChange(nextSpeed) {
+    try {
+      await changeSpeed(nextSpeed);
+    } catch (error) {
+      Alert.alert("Error", error.response?.data?.message || "No se pudo cambiar la velocidad");
+    }
   }
 
-  async function handleResume() {
-    const updated = await resumeSimulationRequest(simulation.id);
-    setSimulation(updated);
-  }
-
-  async function handleStop() {
-    stopRefreshLoop();
-    const updated = await stopSimulationRequest(simulation.id);
-    setSimulation(updated);
-    await refreshComparison(simulation.id);
-  }
+  const isActive = ["RUNNING", "PAUSED"].includes(simulation?.status);
+  const progress = clock.durationSeconds ? Math.min(1, clock.second / clock.durationSeconds) : 0;
 
   if (!simulation) {
     return (
-      <View style={styles.center}>
-        <Text style={styles.title}>📊 Comparación</Text>
+      <SafeAreaView style={styles.center} edges={["top"]}>
+        <Ionicons name="bar-chart" size={36} color={AGENT_COLORS.SMARTCOURIER} style={styles.titleIcon} />
+        <Text style={styles.title}>Comparación</Text>
         <Text style={styles.subtitle}>
           Compara Baseline vs SmartCourier AI en un turno simulado.
         </Text>
@@ -181,68 +88,96 @@ export default function ComparisonScreen() {
           disabled={isStarting}
         >
           {isStarting ? (
-            <ActivityIndicator color="#fff" />
+            <View style={styles.startingRow}>
+              <ActivityIndicator color="#fff" />
+              <Text style={styles.startButtonText}>Calculando rutas...</Text>
+            </View>
           ) : (
             <Text style={styles.startButtonText}>Iniciar simulación DEMO</Text>
           )}
         </Pressable>
-      </View>
+      </SafeAreaView>
     );
   }
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <View style={styles.statusRow}>
-        <Text style={styles.statusText}>{simulation.status}</Text>
-        <View style={styles.controls}>
-          {simulation.status === "RUNNING" && (
-            <Pressable style={styles.controlButton} onPress={handlePause}>
-              <Text style={styles.controlButtonText}>Pausar</Text>
-            </Pressable>
-          )}
-          {simulation.status === "PAUSED" && (
-            <Pressable style={styles.controlButton} onPress={handleResume}>
-              <Text style={styles.controlButtonText}>Reanudar</Text>
-            </Pressable>
-          )}
-          {["RUNNING", "PAUSED"].includes(simulation.status) && (
-            <Pressable style={[styles.controlButton, styles.stopButton]} onPress={handleStop}>
-              <Text style={styles.controlButtonText}>Detener</Text>
-            </Pressable>
-          )}
-        </View>
-      </View>
-
-      <View style={styles.cardsRow}>
-        <AgentMetricsCard agentCode="BASELINE" metrics={agents.BASELINE || EMPTY_METRICS} />
-        <AgentMetricsCard agentCode="SMARTCOURIER" metrics={agents.SMARTCOURIER || EMPTY_METRICS} />
-      </View>
-
-      {simulation.status === "FINISHED" ? (
-        <DemoResultBanner agents={agents} comparison={comparison} />
-      ) : (
-        <CurrentOrderCard
-          order={currentOrder}
-          baselineDecision={baselineDecision}
-          smartDecision={smartDecision}
-        />
-      )}
-
-      {simulation.mode === "DEMO" && simulation.status === "RUNNING" && (
-        <InjectEventPanel simulationId={simulation.id} />
-      )}
-
-      {recentEvents.length > 0 && (
-        <View style={styles.eventLog}>
-          <Text style={styles.eventLogTitle}>EVENTOS RECIENTES</Text>
-          {recentEvents.map((event) => (
-            <Text key={event.id} style={styles.eventLogItem}>
-              {EVENT_LABELS[event.eventType] || event.eventType} (seg. {event.occurredAtSimulationSecond})
+    <SafeAreaView style={styles.container} edges={["top"]}>
+      <ScrollView contentContainerStyle={styles.content}>
+        <View style={styles.statusRow}>
+          <View>
+            <Text style={styles.statusText}>{simulation.status}</Text>
+            <Text style={styles.clockText}>
+              {formatShiftClock(clock.second)} · {Math.round(progress * 100)}% del turno
+              {clock.trafficLevel ? ` · tráfico ${TRAFFIC_LABELS[clock.trafficLevel]}` : ""}
             </Text>
-          ))}
+          </View>
+          <View style={styles.controls}>
+            {simulation.status === "RUNNING" && (
+              <Pressable style={styles.controlButton} onPress={pause}>
+                <Text style={styles.controlButtonText}>Pausar</Text>
+              </Pressable>
+            )}
+            {simulation.status === "PAUSED" && (
+              <Pressable style={styles.controlButton} onPress={resume}>
+                <Text style={styles.controlButtonText}>Reanudar</Text>
+              </Pressable>
+            )}
+            {isActive && (
+              <Pressable style={[styles.controlButton, styles.stopButton]} onPress={stop}>
+                <Text style={styles.controlButtonText}>Detener</Text>
+              </Pressable>
+            )}
+          </View>
         </View>
-      )}
-    </ScrollView>
+
+        <View style={styles.progressTrack}>
+          <View style={[styles.progressFill, { width: `${progress * 100}%` }]} />
+        </View>
+
+        <View style={styles.speedBlock}>
+          <Text style={styles.speedLabel}>VELOCIDAD DE LA DEMO</Text>
+          <SpeedControl speed={speed} onChange={handleSpeedChange} disabled={!isActive} />
+        </View>
+
+        <View style={styles.cardsRow}>
+          <AgentMetricsCard agentCode="BASELINE" metrics={agents.BASELINE || EMPTY_METRICS} />
+          <AgentMetricsCard agentCode="SMARTCOURIER" metrics={agents.SMARTCOURIER || EMPTY_METRICS} />
+        </View>
+
+        {simulation.status === "FINISHED" ? (
+          <DemoResultBanner agents={agents} comparison={comparison} />
+        ) : (
+          <CurrentOrderCard
+            order={currentOrder}
+            baselineDecision={baselineDecision}
+            smartDecision={smartDecision}
+          />
+        )}
+
+        {simulation.mode === "DEMO" && simulation.status === "RUNNING" && (
+          <InjectEventPanel simulationId={simulation.id} />
+        )}
+
+        {recentEvents.length > 0 && (
+          <View style={styles.eventLog}>
+            <Text style={styles.eventLogTitle}>EVENTOS RECIENTES</Text>
+            {recentEvents.map((event) => (
+              <View key={event.id} style={styles.eventLogRow}>
+                <Ionicons
+                  name={EVENT_ICONS[event.eventType] || "ellipse"}
+                  size={13}
+                  color={TEXT_COLORS.primary}
+                />
+                <Text style={styles.eventLogItem}>
+                  {EVENT_LABELS[event.eventType] || event.eventType} (seg.{" "}
+                  {event.occurredAtSimulationSecond})
+                </Text>
+              </View>
+            ))}
+          </View>
+        )}
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -261,6 +196,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 24,
     backgroundColor: "#fff",
+  },
+  titleIcon: {
+    marginBottom: 8,
   },
   title: {
     fontSize: 22,
@@ -301,6 +239,37 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: TEXT_COLORS.secondary,
   },
+  clockText: {
+    fontSize: 12,
+    color: TEXT_COLORS.muted,
+    marginTop: 2,
+  },
+  startingRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+  },
+  progressTrack: {
+    height: 4,
+    backgroundColor: "#e0e0e0",
+    borderRadius: 2,
+    overflow: "hidden",
+    marginBottom: 12,
+  },
+  progressFill: {
+    height: 4,
+    backgroundColor: AGENT_COLORS.SMARTCOURIER,
+  },
+  speedBlock: {
+    marginBottom: 12,
+  },
+  speedLabel: {
+    fontSize: 11,
+    fontWeight: "700",
+    color: TEXT_COLORS.muted,
+    letterSpacing: 0.5,
+    marginBottom: 6,
+  },
   controls: {
     flexDirection: "row",
     gap: 8,
@@ -338,9 +307,14 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
     marginBottom: 6,
   },
+  eventLogRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+    paddingVertical: 2,
+  },
   eventLogItem: {
     fontSize: 12,
     color: TEXT_COLORS.primary,
-    paddingVertical: 2,
   },
 });

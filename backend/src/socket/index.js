@@ -40,6 +40,10 @@ function initSocket(httpServer) {
       }
     });
 
+    socket.on("leave_simulation", ({ simulationId } = {}) => {
+      if (simulationId) socket.leave(`simulation:${simulationId}`);
+    });
+
     socket.on("disconnect", () => {
       logger.event(`Socket desconectado: ${socket.id}`);
     });

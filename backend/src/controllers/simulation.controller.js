@@ -36,6 +36,11 @@ async function stopSimulation(req, res) {
   res.json({ simulation });
 }
 
+async function setSpeed(req, res) {
+  const simulation = await simulationService.setSpeed(req.user.id, req.params.id, Number(req.body.speed));
+  res.json({ simulation });
+}
+
 async function listOrders(req, res) {
   const orders = await simulationService.listOrders(req.user.id, req.params.id);
   res.json({ orders });
@@ -60,6 +65,7 @@ module.exports = {
   pauseSimulation,
   resumeSimulation,
   stopSimulation,
+  setSpeed,
   listOrders,
   getComparison,
   injectEvent,

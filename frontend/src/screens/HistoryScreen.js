@@ -7,6 +7,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { getHistoryRequest } from "../api/history.api";
 import { listSimulationsRequest } from "../api/simulation.api";
 import { DecisionBadge } from "../components/decisionDisplay";
@@ -111,7 +112,7 @@ export default function HistoryScreen() {
   }, [selectedAgent, selectedDecision, selectedSimulationId]);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container} edges={["top"]}>
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.filterRow}>
         <Chip
           label="Todos los turnos"
@@ -161,7 +162,7 @@ export default function HistoryScreen() {
           )}
         </ScrollView>
       )}
-    </View>
+    </SafeAreaView>
   );
 }
 

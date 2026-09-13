@@ -8,6 +8,7 @@ const simulationRoutes = require("./simulation.routes");
 const historyRoutes = require("./history.routes");
 const orderRoutes = require("./order.routes");
 const optimizationRoutes = require("./optimization.routes");
+const courierRoutes = require("./courier.routes");
 
 const router = Router();
 
@@ -20,5 +21,8 @@ router.use("/api/simulations", simulationRoutes);
 router.use("/api/history", historyRoutes);
 router.use("/api/orders", orderRoutes);
 router.use("/api/optimization", optimizationRoutes);
+// Contrato de courier/decision_response_schema.json: los jueces llaman a
+// /decide directamente, sin autenticación de la app.
+router.use("/", courierRoutes);
 
 module.exports = router;

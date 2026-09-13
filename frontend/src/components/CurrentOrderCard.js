@@ -29,7 +29,25 @@ export default function CurrentOrderCard({ order, baselineDecision, smartDecisio
       <DecisionBadge label="BASELINE" decision={baselineDecision?.decision} />
       <DecisionBadge label="SMARTCOURIER" decision={smartDecision?.decision} />
       {smartDecision?.score !== undefined && smartDecision?.score !== null && (
-        <Text style={styles.scoreText}>Score SmartCourier: {smartDecision.score}/100</Text>
+        <Text style={styles.scoreText}>
+          Score SmartCourier: {smartDecision.score}/100
+          {smartDecision.estimatedImpact?.netProfit !== undefined &&
+            ` · neto $${smartDecision.estimatedImpact.netProfit.toFixed(2)} en ${smartDecision.estimatedImpact.totalMinutes.toFixed(0)} min ($${smartDecision.estimatedImpact.profitPerMinute.toFixed(2)}/min)`}
+        </Text>
+      )}
+      {smartDecision?.estimatedImpact?.lookahead && (
+        <Text style={styles.scoreText}>
+          Simulado {smartDecision.estimatedImpact.lookahead.horizonMinutes} min ×{" "}
+          {smartDecision.estimatedImpact.lookahead.scenarios} escenarios: aceptar $
+          {smartDecision.estimatedImpact.lookahead.accept.mean.toFixed(0)} vs esperar $
+          {smartDecision.estimatedImpact.lookahead.wait.mean.toFixed(0)}
+        </Text>
+      )}
+      {smartDecision?.decision === "BATCH" && smartDecision.estimatedImpact && (
+        <Text style={styles.scoreText}>
+          Agrupado: +${smartDecision.estimatedImpact.additionalNetProfit.toFixed(2)} netos por +
+          {smartDecision.estimatedImpact.additionalTime.toFixed(0)} min
+        </Text>
       )}
 
       <Pressable

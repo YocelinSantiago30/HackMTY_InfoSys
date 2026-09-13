@@ -16,6 +16,7 @@ router.post("/:id/start", asyncHandler(simulationController.startSimulation));
 router.post("/:id/pause", asyncHandler(simulationController.pauseSimulation));
 router.post("/:id/resume", asyncHandler(simulationController.resumeSimulation));
 router.post("/:id/stop", asyncHandler(simulationController.stopSimulation));
+router.post("/:id/speed", asyncHandler(simulationController.setSpeed));
 router.post("/:id/events", asyncHandler(simulationController.injectEvent));
 
 module.exports = router;

@@ -9,9 +9,11 @@ export const AGENT_COLORS = {
   SMARTCOURIER: "#1976d2", // AZUL (sección 56)
 };
 
+// Nombres de Ionicons (@expo/vector-icons) — se usan con <Ionicons name={...} />,
+// no como emoji, para un look consistente entre iOS/Android (sección 56).
 export const AGENT_ICONS = {
-  BASELINE: "📦",
-  SMARTCOURIER: "🤖",
+  BASELINE: "list-outline",
+  SMARTCOURIER: "hardware-chip-outline",
 };
 
 export const DECISION_COLORS = {
@@ -22,10 +24,10 @@ export const DECISION_COLORS = {
 };
 
 export const DECISION_ICONS = {
-  ACCEPT: "✅",
-  REJECT: "❌",
-  WAIT: "⏳",
-  BATCH: "📦",
+  ACCEPT: "checkmark-circle",
+  REJECT: "close-circle",
+  WAIT: "time",
+  BATCH: "cube",
 };
 
 export const TEXT_COLORS = {
@@ -36,3 +38,18 @@ export const TEXT_COLORS = {
 
 // Alto mínimo recomendado para elementos táctiles (sección 57).
 export const MIN_TOUCH_TARGET = 44;
+
+// Eventos dinámicos (sección 26/45) — botones de inyectar evento y el
+// registro de eventos recientes comparten estos íconos.
+export const EVENT_ICONS = {
+  SURGE_STARTED: "flash",
+  SURGE_ENDED: "flash-off",
+  TRAFFIC_INCREASED: "car",
+  TRAFFIC_DECREASED: "car-outline",
+  ROAD_CLOSED: "construct",
+  ROAD_REOPENED: "checkmark-done",
+  ORDER_CANCELLED: "close-circle-outline",
+  HIGH_DEMAND: "trending-up",
+  LOW_DEMAND: "trending-down",
+  URGENT_ORDER: "flame",
+};

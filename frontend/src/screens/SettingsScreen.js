@@ -9,6 +9,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useAuth } from "../contexts/AuthContext";
 import LabeledInput from "../components/LabeledInput";
 import { AGENT_COLORS, MIN_TOUCH_TARGET, TEXT_COLORS } from "../constants/theme";
@@ -152,14 +153,15 @@ export default function SettingsScreen() {
 
   if (isLoading || !form) {
     return (
-      <View style={styles.center}>
+      <SafeAreaView style={styles.center} edges={["top"]}>
         <ActivityIndicator size="large" />
-      </View>
+      </SafeAreaView>
     );
   }
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+    <SafeAreaView style={styles.container} edges={["top"]}>
+      <ScrollView contentContainerStyle={styles.content}>
       <Text style={styles.sectionTitle}>PERFIL</Text>
       <View style={styles.card}>
         <LabeledInput label="Nombre" value={name} onChangeText={setName} />
@@ -335,7 +337,8 @@ export default function SettingsScreen() {
       <Pressable style={styles.logoutButton} onPress={logout}>
         <Text style={styles.buttonText}>Cerrar sesión</Text>
       </Pressable>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 

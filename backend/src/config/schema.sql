@@ -317,3 +317,54 @@ CREATE TABLE IF NOT EXISTS agent_metrics (
 
   UNIQUE (simulation_id, agent_id)
 );
+
+-- ==================================================
+-- Comparación justa con física real (movimiento, costos, velocidad de demo)
+-- ==================================================
+
+-- Multiplicador de velocidad de la demo (1x, 2x, 5x, 10x). Solo cambia qué
+-- tan rápido avanza el reloj simulado respecto al tiempo real.
+ALTER TABLE simulation_sessions ADD COLUMN IF NOT EXISTS speed_multiplier INTEGER NOT NULL DEFAULT 1;
+
+-- earnings = ingresos brutos cobrados; operating_cost = costo por km recorrido.
+-- Ganancia neta = earnings - operating_cost.
+ALTER TABLE agent_states ADD COLUMN IF NOT EXISTS operating_cost NUMERIC NOT NULL DEFAULT 0;
+ALTER TABLE agent_metrics ADD COLUMN IF NOT EXISTS gross_earnings NUMERIC NOT NULL DEFAULT 0;
+ALTER TABLE agent_metrics ADD COLUMN IF NOT EXISTS operating_cost NUMERIC NOT NULL DEFAULT 0;
+
+-- ==================================================
+-- Compromisos de entrega y recuperación completa
+-- ==================================================
+
+-- Hora comprometida al asignar y retraso real al entregar (segundos simulados).
+ALTER TABLE order_assignments ADD COLUMN IF NOT EXISTS promised_dropoff_second INTEGER;
+ALTER TABLE order_assignments ADD COLUMN IF NOT EXISTS delay_seconds INTEGER;
+ALTER TABLE order_assignments ADD COLUMN IF NOT EXISTS paid_amount NUMERIC;
+
+ALTER TABLE agent_states ADD COLUMN IF NOT EXISTS late_deliveries INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE agent_states ADD COLUMN IF NOT EXISTS total_delay_minutes NUMERIC NOT NULL DEFAULT 0;
+ALTER TABLE agent_states ADD COLUMN IF NOT EXISTS total_eta_error_minutes NUMERIC NOT NULL DEFAULT 0;
+ALTER TABLE agent_states ADD COLUMN IF NOT EXISTS overtime_minutes NUMERIC NOT NULL DEFAULT 0;
+
+ALTER TABLE agent_metrics ADD COLUMN IF NOT EXISTS net_per_worked_hour NUMERIC;
+ALTER TABLE agent_metrics ADD COLUMN IF NOT EXISTS late_deliveries INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE agent_metrics ADD COLUMN IF NOT EXISTS average_delay_minutes NUMERIC;
+ALTER TABLE agent_metrics ADD COLUMN IF NOT EXISTS average_eta_error_minutes NUMERIC;
+ALTER TABLE agent_metrics ADD COLUMN IF NOT EXISTS overtime_minutes NUMERIC NOT NULL DEFAULT 0;
+
+-- Estado completo del motor para continuar tras un reinicio: la lista única
+-- de pedidos (con sus rutas) se guarda una vez; el snapshot (reloj, paradas,
+-- progreso, tráfico, modificadores, RNG, contadores) se guarda en la misma
+-- transacción que los efectos del tick, así nunca queda desfasado.
+CREATE TABLE IF NOT EXISTS simulation_runtime (
+  simulation_id UUID PRIMARY KEY REFERENCES simulation_sessions(id) ON DELETE CASCADE,
+  simulation_orders JSONB NOT NULL,
+  snapshot JSONB NOT NULL,
+  snapshot_second INTEGER NOT NULL,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+-- Idempotencia: reprocesar un tick no duplica la decisión sobre un pedido.
+CREATE UNIQUE INDEX IF NOT EXISTS uq_agent_decisions_order_offer
+  ON agent_decisions (simulation_id, agent_id, order_id, decided_at_simulation_second)
+  WHERE order_id IS NOT NULL;

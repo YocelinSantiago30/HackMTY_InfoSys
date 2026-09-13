@@ -43,3 +43,6 @@ yarn-error.log*
 # Build outputs
 build/
 dist/
+
+# Log de decisiones del agente courier en vivo (se regenera)
+backend/logs/

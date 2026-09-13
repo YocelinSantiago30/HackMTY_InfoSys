@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
-import { AGENT_COLORS, AGENT_ICONS, TEXT_COLORS } from "../constants/theme";
+import { Ionicons } from "@expo/vector-icons";
+import { AGENT_COLORS, AGENT_ICONS, DECISION_COLORS, TEXT_COLORS } from "../constants/theme";
 
 const AGENT_TITLES = {
   BASELINE: "Baseline",
@@ -15,11 +16,16 @@ function ResultColumn({ agentCode, metrics }) {
 
   return (
     <View style={styles.column}>
-      <Text style={[styles.columnTitle, { color }]}>
-        {icon} {AGENT_TITLES[agentCode]}
-      </Text>
+      <View style={styles.columnTitleRow}>
+        <Ionicons name={icon} size={15} color={color} />
+        <Text style={[styles.columnTitle, { color }]}>{AGENT_TITLES[agentCode]}</Text>
+      </View>
       <Text style={styles.earnings}>${metrics.totalEarnings.toFixed(2)}</Text>
-      <Text style={styles.row}>Pedidos: {metrics.completedOrders}</Text>
+      <Text style={styles.row}>Neto (cobrado ${metrics.grossEarnings.toFixed(0)} - costo ${metrics.operatingCost.toFixed(0)})</Text>
+      <Text style={styles.row}>Neto/h trabajada: ${metrics.netPerWorkedHour.toFixed(2)}</Text>
+      <Text style={styles.row}>Horas extra: {metrics.overtimeMinutes.toFixed(0)} min</Text>
+      <Text style={styles.row}>Entregas: {metrics.completedOrders} ({metrics.lateDeliveries} tarde)</Text>
+      <Text style={styles.row}>Retraso prom.: {metrics.averageDelayMinutes.toFixed(1)} min</Text>
       <Text style={styles.row}>Distancia: {metrics.distanceKm.toFixed(1)} km</Text>
       <Text style={styles.row}>Ocioso: {metrics.idleMinutes.toFixed(1)} min</Text>
       <Text style={styles.row}>Utilización: {metrics.efficiencyScore.toFixed(0)}%</Text>
@@ -33,7 +39,10 @@ export default function DemoResultBanner({ agents, comparison }) {
 
   return (
     <View style={styles.card}>
-      <Text style={styles.title}>🏁 RESULTADO DEL TURNO</Text>
+      <View style={styles.titleRow}>
+        <Ionicons name="flag" size={18} color={TEXT_COLORS.primary} />
+        <Text style={styles.title}>RESULTADO DEL TURNO</Text>
+      </View>
 
       <View style={styles.columnsRow}>
         <ResultColumn agentCode="BASELINE" metrics={agents.BASELINE} />
@@ -42,12 +51,20 @@ export default function DemoResultBanner({ agents, comparison }) {
 
       {improvement !== null && improvement !== undefined && (
         <View style={[styles.diffBanner, isPositive ? styles.diffPositive : styles.diffNegative]}>
-          <Text style={styles.diffText}>
-            {isPositive ? "📈" : "📉"} SmartCourier: {isPositive ? "+" : ""}
-            {improvement.toFixed(1)}% {isPositive ? "más" : "menos"} que Baseline
-          </Text>
+          <View style={styles.diffTextRow}>
+            <Ionicons
+              name={isPositive ? "trending-up" : "trending-down"}
+              size={16}
+              color={isPositive ? DECISION_COLORS.ACCEPT : DECISION_COLORS.REJECT}
+            />
+            <Text style={styles.diffText}>
+              SmartCourier: {isPositive ? "+" : ""}
+              {improvement.toFixed(1)}% {isPositive ? "más" : "menos"} ganancia neta que Baseline
+            </Text>
+          </View>
           <Text style={styles.diffSubtext}>
-            Diferencia: ${comparison.totalEarnings.absoluteDifference.toFixed(2)}
+            Diferencia: ${comparison.totalEarnings.absoluteDifference.toFixed(2)} · neto/h trabajada $
+            {agents.BASELINE.netPerWorkedHour.toFixed(0)} vs ${agents.SMARTCOURIER.netPerWorkedHour.toFixed(0)}
           </Text>
         </View>
       )}
@@ -62,11 +79,16 @@ const styles = StyleSheet.create({
     padding: 16,
     marginTop: 12,
   },
+  titleRow: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 6,
+    marginBottom: 12,
+  },
   title: {
     fontSize: 16,
     fontWeight: "bold",
-    textAlign: "center",
-    marginBottom: 12,
   },
   columnsRow: {
     flexDirection: "row",
@@ -76,10 +98,15 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
   },
+  columnTitleRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+    marginBottom: 4,
+  },
   columnTitle: {
     fontSize: 13,
     fontWeight: "700",
-    marginBottom: 4,
   },
   earnings: {
     fontSize: 22,
@@ -101,6 +128,11 @@ const styles = StyleSheet.create({
   },
   diffNegative: {
     backgroundColor: "#ffebee",
+  },
+  diffTextRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
   },
   diffText: {
     fontSize: 15,

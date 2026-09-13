@@ -31,9 +31,8 @@ function buildEarningsComparison(baselineMetrics, smartMetrics) {
   };
 }
 
-async function getComparison(simulationId, elapsedMinutes) {
-  const states = await getAgentStates(simulationId);
-
+// states: filas con `code` + columnas de agent_states (de la BD o del motor en memoria).
+function buildComparison(states, elapsedMinutes) {
   const agents = {};
   for (const state of states) {
     agents[state.code] = computeMetrics({ agentState: state, elapsedMinutes });
@@ -45,6 +44,10 @@ async function getComparison(simulationId, elapsedMinutes) {
       : null;
 
   return { agents, comparison };
+}
+
+async function getComparison(simulationId, elapsedMinutes) {
+  return buildComparison(await getAgentStates(simulationId), elapsedMinutes);
 }
 
 async function snapshotMetrics(simulationId, elapsedMinutes) {
@@ -59,9 +62,10 @@ async function snapshotMetrics(simulationId, elapsedMinutes) {
          cancelled_orders, expired_orders, distance_km, active_minutes, idle_minutes, total_minutes,
          earnings_per_minute, earnings_per_active_minute, earnings_per_km, average_order_payment,
          acceptance_rate, completion_rate, average_delivery_time_minutes, batched_orders, repositions,
-         efficiency_score
+         efficiency_score, gross_earnings, operating_cost, net_per_worked_hour, late_deliveries,
+         average_delay_minutes, average_eta_error_minutes, overtime_minutes
        )
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29)
        ON CONFLICT (simulation_id, agent_id) DO UPDATE SET
          total_earnings = EXCLUDED.total_earnings,
          accepted_orders = EXCLUDED.accepted_orders,
@@ -83,6 +87,13 @@ async function snapshotMetrics(simulationId, elapsedMinutes) {
          batched_orders = EXCLUDED.batched_orders,
          repositions = EXCLUDED.repositions,
          efficiency_score = EXCLUDED.efficiency_score,
+         gross_earnings = EXCLUDED.gross_earnings,
+         operating_cost = EXCLUDED.operating_cost,
+         net_per_worked_hour = EXCLUDED.net_per_worked_hour,
+         late_deliveries = EXCLUDED.late_deliveries,
+         average_delay_minutes = EXCLUDED.average_delay_minutes,
+         average_eta_error_minutes = EXCLUDED.average_eta_error_minutes,
+         overtime_minutes = EXCLUDED.overtime_minutes,
          computed_at = now()`,
       [
         simulationId,
@@ -107,12 +118,20 @@ async function snapshotMetrics(simulationId, elapsedMinutes) {
         m.batchedOrders,
         m.repositions,
         m.efficiencyScore,
+        m.grossEarnings,
+        m.operatingCost,
+        m.netPerWorkedHour,
+        m.lateDeliveries,
+        m.averageDelayMinutes,
+        m.averageEtaErrorMinutes,
+        m.overtimeMinutes,
       ]
     );
   }
 }
 
 module.exports = {
+  buildComparison,
   getComparison,
   snapshotMetrics,
 };

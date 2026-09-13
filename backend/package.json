@@ -7,7 +7,10 @@
     "migrate": "node src/config/migrate.js",
     "seed": "node src/config/seed.js",
     "start": "node src/server.js",
-    "dev": "node --watch src/server.js"
+    "dev": "node --watch src/server.js",
+    "courier:train": "node scripts/courier/train.js",
+    "courier:evaluate": "node scripts/courier/evaluate.js",
+    "courier:shift": "node scripts/courier/runShift.js"
   },
   "keywords": [],
   "author": "",

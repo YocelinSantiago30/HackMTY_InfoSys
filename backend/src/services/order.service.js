@@ -1,30 +1,6 @@
 const pool = require("../config/database");
 const HttpError = require("../utils/httpError");
 
-async function insertOrder(order) {
-  const columns = Object.keys(order);
-  const values = Object.values(order);
-  const placeholders = columns.map((_, index) => `$${index + 1}`);
-
-  const result = await pool.query(
-    `INSERT INTO orders (${columns.join(", ")})
-     VALUES (${placeholders.join(", ")})
-     RETURNING *`,
-    values
-  );
-
-  return result.rows[0];
-}
-
-async function countOrders(simulationId) {
-  const result = await pool.query(
-    "SELECT COUNT(*)::int AS count FROM orders WHERE simulation_id = $1",
-    [simulationId]
-  );
-
-  return result.rows[0].count;
-}
-
 async function listOrdersForSimulation(simulationId) {
   const result = await pool.query(
     "SELECT * FROM orders WHERE simulation_id = $1 ORDER BY external_order_number ASC",
@@ -75,8 +51,6 @@ async function getDecisionsForOrder(orderId, userId) {
 }
 
 module.exports = {
-  insertOrder,
-  countOrders,
   listOrdersForSimulation,
   getDecisionsForOrder,
 };

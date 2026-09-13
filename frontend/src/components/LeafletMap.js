@@ -1,43 +1,50 @@
-import { forwardRef, useImperativeHandle, useMemo, useRef } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from "react";
 import { StyleSheet } from "react-native";
 import { WebView } from "react-native-webview";
 import { buildLeafletHtml } from "./mapHtml";
+import { AGENT_COLORS } from "../constants/theme";
 
+// Mapa declarativo: recibe repartidores, rutas y ubicación del usuario como
+// props y los sincroniza con Leaflet. Nada se inyecta antes de que el WebView
+// avise READY (antes se perdían las rutas si llegaban mientras cargaba).
 const LeafletMap = forwardRef(function LeafletMap(
-  { latitude, longitude, markerLabel, onMapClick },
+  { latitude, longitude, couriers, routes, user, followRoutes = true, onMapClick, onError },
   ref
 ) {
   const webViewRef = useRef(null);
+  const [isReady, setIsReady] = useState(false);
 
-  // El HTML solo se reconstruye una vez, con la posición inicial.
-  // Las actualizaciones posteriores van por injectJavaScript, no por
-  // reconstruir el WebView (eso reiniciaría el mapa cada vez).
+  // El HTML se construye una sola vez: reconstruirlo reiniciaría el mapa.
   const initialHtml = useMemo(
-    () => buildLeafletHtml({ latitude, longitude, markerLabel }),
+    () => buildLeafletHtml({ latitude, longitude, agentColors: AGENT_COLORS }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 
+  useEffect(() => {
+    if (!isReady) return;
+    const state = JSON.stringify({ couriers, routes, user, followRoutes });
+    webViewRef.current?.injectJavaScript(`window.syncState(${state}); true;`);
+  }, [isReady, couriers, routes, user, followRoutes]);
+
   useImperativeHandle(ref, () => ({
-    setCourierPosition(lat, lng) {
-      webViewRef.current?.injectJavaScript(
-        `window.setCourierPosition(${lat}, ${lng}); true;`
-      );
-    },
     centerMap(lat, lng, zoom) {
-      webViewRef.current?.injectJavaScript(
-        `window.centerMap(${lat}, ${lng}, ${zoom || ""}); true;`
-      );
+      if (!isReady) return;
+      webViewRef.current?.injectJavaScript(`window.centerMap(${Number(lat)}, ${Number(lng)}, ${Number(zoom) || 0}); true;`);
     },
   }));
 
   function handleMessage(event) {
+    let data;
     try {
-      const data = JSON.parse(event.nativeEvent.data);
-      onMapClick?.(data);
+      data = JSON.parse(event.nativeEvent.data);
     } catch (error) {
-      // ignora mensajes que no sean JSON válido
+      return; // mensaje que no es JSON
     }
+
+    if (data.type === "READY") setIsReady(true);
+    else if (data.type === "ERROR") onError?.(data.message);
+    else if (data.type === "MAP_CLICK") onMapClick?.(data);
   }
 
   return (

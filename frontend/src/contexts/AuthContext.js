@@ -14,23 +14,20 @@ export function AuthProvider({ children }) {
     restoreSession();
   }, []);
 
+  // Pase lo que pase (sin token, token vencido, almacenamiento o red con
+  // error), la pantalla de carga debe terminar y mostrar login o la app.
   async function restoreSession() {
-    const token = await getToken();
-
-    if (!token) {
-      setIsLoading(false);
-      return;
-    }
-
-    setAuthToken(token);
-
     try {
+      const storedToken = await getToken();
+      if (!storedToken) return;
+
+      setAuthToken(storedToken);
       const { user: restoredUser } = await meRequest();
       setUser(restoredUser);
-      setToken(token);
+      setToken(storedToken);
     } catch (error) {
-      await removeToken();
       setAuthToken(null);
+      await removeToken().catch(() => {});
     } finally {
       setIsLoading(false);
     }

@@ -5,14 +5,18 @@ const logger = require("../utils/logger");
 const SimulationEngine = require("../simulation/SimulationEngine");
 const orderService = require("./order.service");
 const metricsService = require("./metrics.service");
+const userService = require("./user.service");
+const persistence = require("./simulationPersistence.service");
 const socketBus = require("../socket/socketBus");
 const { SERVICE_AREA_CENTER } = require("../simulation/OrderGenerator");
 const eventService = require("./event.service");
 
 const MODES = ["DEMO", "FRESH", "CUSTOM"];
 const DEMO_SEED = 42026; // sección 17: seed fija para poder repetir la demo exacta
-const DEFAULT_DEMO_DURATION_SECONDS = 180; // sección 46: demo de ~3 minutos
-const DEFAULT_DURATION_SECONDS = 1800;
+// Duraciones en segundos de TURNO simulado. A 1x avanza 1 minuto simulado por
+// segundo real: la demo de 3 horas dura 3 minutos (18 s a 10x).
+const DEFAULT_DEMO_DURATION_SECONDS = 3 * 60 * 60;
+const DEFAULT_DURATION_SECONDS = 8 * 60 * 60;
 const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 // Motores activos en memoria de este proceso: simulationId -> SimulationEngine.
@@ -85,18 +89,32 @@ async function ensureAgentStates(simulationId) {
   }
 }
 
-async function buildEngine(simulationRow) {
-  const orderCount = await orderService.countOrders(simulationRow.id);
-
-  return new SimulationEngine({
-    id: simulationRow.id,
-    userId: simulationRow.user_id,
-    seed: Number(simulationRow.seed),
-    durationSeconds: simulationRow.simulation_duration_seconds,
-    currentSecond: simulationRow.current_simulation_second,
-    initialOrderNumber: orderCount,
+async function buildEngine(simulationRow, { restore = false } = {}) {
+  const engine = new SimulationEngine({
+    simulation: simulationRow,
+    preferences: await userService.getPreferences(simulationRow.user_id),
+    agentIds: await persistence.getAgentIds(),
     onAutoFinish: (id) => finishSimulation(id),
   });
+
+  if (!restore) {
+    await engine.prepare();
+  } else if (!(await engine.restore())) {
+    throw new HttpError(409, "Esta simulación se creó antes de poder recuperarse tras un reinicio; inicia una nueva");
+  }
+
+  return engine;
+}
+
+// Al arrancar el servidor, las simulaciones que estaban en curso perdieron
+// su motor en memoria: se marcan en pausa para reanudarlas desde su snapshot.
+async function markInterruptedSimulations() {
+  const result = await pool.query(
+    "UPDATE simulation_sessions SET status = 'PAUSED' WHERE status = 'RUNNING' RETURNING id"
+  );
+  if (result.rowCount > 0) {
+    logger.simulation(`${result.rowCount} simulación(es) interrumpida(s) quedaron en pausa para reanudarse`);
+  }
 }
 
 async function startSimulation(userId, simulationId) {
@@ -108,6 +126,10 @@ async function startSimulation(userId, simulationId) {
 
   await ensureAgentStates(simulationId);
 
+  // Genera la lista única de pedidos (con rutas OSRM) antes de marcarla en
+  // curso: si falla, la simulación no queda "RUNNING" sin motor.
+  const engine = await buildEngine(simulation);
+
   const updated = await pool.query(
     `UPDATE simulation_sessions
      SET status = 'RUNNING', started_at = now()
@@ -117,11 +139,10 @@ async function startSimulation(userId, simulationId) {
   );
 
   const row = updated.rows[0];
-  const engine = await buildEngine(row);
-  engine.start();
   engines.set(simulationId, engine);
+  engine.start();
 
-  socketBus.emitToSimulation(simulationId, "simulation_started", row);
+  socketBus.emitToSimulation(simulationId, "simulation_started", { simulationId, ...row });
 
   return row;
 }
@@ -140,7 +161,7 @@ async function pauseSimulation(userId, simulationId) {
     [simulationId]
   );
 
-  socketBus.emitToSimulation(simulationId, "simulation_paused", updated.rows[0]);
+  socketBus.emitToSimulation(simulationId, "simulation_paused", { simulationId, ...updated.rows[0] });
 
   return updated.rows[0];
 }
@@ -155,9 +176,9 @@ async function resumeSimulation(userId, simulationId) {
   let engine = engines.get(simulationId);
 
   if (!engine) {
-    // El proceso se reinició y perdió el motor en memoria: lo reconstruimos
-    // desde el último segundo persistido en la base.
-    engine = await buildEngine(simulation);
+    // El proceso se reinició y perdió el motor en memoria: se continúa desde
+    // el último snapshot confirmado (rutas, progreso, reloj, tráfico, RNG).
+    engine = await buildEngine(simulation, { restore: true });
     engines.set(simulationId, engine);
   }
 
@@ -168,7 +189,7 @@ async function resumeSimulation(userId, simulationId) {
     [simulationId]
   );
 
-  socketBus.emitToSimulation(simulationId, "simulation_resumed", updated.rows[0]);
+  socketBus.emitToSimulation(simulationId, "simulation_resumed", { simulationId, ...updated.rows[0] });
 
   return updated.rows[0];
 }
@@ -184,23 +205,30 @@ async function stopSimulation(userId, simulationId) {
 }
 
 async function finishSimulation(simulationId, status = "FINISHED") {
-  engines.get(simulationId)?.pause();
-  engines.delete(simulationId);
+  const engine = engines.get(simulationId);
+  if (engine) {
+    await engine.finish();
+    engines.delete(simulationId);
+  }
 
   const updated = await pool.query(
     `UPDATE simulation_sessions
      SET status = $2, finished_at = now()
-     WHERE id = $1
+     WHERE id = $1 AND status IN ('RUNNING', 'PAUSED')
      RETURNING *`,
     [simulationId, status]
   );
 
-  logger.simulation(`Simulación ${simulationId} finalizada (${status})`);
-
   const finalRow = updated.rows[0];
-  await metricsService.snapshotMetrics(simulationId, finalRow.current_simulation_second / 60);
+  if (!finalRow) {
+    // Ya estaba finalizada (p. ej. "Detener" y fin automático al mismo tiempo).
+    const current = await pool.query("SELECT * FROM simulation_sessions WHERE id = $1", [simulationId]);
+    return current.rows[0];
+  }
 
-  socketBus.emitToSimulation(simulationId, "simulation_finished", finalRow);
+  logger.simulation(`Simulación ${simulationId} finalizada (${status})`);
+  await metricsService.snapshotMetrics(simulationId, finalRow.current_simulation_second / 60);
+  socketBus.emitToSimulation(simulationId, "simulation_finished", { simulationId, ...finalRow });
 
   return finalRow;
 }
@@ -217,6 +245,28 @@ async function listOrders(userId, simulationId) {
 async function getComparison(userId, simulationId) {
   const simulation = await getOwnedSimulation(userId, simulationId);
   return metricsService.getComparison(simulationId, simulation.current_simulation_second / 60);
+}
+
+async function setSpeed(userId, simulationId, speed) {
+  await getOwnedSimulation(userId, simulationId);
+
+  if (!SimulationEngine.VALID_SPEEDS.includes(speed)) {
+    throw new HttpError(400, `speed debe ser uno de: ${SimulationEngine.VALID_SPEEDS.join(", ")}`);
+  }
+
+  const updated = await pool.query(
+    "UPDATE simulation_sessions SET speed_multiplier = $2 WHERE id = $1 RETURNING *",
+    [simulationId, speed]
+  );
+
+  const engine = engines.get(simulationId);
+  if (engine) {
+    engine.setSpeed(speed);
+  } else {
+    socketBus.emitToSimulation(simulationId, "simulation_speed_changed", { simulationId, speed });
+  }
+
+  return updated.rows[0];
 }
 
 async function listSimulations(userId, { limit = 20, offset = 0 } = {}) {
@@ -253,23 +303,23 @@ async function injectEvent(userId, simulationId, eventType, payload = {}) {
     throw new HttpError(409, "El motor de esta simulación no está activo en este proceso");
   }
 
+  const effect = await engine.applyEvent(eventType, payload);
   const event = await eventService.recordEvent({
     simulationId,
     eventType,
     payload,
-    currentSecond: engine.currentSecond,
+    currentSecond: Math.round(engine.currentSecond),
   });
 
-  const effect = await engine.applyEvent(eventType, payload);
-
   socketBus.emitToSimulation(simulationId, "simulation_event", {
+    simulationId,
     eventType,
     payload,
-    occurredAtSimulationSecond: engine.currentSecond,
+    occurredAtSimulationSecond: Math.round(engine.currentSecond),
     effect,
   });
 
-  logger.event(`Simulación ${simulationId}: ${eventType} inyectado (segundo ${engine.currentSecond})`);
+  logger.event(`Simulación ${simulationId}: ${eventType} inyectado (segundo ${Math.round(engine.currentSecond)})`);
 
   return { event, effect };
 }
@@ -283,6 +333,8 @@ module.exports = {
   getSimulation,
   listOrders,
   getComparison,
+  setSpeed,
   listSimulations,
   injectEvent,
+  markInterruptedSimulations,
 };

@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import { injectEventRequest } from "../api/simulation.api";
-import { MIN_TOUCH_TARGET, TEXT_COLORS } from "../constants/theme";
+import { EVENT_ICONS, MIN_TOUCH_TARGET, TEXT_COLORS } from "../constants/theme";
+
+const ICON_COLOR = "#4527a0";
 
 // Sección 45: botones del modo demo para disparar eventos manualmente
 // durante una presentación en vivo.
 const EVENT_BUTTONS = [
-  { label: "⚡ Surge", eventType: "SURGE_STARTED", payload: { multiplier: 2.0 } },
-  { label: "🚧 Cierre vial", eventType: "ROAD_CLOSED", payload: {} },
-  { label: "🚗 Tráfico pesado", eventType: "TRAFFIC_INCREASED", payload: { level: "SEVERE" } },
-  { label: "🔥 Pedido urgente", eventType: "URGENT_ORDER", payload: {} },
-  { label: "📉 Demanda baja", eventType: "LOW_DEMAND", payload: {} },
-  { label: "📈 Demanda alta", eventType: "HIGH_DEMAND", payload: {} },
+  { label: "Surge", eventType: "SURGE_STARTED", payload: { multiplier: 2.0 } },
+  { label: "Cierre vial", eventType: "ROAD_CLOSED", payload: {} },
+  { label: "Tráfico pesado", eventType: "TRAFFIC_INCREASED", payload: { level: "SEVERE" } },
+  { label: "Pedido urgente", eventType: "URGENT_ORDER", payload: {} },
+  { label: "Demanda baja", eventType: "LOW_DEMAND", payload: {} },
+  { label: "Demanda alta", eventType: "HIGH_DEMAND", payload: {} },
 ];
 
 export default function InjectEventPanel({ simulationId }) {
@@ -40,6 +43,7 @@ export default function InjectEventPanel({ simulationId }) {
             onPress={() => handleInject(button)}
             disabled={pendingEventType !== null}
           >
+            <Ionicons name={EVENT_ICONS[button.eventType]} size={15} color={ICON_COLOR} />
             <Text style={styles.buttonText}>{button.label}</Text>
           </Pressable>
         ))}
@@ -68,6 +72,9 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   button: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
     backgroundColor: "#ede7f6",
     borderRadius: 8,
     paddingHorizontal: 12,
@@ -80,6 +87,6 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 12,
     fontWeight: "600",
-    color: "#4527a0",
+    color: ICON_COLOR,
   },
 });

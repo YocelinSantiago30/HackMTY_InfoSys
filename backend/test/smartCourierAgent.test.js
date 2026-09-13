@@ -1,75 +1,81 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const {
-  evaluateSmartCourier,
-  ACCEPT_THRESHOLD,
-  WAIT_THRESHOLD,
-} = require("../src/agents/smartCourierAgent");
+const { evaluateSmartCourier, DEFAULT_THRESHOLDS } = require("../src/agents/smartCourierAgent");
 
 function baseOrder(overrides = {}) {
   return {
     final_payment: 150,
     distance_km: 3,
     estimated_time_minutes: 8,
-    estimated_preparation_minutes: 5,
-    traffic_level: "LOW",
     destination_demand: "VERY_HIGH",
-    surge_multiplier: 1.8,
     package_weight: 1,
     pickup_lat: 25.69,
     pickup_lng: -100.31,
-    dropoff_lat: 25.7,
-    dropoff_lng: -100.3,
     created_at_simulation_second: 0,
-    route_source: "ROUTED",
     ...overrides,
   };
 }
 
-test("ACCEPT para un pedido excelente (score >= umbral)", () => {
-  const { decision, score } = evaluateSmartCourier({ order: baseOrder(), preferences: {} });
+function metrics(overrides = {}) {
+  const m = {
+    distanceToPickupKm: 1,
+    deliveryDistanceKm: 3,
+    totalKm: 4,
+    totalMinutes: 20,
+    operatingCost: 8,
+    grossPayment: 150,
+    ...overrides,
+  };
+  m.netProfit = overrides.netProfit ?? m.grossPayment - m.operatingCost;
+  m.profitPerMinute = overrides.profitPerMinute ?? m.netProfit / m.totalMinutes;
+  m.profitPerKm = overrides.profitPerKm ?? m.netProfit / m.totalKm;
+  return m;
+}
+
+test("ACCEPT para un pedido rentable, cercano y rápido", () => {
+  const { decision, score } = evaluateSmartCourier({ order: baseOrder(), metrics: metrics() });
 
   assert.equal(decision, "ACCEPT");
-  assert.ok(score >= ACCEPT_THRESHOLD);
+  assert.ok(score >= DEFAULT_THRESHOLDS.accept);
 });
 
-test("REJECT para un pedido malo (score bajo, sin restricciones)", () => {
-  const order = baseOrder({
-    final_payment: 30,
-    distance_km: 14,
-    estimated_time_minutes: 35,
-    estimated_preparation_minutes: 20,
-    traffic_level: "SEVERE",
-    destination_demand: "LOW",
-    surge_multiplier: 1.0,
+test("el mismo pago con un pickup lejano baja el score: el trayecto vacío cuenta", () => {
+  const near = evaluateSmartCourier({ order: baseOrder({ final_payment: 60 }), metrics: metrics({ grossPayment: 60 }) });
+  const far = evaluateSmartCourier({
+    order: baseOrder({ final_payment: 60 }),
+    metrics: metrics({ grossPayment: 60, distanceToPickupKm: 12, totalKm: 15, operatingCost: 30, totalMinutes: 55 }),
   });
-  const { decision, score, restrictions } = evaluateSmartCourier({ order, preferences: {} });
+
+  assert.ok(far.score < near.score);
+  assert.notEqual(far.decision, "ACCEPT");
+});
+
+test("REJECT con NEGATIVE_PROFIT cuando el costo operativo supera el pago", () => {
+  const { decision, restrictions } = evaluateSmartCourier({
+    order: baseOrder({ final_payment: 20 }),
+    metrics: metrics({ grossPayment: 20, totalKm: 15, operatingCost: 30 }),
+  });
 
   assert.equal(decision, "REJECT");
-  assert.ok(score < WAIT_THRESHOLD);
-  assert.equal(restrictions.length, 0);
+  assert.ok(restrictions.some((r) => r.code === "NEGATIVE_PROFIT"));
 });
 
 test("restricción dura vence a un score alto (sección 6)", () => {
-  // Mismo pedido excelente del primer test, pero excede la capacidad de la mochila
-  const order = baseOrder({ package_weight: 20 });
   const { decision, score, restrictions } = evaluateSmartCourier({
-    order,
+    order: baseOrder({ package_weight: 20 }),
+    metrics: metrics(),
     preferences: { bag_max_weight: 5 },
   });
 
   assert.equal(decision, "REJECT");
-  assert.ok(score >= WAIT_THRESHOLD, "el score seguía siendo bueno, pero la restricción debe vetar");
+  assert.ok(score >= DEFAULT_THRESHOLDS.accept, "el score seguía siendo bueno, pero la restricción debe vetar");
   assert.equal(restrictions[0].code, "BAG_CAPACITY_EXCEEDED");
 });
 
 test("restricción por límite de distancia nocturna", () => {
-  const order = baseOrder({
-    distance_km: 20,
-    created_at_simulation_second: 36000, // hora simulada ~22:00
-  });
   const { decision, restrictions } = evaluateSmartCourier({
-    order,
+    order: baseOrder({ distance_km: 20, created_at_simulation_second: 36000 }), // ~22:00 simulado
+    metrics: metrics(),
     preferences: { night_distance_limit_km: 10 },
   });
 
@@ -78,86 +84,34 @@ test("restricción por límite de distancia nocturna", () => {
 });
 
 test("restricción por zona de trabajo configurada", () => {
-  const order = baseOrder({ pickup_lat: 19.4326, pickup_lng: -99.1332 }); // CDMX
   const { decision, restrictions } = evaluateSmartCourier({
-    order,
-    preferences: {
-      work_zone_center_lat: 25.6866,
-      work_zone_center_lng: -100.3161,
-      work_zone_radius_km: 10,
-    },
+    order: baseOrder({ pickup_lat: 19.4326, pickup_lng: -99.1332 }), // CDMX
+    metrics: metrics(),
+    preferences: { work_zone_center_lat: 25.6866, work_zone_center_lng: -100.3161, work_zone_radius_km: 10 },
   });
 
   assert.equal(decision, "REJECT");
   assert.ok(restrictions.some((r) => r.code === "OUTSIDE_WORK_ZONE"));
 });
 
-test("banda EVALUATE (50-69) se mapea a WAIT", () => {
-  // Mismos valores usados en producción para confirmar la banda intermedia
-  const order = baseOrder({
-    final_payment: 200,
-    distance_km: 20,
-    estimated_time_minutes: 25,
-    estimated_preparation_minutes: 10,
-    traffic_level: "LOW",
-    destination_demand: "HIGH",
-    surge_multiplier: 1.0,
-    package_weight: 2,
-    created_at_simulation_second: 0,
+test("banda intermedia se mapea a WAIT", () => {
+  const { decision, score } = evaluateSmartCourier({
+    order: baseOrder({ destination_demand: "MEDIUM" }),
+    metrics: metrics({ grossPayment: 70, distanceToPickupKm: 5, totalKm: 10, operatingCost: 20, totalMinutes: 40 }),
   });
-  const { decision, score } = evaluateSmartCourier({ order, preferences: {} });
 
-  assert.equal(decision, "WAIT");
-  assert.ok(score >= WAIT_THRESHOLD && score < ACCEPT_THRESHOLD);
+  assert.equal(decision, "WAIT", `score=${score}`);
+  assert.ok(score >= DEFAULT_THRESHOLDS.wait && score < DEFAULT_THRESHOLDS.accept);
 });
 
-test("BATCH cuando hay un pedido activo compatible", () => {
-  const activeOrder = {
-    id: "active-1",
-    pickup_lat: 25.69,
-    pickup_lng: -100.31,
-    dropoff_lat: 25.705,
-    dropoff_lng: -100.295,
-    distance_km: 3,
-    package_weight: 1,
-  };
-  const newOrder = baseOrder({
-    pickup_lat: 25.691,
-    pickup_lng: -100.309,
-    dropoff_lat: 25.706,
-    dropoff_lng: -100.294,
-    package_weight: 0.5,
-    distance_km: 2,
+test("los strings numéricos de Postgres no alteran el cálculo", () => {
+  const asNumbers = evaluateSmartCourier({ order: baseOrder(), metrics: metrics() });
+  const asStrings = evaluateSmartCourier({
+    order: baseOrder({ final_payment: "150", package_weight: "1", pickup_lat: "25.69", pickup_lng: "-100.31" }),
+    metrics: metrics(),
+    preferences: { bag_max_weight: "5" },
   });
 
-  const { decision, estimatedImpact } = evaluateSmartCourier({
-    order: newOrder,
-    preferences: {},
-    activeOrder,
-  });
-
-  assert.equal(decision, "BATCH");
-  assert.equal(estimatedImpact.additionalRevenue, newOrder.final_payment);
-});
-
-test("REJECT con AGENT_BUSY cuando el pedido activo no es compatible para agrupar", () => {
-  const activeOrder = {
-    id: "active-1",
-    pickup_lat: 25.69,
-    pickup_lng: -100.31,
-    dropoff_lat: 25.705,
-    dropoff_lng: -100.295,
-    distance_km: 3,
-    package_weight: 1,
-  };
-  const farOrder = baseOrder({ pickup_lat: 25.9, pickup_lng: -100.5, dropoff_lat: 25.95, dropoff_lng: -100.55 });
-
-  const { decision, restrictions } = evaluateSmartCourier({
-    order: farOrder,
-    preferences: {},
-    activeOrder,
-  });
-
-  assert.equal(decision, "REJECT");
-  assert.ok(restrictions.some((r) => r.code === "AGENT_BUSY"));
+  assert.equal(asStrings.score, asNumbers.score);
+  assert.equal(asStrings.decision, asNumbers.decision);
 });

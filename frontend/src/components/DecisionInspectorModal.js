@@ -8,34 +8,49 @@ import {
   Text,
   View,
 } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import { getOrderDecisionsRequest } from "../api/order.api";
 import { DecisionBadge, ReasonsList, RestrictionsText } from "./decisionDisplay";
 import { DECISION_COLORS, MIN_TOUCH_TARGET, TEXT_COLORS } from "../constants/theme";
 
-// El "¿Qué habría pasado si...?" (sección 9) es aritmética real, no
-// inventada: como todavía no existe batching, invertir una decisión sobre
-// UN pedido no afecta a ningún otro — el impacto es exactamente los propios
-// números de ese pedido, con signo según la decisión real tomada.
-function computeWhatIf(order, decision) {
-  const payment = Number(order.final_payment);
-  const distance = Number(order.distance_km);
-  const time = Number(order.estimated_time_minutes);
-
-  if (decision === "ACCEPT") {
-    return {
-      alternative: "Si hubiera RECHAZADO",
-      estimatedProfitImpact: -payment,
-      estimatedExtraDistance: -distance,
-      estimatedExtraTime: -time,
-    };
-  }
+// "¿Qué habría pasado si...?" (sección 9) con la economía real que el motor
+// calculó para ese agente en ese momento (trayecto al pickup + entrega +
+// costo operativo), no solo con el pago del pedido. Solo existe cuando el
+// agente evaluó la ruta completa (SmartCourier libre, o cualquier ACCEPT).
+function computeWhatIf(impact, decision) {
+  if (!impact || impact.netProfit === undefined) return null;
+  const sign = decision === "ACCEPT" ? -1 : 1;
 
   return {
-    alternative: "Si hubiera ACEPTADO",
-    estimatedProfitImpact: payment,
-    estimatedExtraDistance: distance,
-    estimatedExtraTime: time,
+    alternative: decision === "ACCEPT" ? "Si hubiera RECHAZADO" : "Si hubiera ACEPTADO",
+    estimatedProfitImpact: sign * impact.netProfit,
+    estimatedExtraDistance: sign * impact.totalKm,
+    estimatedExtraTime: sign * impact.totalMinutes,
   };
+}
+
+// Contrafactual de SmartCourier: no es solo "el mismo pedido con el signo
+// cambiado", sino el valor simulado de aceptar y de seguir libre desde el
+// mismo estado, con su rango entre escenarios.
+function LookaheadBlock({ lookahead, decision }) {
+  if (!lookahead) return null;
+  const range = (stats) => `$${stats.mean.toFixed(2)} (p10 $${stats.p10.toFixed(0)} – p90 $${stats.p90.toFixed(0)})`;
+
+  return (
+    <View style={styles.whatIfBlock}>
+      <Text style={styles.whatIfAgent}>SMARTCOURIER</Text>
+      <Text style={styles.whatIfAlternative}>
+        {lookahead.scenarios} escenarios de demanda de {lookahead.horizonMinutes} min desde el mismo estado
+        (costo de oportunidad ${lookahead.opportunityCostPerMinute}/min extra):
+      </Text>
+      <Text style={styles.whatIfLine}>Aceptar: {range(lookahead.accept)}</Text>
+      <Text style={styles.whatIfLine}>Esperar: {range(lookahead.wait)}</Text>
+      <Text style={styles.whatIfLine}>
+        Ventaja de aceptar: {formatSigned(lookahead.acceptAdvantage, "")} (p10 {formatSigned(lookahead.advantageP10, "")}, p90{" "}
+        {formatSigned(lookahead.advantageP90, "")}) → {decision}
+      </Text>
+    </View>
+  );
 }
 
 function formatSigned(value, unit) {
@@ -43,19 +58,20 @@ function formatSigned(value, unit) {
   return `${sign}${value.toFixed(2)}${unit}`;
 }
 
-function WhatIfBlock({ order, decision, label }) {
+function WhatIfBlock({ impact, decision, label }) {
   if (!decision || decision === "BATCH" || decision === "REPOSITION" || decision === "REROUTE") {
     return null;
   }
 
-  const whatIf = computeWhatIf(order, decision);
+  const whatIf = computeWhatIf(impact, decision);
+  if (!whatIf) return null;
 
   return (
     <View style={styles.whatIfBlock}>
       <Text style={styles.whatIfAgent}>{label}</Text>
       <Text style={styles.whatIfAlternative}>{whatIf.alternative}:</Text>
       <Text style={styles.whatIfLine}>
-        Ganancia: {formatSigned(whatIf.estimatedProfitImpact, "")}
+        Ganancia neta: {formatSigned(whatIf.estimatedProfitImpact, "")}
       </Text>
       <Text style={styles.whatIfLine}>
         Distancia: {formatSigned(whatIf.estimatedExtraDistance, "km")}
@@ -111,7 +127,7 @@ export default function DecisionInspectorModal({ visible, orderId, onClose }) {
           <View style={styles.header}>
             <Text style={styles.headerTitle}>Decision Inspector</Text>
             <Pressable onPress={onClose} style={styles.closeButtonHitArea} hitSlop={8}>
-              <Text style={styles.closeButton}>✕</Text>
+              <Ionicons name="close" size={22} color={TEXT_COLORS.muted} />
             </Pressable>
           </View>
 
@@ -142,6 +158,7 @@ export default function DecisionInspectorModal({ visible, orderId, onClose }) {
               <Text style={styles.sectionTitle}>BASELINE</Text>
               <View style={styles.card}>
                 <DecisionBadge decision={baseline?.decision} />
+                <RestrictionsText restrictions={baseline?.restrictions} />
                 <ReasonsList reasons={baseline?.reasons} />
               </View>
 
@@ -150,6 +167,17 @@ export default function DecisionInspectorModal({ visible, orderId, onClose }) {
                 <DecisionBadge decision={smart?.decision} />
                 {smart?.score !== undefined && smart?.score !== null && (
                   <Text style={styles.scoreText}>Score: {smart.score}/100</Text>
+                )}
+                {smart?.estimated_impact?.netProfit !== undefined && (
+                  <View style={styles.batchImpact}>
+                    <InfoRow label="Distancia al pickup" value={`${smart.estimated_impact.distanceToPickupKm} km`} />
+                    <InfoRow label="Distancia de entrega" value={`${smart.estimated_impact.deliveryDistanceKm} km`} />
+                    <InfoRow label="Tiempo total" value={`${smart.estimated_impact.totalMinutes} min`} />
+                    <InfoRow label="Costo operativo" value={`$${smart.estimated_impact.operatingCost}`} />
+                    <InfoRow label="Ganancia neta" value={`$${smart.estimated_impact.netProfit}`} />
+                    <InfoRow label="Ganancia/min" value={`$${smart.estimated_impact.profitPerMinute}`} />
+                    <InfoRow label="Ganancia/km" value={`$${smart.estimated_impact.profitPerKm}`} />
+                  </View>
                 )}
                 <RestrictionsText restrictions={smart?.restrictions} />
                 <ReasonsList reasons={smart?.positive_factors} />
@@ -166,8 +194,16 @@ export default function DecisionInspectorModal({ visible, orderId, onClose }) {
                       value={`+${smart.estimated_impact.additionalTime} min`}
                     />
                     <InfoRow
-                      label="Ganancia adicional"
+                      label="Pago adicional"
                       value={`+$${smart.estimated_impact.additionalRevenue}`}
+                    />
+                    <InfoRow
+                      label="Ganancia neta adicional"
+                      value={`+$${smart.estimated_impact.additionalNetProfit}`}
+                    />
+                    <InfoRow
+                      label="Retraso vs hora comprometida"
+                      value={`${smart.estimated_impact.maxLateMinutesVsPromise} min`}
                     />
                   </View>
                 )}
@@ -175,8 +211,12 @@ export default function DecisionInspectorModal({ visible, orderId, onClose }) {
 
               <Text style={styles.sectionTitle}>¿QUÉ HABRÍA PASADO SI...?</Text>
               <View style={styles.card}>
-                <WhatIfBlock order={order} decision={baseline?.decision} label="BASELINE" />
-                <WhatIfBlock order={order} decision={smart?.decision} label="SMARTCOURIER" />
+                <WhatIfBlock impact={baseline?.estimated_impact} decision={baseline?.decision} label="BASELINE" />
+                {smart?.estimated_impact?.lookahead ? (
+                  <LookaheadBlock lookahead={smart.estimated_impact.lookahead} decision={smart.decision} />
+                ) : (
+                  <WhatIfBlock impact={smart?.estimated_impact} decision={smart?.decision} label="SMARTCOURIER" />
+                )}
               </View>
             </ScrollView>
           )}
@@ -216,10 +256,6 @@ const styles = StyleSheet.create({
     minHeight: MIN_TOUCH_TARGET,
     justifyContent: "center",
     alignItems: "center",
-  },
-  closeButton: {
-    fontSize: 18,
-    color: TEXT_COLORS.muted,
   },
   loading: {
     marginTop: 40,

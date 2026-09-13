@@ -8,6 +8,7 @@ import {
   Text,
   TextInput,
 } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import { useAuth } from "../contexts/AuthContext";
 import { AGENT_COLORS, MIN_TOUCH_TARGET, TEXT_COLORS } from "../constants/theme";
 
@@ -42,7 +43,13 @@ export default function LoginScreen({ navigation }) {
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : undefined}
     >
-      <Text style={styles.title}>🚚 SmartCourier AI</Text>
+      <Ionicons
+        name="bicycle"
+        size={40}
+        color={AGENT_COLORS.SMARTCOURIER}
+        style={styles.titleIcon}
+      />
+      <Text style={styles.title}>SmartCourier AI</Text>
 
       <TextInput
         style={styles.input}
@@ -93,6 +100,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 24,
     backgroundColor: "#fff",
+  },
+  titleIcon: {
+    alignSelf: "center",
+    marginBottom: 8,
   },
   title: {
     fontSize: 28,

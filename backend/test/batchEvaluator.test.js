@@ -1,111 +1,101 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { evaluateBatch } = require("../src/agents/batchEvaluator");
+const { evaluateBatch, DEFAULT_BATCH_LIMITS } = require("../src/agents/batchEvaluator");
 
-// Coordenadas y distancia geométricamente consistentes entre sí (verificado
-// con haversineDistanceKm x STREET_FACTOR) — usar un distance_km inventado
-// que no corresponda a las coordenadas reales produce additionalDistance
-// negativo sin sentido (bug de fixture ya encontrado dos veces: FASE 21 y
-// aquí mismo al escribir esta prueba).
-const ACTIVE_ORDER = {
-  pickup_lat: 25.6866,
-  pickup_lng: -100.3161,
-  dropoff_lat: 25.735,
-  dropoff_lng: -100.28,
-  distance_km: 8.43,
-  package_weight: 1,
-};
+const ACTIVE = { external_order_number: 1, package_weight: 1, final_payment: 80 };
 
 function newOrder(overrides = {}) {
+  return { external_order_number: 2, package_weight: 0.5, final_payment: 70, ...overrides };
+}
+
+// El pedido 1 prometió llegar al segundo 1800.
+function scenario({ extraKm = 2, extraMinutes = 10, order1ArrivalSecond = 1800 + 5 * 60 } = {}) {
   return {
-    pickup_lat: 25.689,
-    pickup_lng: -100.313,
-    dropoff_lat: 25.738,
-    dropoff_lng: -100.284,
-    distance_km: 7.59,
-    package_weight: 0.5,
-    final_payment: 60,
-    created_at_simulation_second: 60,
-    ...overrides,
+    promises: { 1: 1800 },
+    current: { endSecond: 1800, remainingKm: 6, dropoffSeconds: { 1: 1800 } },
+    candidate: {
+      endSecond: 1800 + extraMinutes * 60,
+      remainingKm: 6 + extraKm,
+      dropoffSeconds: { 1: order1ArrivalSecond, 2: 1800 + extraMinutes * 60 },
+    },
   };
 }
 
-test("compatible cuando pickup y dropoff están cerca", () => {
-  const result = evaluateBatch({ activeOrder: ACTIVE_ORDER, newOrder: newOrder(), preferences: {} });
+test("compatible cuando el desvío es corto, rentable y respeta la promesa", () => {
+  const result = evaluateBatch({ newOrder: newOrder(), activeOrders: [ACTIVE], costPerKm: 2, ...scenario() });
 
   assert.equal(result.compatible, true);
-  assert.equal(result.restrictions.length, 0);
-  assert.equal(result.impact.additionalRevenue, 60);
-  assert.ok(result.impact.additionalDistance > 0, "el desvío debe ser positivo con datos consistentes");
+  assert.equal(result.impact.additionalCost, 4); // 2 km × $2
+  assert.equal(result.impact.additionalNetProfit, 66);
+  assert.equal(result.impact.maxLateMinutesVsPromise, 5);
+  assert.equal(result.impact.promisedDropoffSecond, 2400);
 });
 
-test("incompatible cuando el pickup está demasiado lejos", () => {
+test("el retraso se mide contra la hora comprometida, no contra la ruta recalculada", () => {
+  // La ruta actual YA viene 8 min tarde por tráfico; agrupar suma 3 min más.
+  // Contra la ruta recalculada serían solo 3 min, contra la promesa son 11.
+  const s = scenario({ order1ArrivalSecond: 1800 + 11 * 60 });
+  s.current.dropoffSeconds[1] = 1800 + 8 * 60;
+
+  const result = evaluateBatch({ newOrder: newOrder(), activeOrders: [ACTIVE], costPerKm: 2, ...s });
+
+  assert.equal(result.compatible, false);
+  assert.ok(result.restrictions.some((r) => r.code === "BATCH_BREAKS_PROMISE"));
+  assert.ok(result.impact.maxLateMinutesVsPromise > DEFAULT_BATCH_LIMITS.promiseToleranceMinutes);
+});
+
+test("sin secuencia factible (ventanas de tiempo) el batch se rechaza", () => {
+  const result = evaluateBatch({ newOrder: newOrder(), activeOrders: [ACTIVE], costPerKm: 2, ...scenario(), candidate: null });
+
+  assert.equal(result.compatible, false);
+  assert.equal(result.restrictions[0].code, "BATCH_BREAKS_PROMISE");
+});
+
+test("incompatible si el tiempo extra se paga peor que el mínimo marginal", () => {
   const result = evaluateBatch({
-    activeOrder: ACTIVE_ORDER,
-    newOrder: newOrder({ pickup_lat: 25.9, pickup_lng: -100.5 }),
-    preferences: {},
+    newOrder: newOrder({ final_payment: 30 }),
+    activeOrders: [ACTIVE],
+    costPerKm: 2,
+    ...scenario({ extraKm: 4, extraMinutes: 18 }),
   });
 
   assert.equal(result.compatible, false);
-  assert.ok(result.restrictions.some((r) => r.code === "PICKUP_TOO_FAR"));
+  assert.ok(result.restrictions.some((r) => r.code === "BATCH_NOT_PROFITABLE"));
 });
 
-test("incompatible cuando el dropoff está demasiado lejos", () => {
+test("incompatible si el desvío es largo aunque pague bien (no es un batch, es otra entrega)", () => {
   const result = evaluateBatch({
-    activeOrder: ACTIVE_ORDER,
-    newOrder: newOrder({ dropoff_lat: 25.95, dropoff_lng: -100.55 }),
-    preferences: {},
+    newOrder: newOrder({ final_payment: 300 }),
+    activeOrders: [ACTIVE],
+    costPerKm: 2,
+    ...scenario({ extraKm: 15, extraMinutes: 70 }),
   });
 
   assert.equal(result.compatible, false);
-  assert.ok(result.restrictions.some((r) => r.code === "DROPOFF_TOO_FAR"));
+  assert.ok(result.restrictions.some((r) => r.code === "BATCH_DETOUR_TOO_LONG"));
 });
 
 test("incompatible cuando el peso combinado excede la mochila", () => {
   const result = evaluateBatch({
-    activeOrder: ACTIVE_ORDER,
-    newOrder: newOrder({ package_weight: 10 }),
-    preferences: { bag_max_weight: 5 },
+    newOrder: newOrder({ package_weight: 6 }),
+    activeOrders: [ACTIVE],
+    costPerKm: 2,
+    preferences: { bag_max_weight: "5" },
+    ...scenario(),
   });
 
   assert.equal(result.compatible, false);
   assert.ok(result.restrictions.some((r) => r.code === "COMBINED_WEIGHT_EXCEEDED"));
 });
 
-test("incompatible cuando no queda tiempo suficiente de turno para el desvío", () => {
-  // El escenario base agrega ~0.88 min (~53s) de desvío; con solo 10s
-  // restantes de turno, no alcanza.
+test("no agrupa más de dos pedidos en ruta", () => {
   const result = evaluateBatch({
-    activeOrder: ACTIVE_ORDER,
-    newOrder: newOrder({ created_at_simulation_second: 3590 }),
-    preferences: {},
-    simulation: { simulation_duration_seconds: 3600 },
+    newOrder: newOrder({ external_order_number: 3 }),
+    activeOrders: [ACTIVE, { ...ACTIVE, external_order_number: 2 }],
+    costPerKm: 2,
+    ...scenario(),
   });
 
   assert.equal(result.compatible, false);
-  assert.ok(result.restrictions.some((r) => r.code === "INSUFFICIENT_SHIFT_TIME_FOR_BATCH"));
-});
-
-test("usa el resultado de OR-Tools cuando está disponible, en vez de la heurística fija", () => {
-  const routeOptimization = { success: true, order: ["a", "b", "c"], totalDistanceKm: 12.5 };
-  const result = evaluateBatch({
-    activeOrder: ACTIVE_ORDER,
-    newOrder: newOrder(),
-    preferences: {},
-    routeOptimization,
-  });
-
-  assert.equal(result.impact.routeSource, "OPTIMIZED");
-  assert.equal(result.impact.batchedRouteDistance, 12.5);
-});
-
-test("cae a la heurística fija cuando no hay optimización disponible", () => {
-  const result = evaluateBatch({
-    activeOrder: ACTIVE_ORDER,
-    newOrder: newOrder(),
-    preferences: {},
-    routeOptimization: { success: false },
-  });
-
-  assert.equal(result.impact.routeSource, "HEURISTIC");
+  assert.ok(result.restrictions.some((r) => r.code === "MAX_ORDERS_IN_ROUTE"));
 });

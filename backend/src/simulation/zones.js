@@ -31,8 +31,12 @@ function hourDemandBaseline(hour) {
   return 0.3;
 }
 
+function zoneDemandScore(zone, simulatedHour) {
+  return clamp01(hourDemandBaseline(simulatedHour) + zone.baseAttractiveness);
+}
+
 function zoneDemandLevel(zone, simulatedHour) {
-  const score = clamp01(hourDemandBaseline(simulatedHour) + zone.baseAttractiveness);
+  const score = zoneDemandScore(zone, simulatedHour);
 
   if (score >= 0.75) return "VERY_HIGH";
   if (score >= 0.5) return "HIGH";
@@ -49,6 +53,7 @@ function nearestZone(lat, lng) {
 
 module.exports = {
   ZONES,
+  zoneDemandScore,
   zoneDemandLevel,
   nearestZone,
 };
