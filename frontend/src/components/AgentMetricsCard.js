@@ -13,7 +13,7 @@ function Row({ label, value }) {
       <Text style={styles.rowLabel}>{label}</Text>
       <Text style={styles.rowValue}>{value}</Text>
     </View>
-  );
+  ); 
 }
 
 export default function AgentMetricsCard({ agentCode, metrics }) {

@@ -5,6 +5,7 @@
 //   node scripts/courier/evaluate.js
 //
 // Escribe:
+
 //   courier/results_table.csv          tabla de resultados (una diapositiva)
 //   courier/results_by_vehicle.csv     desglose por vehículo
 //   courier/output/*.jsonl             logs de turno del agente (validados)
