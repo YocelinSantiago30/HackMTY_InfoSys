@@ -1,0 +1,4161 @@
+{
+  "seeds": [
+    150001,
+    150054
+  ],
+  "note": "Holdout del comparador: 54 seeds × 3 escenarios. 18 seeds por vehículo. Rutas deterministas estimadas; mismas condiciones para ambos agentes. Sin reentrenar.",
+  "summary": {
+    "runs": 162,
+    "positive": 162,
+    "zero": 0,
+    "negative": 0,
+    "min_net_mxn": 45.35,
+    "smart_mean_net_mxn": 421.13,
+    "baseline_mean_net_mxn": 252.99,
+    "smart_mean_net_hour": 130.63,
+    "baseline_mean_net_hour": 75.99,
+    "wins_by_net_hour": 152,
+    "smart_late": 189,
+    "baseline_late": 190
+  },
+  "by_vehicle": {
+    "motorcycle": {
+      "runs": 54,
+      "positive": 54,
+      "zero": 0,
+      "negative": 0,
+      "min_net_mxn": 315.71,
+      "smart_mean_net_mxn": 551.91,
+      "baseline_mean_net_mxn": 379.86,
+      "smart_mean_net_hour": 174.74,
+      "baseline_mean_net_hour": 117.17,
+      "wins_by_net_hour": 50,
+      "smart_late": 63,
+      "baseline_late": 60
+    },
+    "bike": {
+      "runs": 54,
+      "positive": 54,
+      "zero": 0,
+      "negative": 0,
+      "min_net_mxn": 191.54,
+      "smart_mean_net_mxn": 374.36,
+      "baseline_mean_net_mxn": 266.03,
+      "smart_mean_net_hour": 109.05,
+      "baseline_mean_net_hour": 75.92,
+      "wins_by_net_hour": 50,
+      "smart_late": 48,
+      "baseline_late": 42
+    },
+    "car": {
+      "runs": 54,
+      "positive": 54,
+      "zero": 0,
+      "negative": 0,
+      "min_net_mxn": 45.35,
+      "smart_mean_net_mxn": 337.11,
+      "baseline_mean_net_mxn": 113.09,
+      "smart_mean_net_hour": 108.09,
+      "baseline_mean_net_hour": 34.87,
+      "wins_by_net_hour": 52,
+      "smart_late": 78,
+      "baseline_late": 88
+    }
+  },
+  "by_scenario": {
+    "normal": {
+      "runs": 54,
+      "positive": 54,
+      "zero": 0,
+      "negative": 0,
+      "min_net_mxn": 205.23,
+      "smart_mean_net_mxn": 449.27,
+      "baseline_mean_net_mxn": 271.83,
+      "smart_mean_net_hour": 139.38,
+      "baseline_mean_net_hour": 81.88,
+      "wins_by_net_hour": 52,
+      "smart_late": 56,
+      "baseline_late": 55
+    },
+    "trafico_severo": {
+      "runs": 54,
+      "positive": 54,
+      "zero": 0,
+      "negative": 0,
+      "min_net_mxn": 205.23,
+      "smart_mean_net_mxn": 435.32,
+      "baseline_mean_net_mxn": 266.91,
+      "smart_mean_net_hour": 134.53,
+      "baseline_mean_net_hour": 80.24,
+      "wins_by_net_hour": 53,
+      "smart_late": 59,
+      "baseline_late": 60
+    },
+    "cierre_vial": {
+      "runs": 54,
+      "positive": 54,
+      "zero": 0,
+      "negative": 0,
+      "min_net_mxn": 45.35,
+      "smart_mean_net_mxn": 378.8,
+      "baseline_mean_net_mxn": 220.24,
+      "smart_mean_net_hour": 117.97,
+      "baseline_mean_net_hour": 65.84,
+      "wins_by_net_hour": 47,
+      "smart_late": 74,
+      "baseline_late": 75
+    }
+  },
+  "rows": [
+    {
+      "seed": 150001,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 333.432,
+        "netPerWorkedHour": 93.1157551780312,
+        "km": 143.62899999999996,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 2.85,
+        "etaErrorMinutes": 6.683333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 670.2708161884559,
+        "netPerWorkedHour": 223.42360539615197,
+        "km": 108.12459190577202,
+        "completed": 7,
+        "late": 0,
+        "delayMinutes": 1.2833333333333332,
+        "etaErrorMinutes": 3.583333333333333,
+        "batched": 2
+      }
+    },
+    {
+      "seed": 150002,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 450.11800000000005,
+        "netPerWorkedHour": 134.16333830104324,
+        "km": 127.81599999999999,
+        "completed": 8,
+        "late": 0,
+        "delayMinutes": 1.05,
+        "etaErrorMinutes": 1.2333333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 619.9347978142076,
+        "netPerWorkedHour": 206.64493260473589,
+        "km": 74.93260109289618,
+        "completed": 8,
+        "late": 1,
+        "delayMinutes": 2.35,
+        "etaErrorMinutes": 4.25,
+        "batched": 2
+      }
+    },
+    {
+      "seed": 150003,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 260.40600000000006,
+        "netPerWorkedHour": 86.64956095757466,
+        "km": 122.20199999999998,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 3.3333333333333335,
+        "etaErrorMinutes": 8.383333333333335,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 658.7432079927339,
+        "netPerWorkedHour": 219.5810693309113,
+        "km": 99.21839600363307,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 6,
+        "etaErrorMinutes": 9.45,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150004,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 471.6780000000001,
+        "netPerWorkedHour": 153.57156552410243,
+        "km": 124.92599999999995,
+        "completed": 7,
+        "late": 0,
+        "delayMinutes": 0.7,
+        "etaErrorMinutes": 2.4833333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 741.897012595653,
+        "netPerWorkedHour": 223.57519214334093,
+        "km": 93.5064937021735,
+        "completed": 8,
+        "late": 1,
+        "delayMinutes": 2.933333333333333,
+        "etaErrorMinutes": 5.9833333333333325,
+        "batched": 2
+      }
+    },
+    {
+      "seed": 150005,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 394.3320000000001,
+        "netPerWorkedHour": 121.66568392183754,
+        "km": 115.27899999999994,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 3.533333333333333,
+        "etaErrorMinutes": 7.166666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 602.8899999999999,
+        "netPerWorkedHour": 179.23891320505405,
+        "km": 103.28500000000004,
+        "completed": 7,
+        "late": 0,
+        "delayMinutes": 0.6499999999999999,
+        "etaErrorMinutes": 2.55,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150006,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 365.496,
+        "netPerWorkedHour": 114.51571801566578,
+        "km": 121.37700000000001,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 1.7166666666666666,
+        "etaErrorMinutes": 6.950000000000001,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 508.40999999999997,
+        "netPerWorkedHour": 156.0071599045346,
+        "km": 103.57000000000001,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 1.1833333333333333,
+        "etaErrorMinutes": 4.266666666666667,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150007,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 489.3259999999999,
+        "netPerWorkedHour": 161.7012667523407,
+        "km": 116.43700000000001,
+        "completed": 6,
+        "late": 0,
+        "delayMinutes": 2.2666666666666666,
+        "etaErrorMinutes": 3.2,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 854.9364552347043,
+        "netPerWorkedHour": 284.9788184115681,
+        "km": 108.75177238264784,
+        "completed": 8,
+        "late": 2,
+        "delayMinutes": 12.016666666666667,
+        "etaErrorMinutes": 15.033333333333333,
+        "batched": 3
+      }
+    },
+    {
+      "seed": 150008,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 435.5540000000001,
+        "netPerWorkedHour": 125.31924552429669,
+        "km": 138.19299999999998,
+        "completed": 8,
+        "late": 1,
+        "delayMinutes": 1.75,
+        "etaErrorMinutes": 2.7333333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 634.3814019607842,
+        "netPerWorkedHour": 192.98403304536276,
+        "km": 83.23929901960787,
+        "completed": 8,
+        "late": 1,
+        "delayMinutes": 9.4,
+        "etaErrorMinutes": 9.95,
+        "batched": 3
+      }
+    },
+    {
+      "seed": 150009,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 445.12200000000007,
+        "netPerWorkedHour": 128.58603755416468,
+        "km": 123.27400000000002,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 2.0166666666666666,
+        "etaErrorMinutes": 4.366666666666667,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 473.20799999999997,
+        "netPerWorkedHour": 149.55217276797472,
+        "km": 94.726,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 1.9833333333333334,
+        "etaErrorMinutes": 6.383333333333334,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150010,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 234.198,
+        "netPerWorkedHour": 76.66752750750204,
+        "km": 124.85100000000001,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 5.333333333333333,
+        "etaErrorMinutes": 11.316666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 539.8819804741981,
+        "netPerWorkedHour": 179.96066015806605,
+        "km": 79.67400976290098,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 7.816666666666666,
+        "etaErrorMinutes": 8.366666666666667,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150011,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 512.896,
+        "netPerWorkedHour": 167.30931496919172,
+        "km": 119.28200000000002,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 2.533333333333333,
+        "etaErrorMinutes": 5.1000000000000005,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 375.058,
+        "netPerWorkedHour": 123.55497803806736,
+        "km": 82.34100000000002,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 1.6333333333333333,
+        "etaErrorMinutes": 1.6333333333333333,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150012,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 289.6379999999999,
+        "netPerWorkedHour": 91.06522270742354,
+        "km": 116.231,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 5.233333333333333,
+        "etaErrorMinutes": 6.1,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 550.53,
+        "netPerWorkedHour": 171.4008475309176,
+        "km": 96.1,
+        "completed": 8,
+        "late": 1,
+        "delayMinutes": 2.716666666666667,
+        "etaErrorMinutes": 4.533333333333333,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150013,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 346.624,
+        "netPerWorkedHour": 111.73409742120344,
+        "km": 136.313,
+        "completed": 7,
+        "late": 0,
+        "delayMinutes": 0.9333333333333333,
+        "etaErrorMinutes": 6.5,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 555.8324428442844,
+        "netPerWorkedHour": 181.7931129498886,
+        "km": 98.17377857785782,
+        "completed": 8,
+        "late": 1,
+        "delayMinutes": 2.75,
+        "etaErrorMinutes": 4.85,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150014,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 289.2080000000001,
+        "netPerWorkedHour": 89.4380895112104,
+        "km": 125.23099999999994,
+        "completed": 6,
+        "late": 0,
+        "delayMinutes": 1.5,
+        "etaErrorMinutes": 3.9166666666666665,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 408.37599999999986,
+        "netPerWorkedHour": 130.84314702741185,
+        "km": 90.93700000000001,
+        "completed": 6,
+        "late": 0,
+        "delayMinutes": 0.5666666666666667,
+        "etaErrorMinutes": 0.6666666666666666,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150015,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 364.796,
+        "netPerWorkedHour": 108.44472336911643,
+        "km": 139.70199999999997,
+        "completed": 7,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 3.933333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 561.27,
+        "netPerWorkedHour": 174.14220460225803,
+        "km": 91.88,
+        "completed": 8,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 0,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150016,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 532.6100000000002,
+        "netPerWorkedHour": 167.92748292170265,
+        "km": 117.10999999999996,
+        "completed": 7,
+        "late": 0,
+        "delayMinutes": 0.25,
+        "etaErrorMinutes": 3.016666666666667,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 576.0511718749999,
+        "netPerWorkedHour": 176.74799443876242,
+        "km": 88.9944140625,
+        "completed": 7,
+        "late": 2,
+        "delayMinutes": 10.816666666666666,
+        "etaErrorMinutes": 11.35,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150017,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 333.49800000000005,
+        "netPerWorkedHour": 109.81366505076376,
+        "km": 106.216,
+        "completed": 6,
+        "late": 0,
+        "delayMinutes": 0.45,
+        "etaErrorMinutes": 5.016666666666667,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 365.0400000000001,
+        "netPerWorkedHour": 120.19976218787161,
+        "km": 76.78499999999997,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 5.533333333333333,
+        "etaErrorMinutes": 6.016666666666667,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150018,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 457.818,
+        "netPerWorkedHour": 135.43798175692334,
+        "km": 118.38599999999998,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 3.25,
+        "etaErrorMinutes": 6.15,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 674.4419999999999,
+        "netPerWorkedHour": 196.82159533073926,
+        "km": 107.78399999999999,
+        "completed": 8,
+        "late": 1,
+        "delayMinutes": 3.183333333333333,
+        "etaErrorMinutes": 6.016666666666667,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150001,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 385.2679999999999,
+        "netPerWorkedHour": 107.5917151501047,
+        "km": 139.611,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 7.800000000000001,
+        "etaErrorMinutes": 13.35,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 588.7471769784172,
+        "netPerWorkedHour": 196.24905899280574,
+        "km": 91.14641151079138,
+        "completed": 6,
+        "late": 0,
+        "delayMinutes": 1.6666666666666665,
+        "etaErrorMinutes": 5.699999999999999,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150002,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 550.9099999999999,
+        "netPerWorkedHour": 166.77396569122095,
+        "km": 116.04500000000004,
+        "completed": 8,
+        "late": 2,
+        "delayMinutes": 3.9833333333333334,
+        "etaErrorMinutes": 5.566666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 636.3180000000002,
+        "netPerWorkedHour": 212.10600000000008,
+        "km": 61.865999999999985,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 2.35,
+        "etaErrorMinutes": 5.883333333333333,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150003,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 308.03,
+        "netPerWorkedHour": 100.33550488599349,
+        "km": 119.98000000000002,
+        "completed": 6,
+        "late": 0,
+        "delayMinutes": 0.16666666666666666,
+        "etaErrorMinutes": 5.183333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 659.4252448721666,
+        "netPerWorkedHour": 213.6751468532673,
+        "km": 110.09737756391674,
+        "completed": 8,
+        "late": 4,
+        "delayMinutes": 13.25,
+        "etaErrorMinutes": 13.55,
+        "batched": 2
+      }
+    },
+    {
+      "seed": 150004,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 574.5999999999999,
+        "netPerWorkedHour": 174.0626051834399,
+        "km": 128.915,
+        "completed": 7,
+        "late": 2,
+        "delayMinutes": 3.283333333333333,
+        "etaErrorMinutes": 4.6,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 871.6485387605952,
+        "netPerWorkedHour": 262.6766063567841,
+        "km": 96.86573061970235,
+        "completed": 8,
+        "late": 0,
+        "delayMinutes": 0.7833333333333333,
+        "etaErrorMinutes": 9.183333333333334,
+        "batched": 3
+      }
+    },
+    {
+      "seed": 150005,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 394.3320000000001,
+        "netPerWorkedHour": 121.66568392183754,
+        "km": 115.27899999999994,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 3.25,
+        "etaErrorMinutes": 6.883333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 602.8899999999999,
+        "netPerWorkedHour": 179.23891320505405,
+        "km": 103.28500000000004,
+        "completed": 7,
+        "late": 0,
+        "delayMinutes": 0.6499999999999999,
+        "etaErrorMinutes": 2.55,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150006,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 449.98400000000004,
+        "netPerWorkedHour": 132.20781849343018,
+        "km": 114.49299999999998,
+        "completed": 7,
+        "late": 2,
+        "delayMinutes": 5.416666666666667,
+        "etaErrorMinutes": 9.033333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 508.40999999999997,
+        "netPerWorkedHour": 156.0071599045346,
+        "km": 103.57000000000001,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 2.35,
+        "etaErrorMinutes": 5.333333333333334,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150007,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 489.3259999999999,
+        "netPerWorkedHour": 161.7012667523407,
+        "km": 116.43700000000001,
+        "completed": 6,
+        "late": 0,
+        "delayMinutes": 1.35,
+        "etaErrorMinutes": 2.4833333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 660.2861497005989,
+        "netPerWorkedHour": 197.65758680543456,
+        "km": 95.6619251497006,
+        "completed": 7,
+        "late": 0,
+        "delayMinutes": 1.6166666666666667,
+        "etaErrorMinutes": 4.633333333333334,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150008,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 299.332,
+        "netPerWorkedHour": 92.66447673918651,
+        "km": 119.27900000000001,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 1.8166666666666667,
+        "etaErrorMinutes": 3.4333333333333336,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 634.3814019607842,
+        "netPerWorkedHour": 192.98403304536276,
+        "km": 83.23929901960786,
+        "completed": 8,
+        "late": 1,
+        "delayMinutes": 9.4,
+        "etaErrorMinutes": 10.483333333333333,
+        "batched": 3
+      }
+    },
+    {
+      "seed": 150009,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 445.12200000000007,
+        "netPerWorkedHour": 128.58603755416468,
+        "km": 123.27400000000002,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 2.0166666666666666,
+        "etaErrorMinutes": 4.083333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 473.20799999999997,
+        "netPerWorkedHour": 149.55217276797472,
+        "km": 94.726,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 1.9833333333333334,
+        "etaErrorMinutes": 6.1000000000000005,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150010,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 432.86799999999994,
+        "netPerWorkedHour": 126.24147764095913,
+        "km": 127.31600000000002,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 2.55,
+        "etaErrorMinutes": 3.9166666666666665,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 539.8819804741981,
+        "netPerWorkedHour": 179.96066015806605,
+        "km": 79.67400976290097,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 7.816666666666666,
+        "etaErrorMinutes": 7.95,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150011,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 546.128,
+        "netPerWorkedHour": 180.14117647058825,
+        "km": 113.786,
+        "completed": 7,
+        "late": 2,
+        "delayMinutes": 5.383333333333333,
+        "etaErrorMinutes": 8.283333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 375.058,
+        "netPerWorkedHour": 123.55497803806736,
+        "km": 82.34100000000001,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 1.6333333333333333,
+        "etaErrorMinutes": 3.683333333333333,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150012,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 280.21,
+        "netPerWorkedHour": 85.9613123135918,
+        "km": 125.66,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 2.533333333333333,
+        "etaErrorMinutes": 6.199999999999999,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 492.9560000000001,
+        "netPerWorkedHour": 153.4758799619476,
+        "km": 88.61699999999999,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 4.666666666666666,
+        "etaErrorMinutes": 6.4833333333333325,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150013,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 264.42600000000004,
+        "netPerWorkedHour": 83.26920923722885,
+        "km": 135.28699999999998,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 4.383333333333333,
+        "etaErrorMinutes": 7.4,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 555.8324428442845,
+        "netPerWorkedHour": 181.79311294988867,
+        "km": 98.17377857785779,
+        "completed": 8,
+        "late": 2,
+        "delayMinutes": 5.083333333333334,
+        "etaErrorMinutes": 7.8,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150014,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 289.2080000000001,
+        "netPerWorkedHour": 89.4380895112104,
+        "km": 125.23099999999994,
+        "completed": 6,
+        "late": 0,
+        "delayMinutes": 0.7166666666666667,
+        "etaErrorMinutes": 3.1333333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 408.37599999999986,
+        "netPerWorkedHour": 130.84314702741185,
+        "km": 90.93700000000001,
+        "completed": 6,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 0.1,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150015,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 520.262,
+        "netPerWorkedHour": 170.7643326039387,
+        "km": 106.88399999999999,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 4.566666666666666,
+        "etaErrorMinutes": 8.533333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 561.27,
+        "netPerWorkedHour": 174.14220460225803,
+        "km": 91.88,
+        "completed": 8,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 1.0166666666666666,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150016,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 532.6100000000002,
+        "netPerWorkedHour": 167.92748292170265,
+        "km": 117.10999999999996,
+        "completed": 7,
+        "late": 0,
+        "delayMinutes": 0.25,
+        "etaErrorMinutes": 4.233333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 576.7804162754303,
+        "netPerWorkedHour": 176.97174623638873,
+        "km": 88.6297918622848,
+        "completed": 7,
+        "late": 2,
+        "delayMinutes": 7.766666666666667,
+        "etaErrorMinutes": 11.5,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150017,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 302.804,
+        "netPerWorkedHour": 99.70679593890057,
+        "km": 111.04299999999999,
+        "completed": 6,
+        "late": 0,
+        "delayMinutes": 0.45,
+        "etaErrorMinutes": 8.999999999999998,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 365.0400000000001,
+        "netPerWorkedHour": 120.19976218787161,
+        "km": 76.78499999999998,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 5.533333333333333,
+        "etaErrorMinutes": 6.866666666666667,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150018,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 457.81799999999987,
+        "netPerWorkedHour": 135.4379817569233,
+        "km": 118.38600000000001,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 3.25,
+        "etaErrorMinutes": 7.066666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 530.2239999999999,
+        "netPerWorkedHour": 172.33716143011915,
+        "km": 101.733,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 3.183333333333333,
+        "etaErrorMinutes": 3.6999999999999997,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150001,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 267.00210888657745,
+        "netPerWorkedHour": 74.56423799485523,
+        "km": 154.2939455567113,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 5.783333333333333,
+        "etaErrorMinutes": 14.35,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 702.5493296764308,
+        "netPerWorkedHour": 218.03255058923716,
+        "km": 128.1603351617846,
+        "completed": 7,
+        "late": 2,
+        "delayMinutes": 19.633333333333333,
+        "etaErrorMinutes": 21.366666666666664,
+        "batched": 2
+      }
+    },
+    {
+      "seed": 150002,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 452.2513506493506,
+        "netPerWorkedHour": 134.7992103276753,
+        "km": 127.90932467532465,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 4.533333333333333,
+        "etaErrorMinutes": 5.116666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 590.5834988505749,
+        "netPerWorkedHour": 196.86116628352497,
+        "km": 62.75825057471265,
+        "completed": 7,
+        "late": 2,
+        "delayMinutes": 7.383333333333334,
+        "etaErrorMinutes": 14.483333333333334,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150003,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 348.64265102040827,
+        "netPerWorkedHour": 108.74315921620773,
+        "km": 109.61867448979588,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 5.333333333333333,
+        "etaErrorMinutes": 7.933333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 613.7987817324761,
+        "netPerWorkedHour": 204.59959391082535,
+        "km": 95.48560913376197,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 8.333333333333334,
+        "etaErrorMinutes": 13.016666666666667,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150004,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 341.67690262849885,
+        "netPerWorkedHour": 111.24507999119072,
+        "km": 128.62154868575055,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 5.983333333333333,
+        "etaErrorMinutes": 16.650000000000002,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 749.8124792357812,
+        "netPerWorkedHour": 243.75337956012393,
+        "km": 108.83376038210933,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 5.966666666666667,
+        "etaErrorMinutes": 20.48333333333333,
+        "batched": 2
+      }
+    },
+    {
+      "seed": 150005,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 395.138356293519,
+        "netPerWorkedHour": 120.06229597034675,
+        "km": 120.22582185324048,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 21.5,
+        "etaErrorMinutes": 24.616666666666667,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 496.3979354838709,
+        "netPerWorkedHour": 165.46597849462364,
+        "km": 91.3460322580645,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 8.766666666666666,
+        "etaErrorMinutes": 8.766666666666666,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150006,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 531.8360000000001,
+        "netPerWorkedHour": 156.25639435240353,
+        "km": 126.44699999999996,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 7.316666666666666,
+        "etaErrorMinutes": 16.150000000000002,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 493.315189165265,
+        "netPerWorkedHour": 153.70734645966368,
+        "km": 99.54740541736743,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 13.450000000000001,
+        "etaErrorMinutes": 22.183333333333334,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150007,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 290.0812982790512,
+        "netPerWorkedHour": 85.15106603103264,
+        "km": 138.41435086047437,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 15.35,
+        "etaErrorMinutes": 29.466666666666665,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 795.4095253337484,
+        "netPerWorkedHour": 238.10695918854935,
+        "km": 119.13023733312583,
+        "completed": 8,
+        "late": 1,
+        "delayMinutes": 8.516666666666667,
+        "etaErrorMinutes": 19.383333333333333,
+        "batched": 2
+      }
+    },
+    {
+      "seed": 150008,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 448.83119999999997,
+        "netPerWorkedHour": 134.80663440680794,
+        "km": 126.05439999999999,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 1.65,
+        "etaErrorMinutes": 6.016666666666667,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 571.0655468438378,
+        "netPerWorkedHour": 173.72282986630182,
+        "km": 99.99222657808103,
+        "completed": 8,
+        "late": 3,
+        "delayMinutes": 15.416666666666666,
+        "etaErrorMinutes": 15.416666666666666,
+        "batched": 4
+      }
+    },
+    {
+      "seed": 150009,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 319.4782935489185,
+        "netPerWorkedHour": 92.29031108779543,
+        "km": 123.68585322554071,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 13.983333333333334,
+        "etaErrorMinutes": 20.333333333333332,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 402.09776265193375,
+        "netPerWorkedHour": 124.9505347904153,
+        "km": 83.36111867403314,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 17.283333333333335,
+        "etaErrorMinutes": 23.033333333333335,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150010,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 226.43283354401018,
+        "netPerWorkedHour": 65.37478552878632,
+        "km": 133.1035832279949,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 9.866666666666667,
+        "etaErrorMinutes": 18.6,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 425.71595593432085,
+        "netPerWorkedHour": 141.90531864477362,
+        "km": 81.27702203283961,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 14.466666666666667,
+        "etaErrorMinutes": 18.816666666666666,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150011,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 336.81749707617803,
+        "netPerWorkedHour": 111.25268276669793,
+        "km": 120.28125146191098,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 3.6,
+        "etaErrorMinutes": 9.333333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 315.71280272108845,
+        "netPerWorkedHour": 102.00736759970549,
+        "km": 81.28359863945578,
+        "completed": 5,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 1.9833333333333334,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150012,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 183.46425355243161,
+        "netPerWorkedHour": 52.65236868532796,
+        "km": 145.6878732237842,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 19.783333333333335,
+        "etaErrorMinutes": 34.2,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 456.440817433588,
+        "netPerWorkedHour": 142.10732013845168,
+        "km": 106.87459128320603,
+        "completed": 7,
+        "late": 2,
+        "delayMinutes": 7.116666666666666,
+        "etaErrorMinutes": 12.216666666666665,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150013,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 223.95720503067452,
+        "netPerWorkedHour": 57.882542760458634,
+        "km": 175.77639748466274,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 19.349999999999998,
+        "etaErrorMinutes": 29.73333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 489.0903228454172,
+        "netPerWorkedHour": 154.54447136342506,
+        "km": 120.7048385772914,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 5.816666666666666,
+        "etaErrorMinutes": 10.166666666666668,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150014,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 273.0007232106477,
+        "netPerWorkedHour": 85.21656148082302,
+        "km": 125.97463839467609,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 14.7,
+        "etaErrorMinutes": 15.433333333333332,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 378.61133590319537,
+        "netPerWorkedHour": 121.3065867970366,
+        "km": 105.81933204840227,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 8.616666666666667,
+        "etaErrorMinutes": 13.483333333333334,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150015,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 299.2395475028294,
+        "netPerWorkedHour": 93.30178165686695,
+        "km": 134.2052262485853,
+        "completed": 6,
+        "late": 3,
+        "delayMinutes": 5.416666666666666,
+        "etaErrorMinutes": 21.083333333333332,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 463.05146115427567,
+        "netPerWorkedHour": 144.37772909712388,
+        "km": 95.92426942286215,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 3.8333333333333335,
+        "etaErrorMinutes": 11.25,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150016,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 407.0413871937745,
+        "netPerWorkedHour": 135.68046239792483,
+        "km": 116.88930640311273,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 11.583333333333334,
+        "etaErrorMinutes": 23.716666666666665,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 538.3492322411532,
+        "netPerWorkedHour": 165.18002523379798,
+        "km": 94.75538387942338,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 6.6499999999999995,
+        "etaErrorMinutes": 13.549999999999999,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150017,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 252.08211066624145,
+        "netPerWorkedHour": 83.00517684061732,
+        "km": 116.35394466687929,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 12.149999999999999,
+        "etaErrorMinutes": 26.15,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 405.8787512014788,
+        "netPerWorkedHour": 133.64707805042747,
+        "km": 66.48062439926062,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 12.483333333333333,
+        "etaErrorMinutes": 12.683333333333332,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150018,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 385.48998645259417,
+        "netPerWorkedHour": 123.3896995847194,
+        "km": 107.05500677370289,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 7.483333333333333,
+        "etaErrorMinutes": 24.633333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 503.4121808219177,
+        "netPerWorkedHour": 146.91016950055962,
+        "km": 110.89890958904112,
+        "completed": 7,
+        "late": 2,
+        "delayMinutes": 15.716666666666667,
+        "etaErrorMinutes": 23.15,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150019,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 321.4876,
+        "netPerWorkedHour": 93.08737714147833,
+        "km": 51.83100000000001,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 0.15,
+        "etaErrorMinutes": 2.4333333333333336,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 343.86240000000004,
+        "netPerWorkedHour": 88.54192403976828,
+        "km": 46.369,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 0.08333333333333333,
+        "etaErrorMinutes": 3.4499999999999997,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150020,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 267.3512,
+        "netPerWorkedHour": 65.99001165581076,
+        "km": 61.922000000000004,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 1.3166666666666667,
+        "etaErrorMinutes": 5.166666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 554.2867224351747,
+        "netPerWorkedHour": 177.3875189587189,
+        "km": 39.18319391206313,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 8.833333333333334,
+        "etaErrorMinutes": 10.500000000000002,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150021,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 292.91519999999997,
+        "netPerWorkedHour": 94.48030821610965,
+        "km": 46.512,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 0.31666666666666665,
+        "etaErrorMinutes": 1.4833333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 503.521409468295,
+        "netPerWorkedHour": 148.43408729821996,
+        "km": 44.89647632926244,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 13.916666666666666,
+        "etaErrorMinutes": 13.916666666666666,
+        "batched": 2
+      }
+    },
+    {
+      "seed": 150022,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 343.47360000000003,
+        "netPerWorkedHour": 98.70718927117427,
+        "km": 52.366,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 2.6,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 399.2112,
+        "netPerWorkedHour": 100.69789237668161,
+        "km": 55.647000000000006,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 0.03333333333333333,
+        "etaErrorMinutes": 2.75,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150023,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 315.3376,
+        "netPerWorkedHour": 83.0321357519017,
+        "km": 55.355999999999995,
+        "completed": 3,
+        "late": 2,
+        "delayMinutes": 6.05,
+        "etaErrorMinutes": 6.05,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 321.13599999999997,
+        "netPerWorkedHour": 94.10578754578754,
+        "km": 40.71000000000001,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 1.4,
+        "etaErrorMinutes": 1.4333333333333333,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150024,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 239.5544,
+        "netPerWorkedHour": 62.81563405929055,
+        "km": 56.263999999999996,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 2.6166666666666667,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 416.04080000000005,
+        "netPerWorkedHour": 138.68026666666668,
+        "km": 35.773,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 0.6166666666666667,
+        "etaErrorMinutes": 2.25,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150025,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 226.6548,
+        "netPerWorkedHour": 58.97775786049873,
+        "km": 56.737999999999985,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 0.35,
+        "etaErrorMinutes": 1.4833333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 377.5932,
+        "netPerWorkedHour": 125.8644,
+        "km": 39.29199999999998,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 2.1333333333333333,
+        "etaErrorMinutes": 2.916666666666667,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150026,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 304.09479999999996,
+        "netPerWorkedHour": 90.67682266213863,
+        "km": 50.33800000000001,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 1.4666666666666666,
+        "etaErrorMinutes": 1.5999999999999999,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 355.96639999999996,
+        "netPerWorkedHour": 118.65546666666665,
+        "km": 35.45899999999999,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 1.5833333333333335,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150027,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 323.07599999999996,
+        "netPerWorkedHour": 94.09219318825338,
+        "km": 47.185,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 1.6666666666666665,
+        "etaErrorMinutes": 1.6833333333333331,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 432.08789182389944,
+        "netPerWorkedHour": 113.54963213125323,
+        "km": 45.08027044025157,
+        "completed": 5,
+        "late": 3,
+        "delayMinutes": 13.133333333333335,
+        "etaErrorMinutes": 13.133333333333335,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150028,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 246.42839999999998,
+        "netPerWorkedHour": 72.26050663842958,
+        "km": 50.179,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 3.0166666666666666,
+        "etaErrorMinutes": 4.733333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 435.64840000000004,
+        "netPerWorkedHour": 104.52077574141954,
+        "km": 54.554,
+        "completed": 4,
+        "late": 1,
+        "delayMinutes": 1.4500000000000002,
+        "etaErrorMinutes": 1.8000000000000003,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150029,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 288.2244,
+        "netPerWorkedHour": 72.66670215001051,
+        "km": 57.114000000000004,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 3.783333333333333,
+        "etaErrorMinutes": 5.916666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 286.6004,
+        "netPerWorkedHour": 95.53346666666665,
+        "km": 32.024,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 1.2000000000000002,
+        "etaErrorMinutes": 1.2000000000000002,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150030,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 425.6128,
+        "netPerWorkedHour": 118.92316671841041,
+        "km": 50.19300000000001,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 1.3166666666666667,
+        "etaErrorMinutes": 2.4833333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 494.2331067133847,
+        "netPerWorkedHour": 134.45471050919556,
+        "km": 45.19223321653819,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 1.7,
+        "etaErrorMinutes": 2.1166666666666667,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150031,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 265.746,
+        "netPerWorkedHour": 56.61196520504172,
+        "km": 70.88499999999998,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 0.7666666666666667,
+        "etaErrorMinutes": 6.566666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 272.5084,
+        "netPerWorkedHour": 83.20867175572519,
+        "km": 42.479,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 1.25,
+        "etaErrorMinutes": 2.8166666666666664,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150032,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 269.582,
+        "netPerWorkedHour": 89.79415247964471,
+        "km": 44.12000000000001,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 1.5166666666666666,
+        "etaErrorMinutes": 1.7999999999999998,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 457.4996607594937,
+        "netPerWorkedHour": 131.0365803750638,
+        "km": 49.52584810126583,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 1.0166666666666666,
+        "etaErrorMinutes": 2.433333333333333,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150033,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 264.40880000000004,
+        "netPerWorkedHour": 65.39826039161801,
+        "km": 59.55299999999999,
+        "completed": 3,
+        "late": 2,
+        "delayMinutes": 4.25,
+        "etaErrorMinutes": 4.25,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 321.19640839630557,
+        "netPerWorkedHour": 107.06546946543519,
+        "km": 38.70897900923594,
+        "completed": 3,
+        "late": 2,
+        "delayMinutes": 13.4,
+        "etaErrorMinutes": 13.4,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150034,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 192.75039999999998,
+        "netPerWorkedHour": 64.25013333333332,
+        "km": 44.89899999999999,
+        "completed": 2,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 0.8,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 432.26199999999994,
+        "netPerWorkedHour": 111.71164393395547,
+        "km": 45.07000000000001,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 0.9833333333333333,
+        "etaErrorMinutes": 1.4,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150035,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 235.53719999999996,
+        "netPerWorkedHour": 78.11459419622292,
+        "km": 43.457,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 2.3166666666666664,
+        "etaErrorMinutes": 2.833333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 294.4158264576802,
+        "netPerWorkedHour": 98.13860881922675,
+        "km": 37.760433855799384,
+        "completed": 4,
+        "late": 1,
+        "delayMinutes": 5.366666666666667,
+        "etaErrorMinutes": 5.9,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150036,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 246.49039999999997,
+        "netPerWorkedHour": 74.23788504977828,
+        "km": 48.224,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 0.5666666666666667,
+        "etaErrorMinutes": 0.5666666666666667,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 480.29759999999993,
+        "netPerWorkedHour": 125.44956540666037,
+        "km": 52.50599999999999,
+        "completed": 5,
+        "late": 0,
+        "delayMinutes": 0.7666666666666666,
+        "etaErrorMinutes": 1.9166666666666667,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150019,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 293.7304,
+        "netPerWorkedHour": 86.41953579601176,
+        "km": 51.199,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 0.6333333333333333,
+        "etaErrorMinutes": 5.766666666666667,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 343.86240000000004,
+        "netPerWorkedHour": 88.54192403976828,
+        "km": 46.369,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 0.35,
+        "etaErrorMinutes": 3.466666666666667,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150020,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 225.5472,
+        "netPerWorkedHour": 75.1824,
+        "km": 44.68199999999998,
+        "completed": 2,
+        "late": 1,
+        "delayMinutes": 2.25,
+        "etaErrorMinutes": 4.65,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 574.5064113289759,
+        "netPerWorkedHour": 151.92999932302308,
+        "km": 48.38397167755991,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 9.4,
+        "etaErrorMinutes": 12.049999999999999,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150021,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 257.074,
+        "netPerWorkedHour": 73.34493580599144,
+        "km": 51.714999999999996,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 0.13333333333333333,
+        "etaErrorMinutes": 3.45,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 503.5214190455028,
+        "netPerWorkedHour": 148.43409012150425,
+        "km": 44.89645238624307,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 12,
+        "etaErrorMinutes": 14.033333333333333,
+        "batched": 2
+      }
+    },
+    {
+      "seed": 150022,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 343.47360000000003,
+        "netPerWorkedHour": 98.70718927117427,
+        "km": 52.366,
+        "completed": 4,
+        "late": 1,
+        "delayMinutes": 3.033333333333333,
+        "etaErrorMinutes": 5.55,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 399.2112,
+        "netPerWorkedHour": 100.69789237668161,
+        "km": 55.647,
+        "completed": 4,
+        "late": 1,
+        "delayMinutes": 3.15,
+        "etaErrorMinutes": 5.866666666666667,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150023,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 315.3376,
+        "netPerWorkedHour": 83.0321357519017,
+        "km": 55.35600000000001,
+        "completed": 3,
+        "late": 2,
+        "delayMinutes": 7.550000000000001,
+        "etaErrorMinutes": 7.550000000000001,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 321.13599999999997,
+        "netPerWorkedHour": 94.10578754578754,
+        "km": 40.71000000000001,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 1.4,
+        "etaErrorMinutes": 1.9666666666666668,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150024,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 239.5544,
+        "netPerWorkedHour": 62.81563405929055,
+        "km": 56.26400000000001,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 3.9166666666666665,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 416.04080000000005,
+        "netPerWorkedHour": 138.68026666666668,
+        "km": 35.772999999999996,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 0.8666666666666667,
+        "etaErrorMinutes": 2.783333333333333,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150025,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 211.12,
+        "netPerWorkedHour": 66.29727843684579,
+        "km": 46.22500000000001,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 3.2333333333333334,
+        "etaErrorMinutes": 3.6333333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 314.86039999999997,
+        "netPerWorkedHour": 100.63009943181818,
+        "km": 35.374,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 2.6,
+        "etaErrorMinutes": 2.8833333333333333,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150026,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 207.0676,
+        "netPerWorkedHour": 45.907338342160365,
+        "km": 65.831,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 1.15,
+        "etaErrorMinutes": 2.9000000000000004,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 355.96639999999996,
+        "netPerWorkedHour": 118.65546666666665,
+        "km": 35.458999999999996,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 0.11666666666666667,
+        "etaErrorMinutes": 1.8833333333333333,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150027,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 323.07599999999996,
+        "netPerWorkedHour": 94.09219318825338,
+        "km": 47.18500000000001,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 2.6666666666666665,
+        "etaErrorMinutes": 2.683333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 432.08789182389944,
+        "netPerWorkedHour": 113.54963213125323,
+        "km": 45.08027044025157,
+        "completed": 5,
+        "late": 3,
+        "delayMinutes": 14.000000000000002,
+        "etaErrorMinutes": 14.000000000000002,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150028,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 246.42839999999998,
+        "netPerWorkedHour": 72.26050663842958,
+        "km": 50.179,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 5,
+        "etaErrorMinutes": 6.716666666666667,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 435.64840000000004,
+        "netPerWorkedHour": 104.52077574141954,
+        "km": 54.554,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 0.4166666666666667,
+        "etaErrorMinutes": 0.7666666666666666,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150029,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 247.19000000000003,
+        "netPerWorkedHour": 51.004986530635655,
+        "km": 69.74999999999997,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 4.85,
+        "etaErrorMinutes": 8.483333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 286.6004,
+        "netPerWorkedHour": 95.53346666666665,
+        "km": 32.024,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 2.283333333333333,
+        "etaErrorMinutes": 2.283333333333333,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150030,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 425.6128,
+        "netPerWorkedHour": 118.92316671841041,
+        "km": 50.193000000000005,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 2.083333333333333,
+        "etaErrorMinutes": 2.083333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 494.23310671338464,
+        "netPerWorkedHour": 134.45471050919554,
+        "km": 45.19223321653819,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 1.7666666666666666,
+        "etaErrorMinutes": 1.7999999999999998,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150031,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 317.44759999999997,
+        "netPerWorkedHour": 82.12801724757456,
+        "km": 56.881,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 0.9166666666666666,
+        "etaErrorMinutes": 5.6,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 272.5084,
+        "netPerWorkedHour": 83.20867175572519,
+        "km": 42.479,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 1.6833333333333333,
+        "etaErrorMinutes": 3.166666666666667,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150032,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 269.582,
+        "netPerWorkedHour": 89.73603328710124,
+        "km": 44.12,
+        "completed": 3,
+        "late": 2,
+        "delayMinutes": 2.45,
+        "etaErrorMinutes": 6.5,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 457.4996607594937,
+        "netPerWorkedHour": 131.0365803750638,
+        "km": 49.52584810126583,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 2.45,
+        "etaErrorMinutes": 3.5833333333333335,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150033,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 212.0232,
+        "netPerWorkedHour": 65.6362129159859,
+        "km": 46.317,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 3.5166666666666666,
+        "etaErrorMinutes": 3.5166666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 245.9484,
+        "netPerWorkedHour": 81.9828,
+        "km": 36.078999999999986,
+        "completed": 2,
+        "late": 1,
+        "delayMinutes": 2.466666666666667,
+        "etaErrorMinutes": 4.716666666666667,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150034,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 192.75039999999998,
+        "netPerWorkedHour": 64.00714325246749,
+        "km": 44.898999999999994,
+        "completed": 2,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 4.966666666666667,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 432.26199999999994,
+        "netPerWorkedHour": 111.71164393395547,
+        "km": 45.07,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 0.9833333333333333,
+        "etaErrorMinutes": 1.3499999999999999,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150035,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 235.53719999999996,
+        "netPerWorkedHour": 77.68519651855244,
+        "km": 43.456999999999994,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 1.0666666666666667,
+        "etaErrorMinutes": 3.1333333333333337,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 344.03000000000003,
+        "netPerWorkedHour": 114.67666666666668,
+        "km": 39.099999999999994,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 2.2333333333333334,
+        "etaErrorMinutes": 4.283333333333333,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150036,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 279.9956,
+        "netPerWorkedHour": 77.83661467181467,
+        "km": 51.41099999999999,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 4.016666666666667,
+        "etaErrorMinutes": 4.833333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 342.04159999999996,
+        "netPerWorkedHour": 93.53917958067456,
+        "km": 41.620999999999995,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 1.5666666666666667,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150019,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 270.9134116855291,
+        "netPerWorkedHour": 66.5271679446047,
+        "km": 60.96647078617717,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 13.683333333333334,
+        "etaErrorMinutes": 49.78333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 280.58608645468166,
+        "netPerWorkedHour": 90.1400955949361,
+        "km": 33.13478386329587,
+        "completed": 4,
+        "late": 1,
+        "delayMinutes": 11.733333333333333,
+        "etaErrorMinutes": 24.900000000000002,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150020,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 172.73636142025677,
+        "netPerWorkedHour": 53.44198187632558,
+        "km": 47.45909644935808,
+        "completed": 2,
+        "late": 1,
+        "delayMinutes": 25.5,
+        "etaErrorMinutes": 64.33333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 402.22489498531627,
+        "netPerWorkedHour": 131.76900736619697,
+        "km": 34.61276253670951,
+        "completed": 4,
+        "late": 1,
+        "delayMinutes": 10.116666666666667,
+        "etaErrorMinutes": 24.250000000000004,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150021,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 318.02819795511857,
+        "netPerWorkedHour": 82.21913914818145,
+        "km": 57.50450511220353,
+        "completed": 4,
+        "late": 2,
+        "delayMinutes": 11.233333333333334,
+        "etaErrorMinutes": 22.45,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 261.323638924482,
+        "netPerWorkedHour": 81.89111247633488,
+        "km": 39.76590268879501,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 30.716666666666665,
+        "etaErrorMinutes": 32.016666666666666,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150022,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 218.1733761537525,
+        "netPerWorkedHour": 72.38265175131407,
+        "km": 46.21655961561871,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 28.383333333333333,
+        "etaErrorMinutes": 28.95,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 396.90408,
+        "netPerWorkedHour": 99.12964395726377,
+        "km": 53.51480000000001,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 0.9500000000000001,
+        "etaErrorMinutes": 1.8333333333333335,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150023,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 243.8372817213471,
+        "netPerWorkedHour": 72.88394339063845,
+        "km": 49.681795696632356,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 6.116666666666666,
+        "etaErrorMinutes": 17.68333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 318.8957757433456,
+        "netPerWorkedHour": 93.44931157314157,
+        "km": 46.31056064163582,
+        "completed": 4,
+        "late": 1,
+        "delayMinutes": 6.9833333333333325,
+        "etaErrorMinutes": 16.1,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150024,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 214.41513810998586,
+        "netPerWorkedHour": 59.32630060686719,
+        "km": 50.63715472503537,
+        "completed": 2,
+        "late": 2,
+        "delayMinutes": 22.933333333333334,
+        "etaErrorMinutes": 22.933333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 378.78409728438805,
+        "netPerWorkedHour": 111.33431990723359,
+        "km": 39.31475678903,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 4.633333333333334,
+        "etaErrorMinutes": 20.3,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150025,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 270.40465144972586,
+        "netPerWorkedHour": 86.42194115935841,
+        "km": 42.8633713756853,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 0.85,
+        "etaErrorMinutes": 17.01666666666667,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 252.3844401685564,
+        "netPerWorkedHour": 84.12814672285214,
+        "km": 27.688899578609032,
+        "completed": 2,
+        "late": 1,
+        "delayMinutes": 8.016666666666667,
+        "etaErrorMinutes": 36.9,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150026,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 152.96002552718727,
+        "netPerWorkedHour": 46.57104972072684,
+        "km": 46.99993618203184,
+        "completed": 2,
+        "late": 1,
+        "delayMinutes": 14.266666666666667,
+        "etaErrorMinutes": 55.9,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 239.45214555313078,
+        "netPerWorkedHour": 79.81738185104359,
+        "km": 35.49463611717297,
+        "completed": 2,
+        "late": 1,
+        "delayMinutes": 12.45,
+        "etaErrorMinutes": 44.78333333333333,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150027,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 174.45403665954103,
+        "netPerWorkedHour": 57.71315309449988,
+        "km": 41.23990835114736,
+        "completed": 2,
+        "late": 1,
+        "delayMinutes": 5.866666666666666,
+        "etaErrorMinutes": 45.88333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 318.2853376178437,
+        "netPerWorkedHour": 99.11142768136297,
+        "km": 28.56165595539079,
+        "completed": 3,
+        "late": 2,
+        "delayMinutes": 10.516666666666666,
+        "etaErrorMinutes": 10.516666666666666,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150028,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 176.70057113816478,
+        "netPerWorkedHour": 58.87838357065839,
+        "km": 35.298572154588115,
+        "completed": 2,
+        "late": 1,
+        "delayMinutes": 2.7,
+        "etaErrorMinutes": 33.03333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 231.39734689314156,
+        "netPerWorkedHour": 77.00410878307538,
+        "km": 27.10663276714608,
+        "completed": 2,
+        "late": 1,
+        "delayMinutes": 2.7,
+        "etaErrorMinutes": 2.7333333333333334,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150029,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 243.6176702415242,
+        "netPerWorkedHour": 52.05505774391542,
+        "km": 67.5808243961896,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 32.7,
+        "etaErrorMinutes": 32.7,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 228.67864,
+        "netPerWorkedHour": 76.22621333333333,
+        "km": 28.6534,
+        "completed": 3,
+        "late": 0,
+        "delayMinutes": 0.9333333333333333,
+        "etaErrorMinutes": 1.3833333333333333,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150030,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 370.0390187767904,
+        "netPerWorkedHour": 106.09592765183541,
+        "km": 39.752453058024045,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 3.1666666666666665,
+        "etaErrorMinutes": 29.033333333333335,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 588.9740868451371,
+        "netPerWorkedHour": 154.7895103403777,
+        "km": 52.489782887157425,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 11.916666666666666,
+        "etaErrorMinutes": 21.48333333333333,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150031,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 282.37722439844964,
+        "netPerWorkedHour": 70.42313874848762,
+        "km": 59.68193900387591,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 12.683333333333334,
+        "etaErrorMinutes": 43.96666666666667,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 284.10326971004486,
+        "netPerWorkedHour": 72.68133676493473,
+        "km": 44.391825724887966,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 17.166666666666668,
+        "etaErrorMinutes": 34.550000000000004,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150032,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 339.7603880241946,
+        "netPerWorkedHour": 98.60035444474812,
+        "km": 50.374029939513655,
+        "completed": 4,
+        "late": 1,
+        "delayMinutes": 4.283333333333333,
+        "etaErrorMinutes": 23.75,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 544.771051059456,
+        "netPerWorkedHour": 143.24562002878108,
+        "km": 52.34737235135988,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 8.883333333333333,
+        "etaErrorMinutes": 16.016666666666666,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150033,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 296.0224747160001,
+        "netPerWorkedHour": 91.41982576800208,
+        "km": 40.34381320999966,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 4.9,
+        "etaErrorMinutes": 28.283333333333335,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 191.54085741935484,
+        "netPerWorkedHour": 58.86521143159275,
+        "km": 38.52285645161291,
+        "completed": 2,
+        "late": 1,
+        "delayMinutes": 28.21666666666667,
+        "etaErrorMinutes": 28.21666666666667,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150034,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 300.6060357093045,
+        "netPerWorkedHour": 91.96751326196109,
+        "km": 48.45991072673874,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 8.9,
+        "etaErrorMinutes": 20.583333333333336,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 430.0447931579633,
+        "netPerWorkedHour": 111.13864001210824,
+        "km": 50.61301710509167,
+        "completed": 4,
+        "late": 1,
+        "delayMinutes": 4.3999999999999995,
+        "etaErrorMinutes": 8.833333333333332,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150035,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 268.57702862648114,
+        "netPerWorkedHour": 73.90898204061551,
+        "km": 51.25742843379724,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 2.5833333333333335,
+        "etaErrorMinutes": 53.949999999999996,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 364.72927707311686,
+        "netPerWorkedHour": 118.8043247795169,
+        "km": 39.851807317207765,
+        "completed": 3,
+        "late": 2,
+        "delayMinutes": 3.466666666666667,
+        "etaErrorMinutes": 11.183333333333334,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150036,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 140.7074525844658,
+        "netPerWorkedHour": 39.64210590891195,
+        "km": 51.70636853883543,
+        "completed": 2,
+        "late": 1,
+        "delayMinutes": 2.3666666666666667,
+        "etaErrorMinutes": 55.45,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 352.1775401475947,
+        "netPerWorkedHour": 102.12155815798155,
+        "km": 41.80614963101318,
+        "completed": 4,
+        "late": 1,
+        "delayMinutes": 2.716666666666667,
+        "etaErrorMinutes": 22.433333333333334,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150037,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 93.96350000000012,
+        "netPerWorkedHour": 29.153546496595748,
+        "km": 94.197,
+        "completed": 6,
+        "late": 3,
+        "delayMinutes": 7.566666666666666,
+        "etaErrorMinutes": 11.683333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 255.54700000000005,
+        "netPerWorkedHour": 85.18233333333335,
+        "km": 50.494,
+        "completed": 4,
+        "late": 1,
+        "delayMinutes": 2.25,
+        "etaErrorMinutes": 4.45,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150038,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 140.46300000000002,
+        "netPerWorkedHour": 44.136056559308734,
+        "km": 92.50600000000003,
+        "completed": 7,
+        "late": 2,
+        "delayMinutes": 2.966666666666667,
+        "etaErrorMinutes": 4.283333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 597.0874591132557,
+        "netPerWorkedHour": 169.30646288655646,
+        "km": 70.05167575260984,
+        "completed": 8,
+        "late": 3,
+        "delayMinutes": 12.516666666666666,
+        "etaErrorMinutes": 15.266666666666666,
+        "batched": 3
+      }
+    },
+    {
+      "seed": 150039,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 115.67399999999986,
+        "netPerWorkedHour": 33.8475493782004,
+        "km": 113.448,
+        "completed": 7,
+        "late": 3,
+        "delayMinutes": 6.666666666666666,
+        "etaErrorMinutes": 8.95,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 397.27299999999997,
+        "netPerWorkedHour": 132.42433333333332,
+        "km": 38.886,
+        "completed": 5,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 1.4666666666666666,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150040,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": -60.89400000000012,
+        "netPerWorkedHour": -18.204484304932773,
+        "km": 112.652,
+        "completed": 6,
+        "late": 3,
+        "delayMinutes": 13.566666666666666,
+        "etaErrorMinutes": 16.083333333333332,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 344.1734999999999,
+        "netPerWorkedHour": 114.72449999999996,
+        "km": 55.537,
+        "completed": 5,
+        "late": 3,
+        "delayMinutes": 8.066666666666666,
+        "etaErrorMinutes": 8.066666666666666,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150041,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 377.4870000000001,
+        "netPerWorkedHour": 118.57195707180875,
+        "km": 87.45399999999998,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 2.7666666666666666,
+        "etaErrorMinutes": 2.7666666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 510.5740845375723,
+        "netPerWorkedHour": 170.19136151252408,
+        "km": 55.42798121387283,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 4.9,
+        "etaErrorMinutes": 4.9,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150042,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 106.27249999999992,
+        "netPerWorkedHour": 33.556793263748766,
+        "km": 112.95499999999997,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 3.6500000000000004,
+        "etaErrorMinutes": 3.75,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 205.2310000000001,
+        "netPerWorkedHour": 64.96936334857548,
+        "km": 60.602000000000004,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 0.38333333333333336,
+        "etaErrorMinutes": 3.8,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150043,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 227.88849999999996,
+        "netPerWorkedHour": 68.10547899717747,
+        "km": 100.08700000000002,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 3.0166666666666666,
+        "etaErrorMinutes": 11.9,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 449.3585,
+        "netPerWorkedHour": 148.49372131448504,
+        "km": 72.68699999999997,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 8.983333333333334,
+        "etaErrorMinutes": 11.5,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150044,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 166.40699999999998,
+        "netPerWorkedHour": 53.46409638554216,
+        "km": 97.33399999999997,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 2.8666666666666667,
+        "etaErrorMinutes": 7.1,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 562.9880322147651,
+        "netPerWorkedHour": 168.95272724017624,
+        "km": 69.80932617449663,
+        "completed": 7,
+        "late": 2,
+        "delayMinutes": 7.8,
+        "etaErrorMinutes": 12.383333333333335,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150045,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 330.7960000000001,
+        "netPerWorkedHour": 107.20792221822113,
+        "km": 96.572,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 8.633333333333335,
+        "etaErrorMinutes": 9.533333333333335,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 357.9891334134615,
+        "netPerWorkedHour": 119.3297111378205,
+        "km": 59.084637019230776,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 2.183333333333333,
+        "etaErrorMinutes": 4.183333333333334,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150046,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 77.06950000000006,
+        "netPerWorkedHour": 24.81665474060825,
+        "km": 109.78900000000002,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 5,
+        "etaErrorMinutes": 6.433333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 265.2487400530504,
+        "netPerWorkedHour": 87.52479048496622,
+        "km": 39.27583554376658,
+        "completed": 4,
+        "late": 1,
+        "delayMinutes": 11.183333333333334,
+        "etaErrorMinutes": 13.35,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150047,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 103.88050000000021,
+        "netPerWorkedHour": 33.10346109586623,
+        "km": 114.21099999999998,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 1.85,
+        "etaErrorMinutes": 7.316666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 276.5107047244094,
+        "netPerWorkedHour": 84.20933398256271,
+        "km": 70.68873228346457,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 8.466666666666667,
+        "etaErrorMinutes": 8.466666666666667,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150048,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": -52.40499999999986,
+        "netPerWorkedHour": -14.343343723865239,
+        "km": 130.92999999999998,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 5.083333333333333,
+        "etaErrorMinutes": 11.883333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 313.3059999999999,
+        "netPerWorkedHour": 104.4353333333333,
+        "km": 70.95199999999998,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 3,
+        "etaErrorMinutes": 4.516666666666667,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150049,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 95.15649999999982,
+        "netPerWorkedHour": 29.329058219178027,
+        "km": 108.023,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 9.633333333333333,
+        "etaErrorMinutes": 14.366666666666665,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 236.54299999999995,
+        "netPerWorkedHour": 78.04553203189441,
+        "km": 59.105999999999995,
+        "completed": 5,
+        "late": 0,
+        "delayMinutes": 0.26666666666666666,
+        "etaErrorMinutes": 0.5833333333333333,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150050,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 228.3959999999999,
+        "netPerWorkedHour": 71.77248603351953,
+        "km": 96.392,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 2.4166666666666665,
+        "etaErrorMinutes": 6.916666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 242.96600000000007,
+        "netPerWorkedHour": 78.10318778462364,
+        "km": 54.01199999999999,
+        "completed": 5,
+        "late": 0,
+        "delayMinutes": 0.4,
+        "etaErrorMinutes": 1.3833333333333333,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150051,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 79.39199999999994,
+        "netPerWorkedHour": 25.05357643758764,
+        "km": 107.10399999999998,
+        "completed": 5,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 5.233333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 485.722258650519,
+        "netPerWorkedHour": 142.463755185096,
+        "km": 89.015053633218,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 5.316666666666666,
+        "etaErrorMinutes": 7.466666666666667,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150052,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 283.5955000000002,
+        "netPerWorkedHour": 83.11167372191474,
+        "km": 108.58099999999999,
+        "completed": 7,
+        "late": 3,
+        "delayMinutes": 10.533333333333333,
+        "etaErrorMinutes": 14.633333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 445.75435918234916,
+        "netPerWorkedHour": 142.5653600796426,
+        "km": 90.70792018170017,
+        "completed": 7,
+        "late": 3,
+        "delayMinutes": 7.366666666666667,
+        "etaErrorMinutes": 15.666666666666668,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150053,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 85.44700000000012,
+        "netPerWorkedHour": 26.011263318112672,
+        "km": 116.39399999999998,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 2.283333333333333,
+        "etaErrorMinutes": 11.933333333333332,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 352.29999999999995,
+        "netPerWorkedHour": 117.43333333333332,
+        "km": 64.28,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 2.5,
+        "etaErrorMinutes": 7.183333333333334,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150054,
+      "vehicle": "car",
+      "scenario": "normal",
+      "BASELINE": {
+        "net": 204.5739999999999,
+        "netPerWorkedHour": 61.418263697773305,
+        "km": 93.10800000000003,
+        "completed": 6,
+        "late": 4,
+        "delayMinutes": 13.166666666666664,
+        "etaErrorMinutes": 13.166666666666664,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 412.5612420814481,
+        "netPerWorkedHour": 129.6796011082872,
+        "km": 63.07972398190044,
+        "completed": 7,
+        "late": 3,
+        "delayMinutes": 6.15,
+        "etaErrorMinutes": 6.15,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150037,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 148.3675,
+        "netPerWorkedHour": 40.120408623150304,
+        "km": 106.86500000000001,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 6.633333333333334,
+        "etaErrorMinutes": 27.15,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 255.547,
+        "netPerWorkedHour": 85.18233333333333,
+        "km": 50.494,
+        "completed": 4,
+        "late": 1,
+        "delayMinutes": 2.8166666666666664,
+        "etaErrorMinutes": 7.133333333333333,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150038,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 98.89150000000001,
+        "netPerWorkedHour": 28.398962986598598,
+        "km": 94.71300000000001,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 5.466666666666667,
+        "etaErrorMinutes": 5.783333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 483.0979522464612,
+        "netPerWorkedHour": 155.58710217277334,
+        "km": 76.46934394523086,
+        "completed": 7,
+        "late": 2,
+        "delayMinutes": 6.1,
+        "etaErrorMinutes": 13.466666666666665,
+        "batched": 2
+      }
+    },
+    {
+      "seed": 150039,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": -4.594500000000039,
+        "netPerWorkedHour": -1.4134506921893812,
+        "km": 108.06100000000002,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 4.116666666666667,
+        "etaErrorMinutes": 5.116666666666667,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 441.932,
+        "netPerWorkedHour": 147.31066666666666,
+        "km": 53.144,
+        "completed": 6,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 3.4,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150040,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 29.415499999999952,
+        "netPerWorkedHour": 9.198731758165376,
+        "km": 110.14100000000003,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 10.466666666666667,
+        "etaErrorMinutes": 16.433333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 318.2514999999999,
+        "netPerWorkedHour": 96.814720297448,
+        "km": 60.373,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 1.7666666666666666,
+        "etaErrorMinutes": 7.266666666666667,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150041,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 423.6295,
+        "netPerWorkedHour": 136.82632334469764,
+        "km": 70.60900000000001,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 3.033333333333333,
+        "etaErrorMinutes": 8.566666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 514.7245,
+        "netPerWorkedHour": 171.57483333333334,
+        "km": 44.03899999999999,
+        "completed": 5,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 2.6333333333333333,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150042,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 155.12049999999994,
+        "netPerWorkedHour": 49.67830264211367,
+        "km": 93.211,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 14.166666666666666,
+        "etaErrorMinutes": 17.666666666666664,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 205.2310000000001,
+        "netPerWorkedHour": 64.96936334857548,
+        "km": 60.60199999999999,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 0.38333333333333336,
+        "etaErrorMinutes": 13.85,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150043,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 202.17200000000003,
+        "netPerWorkedHour": 52.928456112282745,
+        "km": 116.26400000000001,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 3.0166666666666666,
+        "etaErrorMinutes": 16.483333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 453.42150000000004,
+        "netPerWorkedHour": 149.8363686432899,
+        "km": 74.193,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 8.983333333333334,
+        "etaErrorMinutes": 13.25,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150044,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": -40.6760000000001,
+        "netPerWorkedHour": -10.825282767797765,
+        "km": 122.34800000000003,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 4.883333333333334,
+        "etaErrorMinutes": 20.766666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 562.9880322147651,
+        "netPerWorkedHour": 168.95272724017624,
+        "km": 69.80932617449665,
+        "completed": 7,
+        "late": 2,
+        "delayMinutes": 7.8,
+        "etaErrorMinutes": 12.933333333333334,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150045,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 59.693499999999915,
+        "netPerWorkedHour": 19.049428242177086,
+        "km": 93.91699999999994,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 2.4833333333333334,
+        "etaErrorMinutes": 15.683333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 322.16285616438347,
+        "netPerWorkedHour": 99.8610540891838,
+        "km": 66.27269863013699,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 7.016666666666666,
+        "etaErrorMinutes": 10.283333333333333,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150046,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 89.10399999999998,
+        "netPerWorkedHour": 29.701333333333327,
+        "km": 90.90799999999999,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 4.8,
+        "etaErrorMinutes": 6.416666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 265.2487400530504,
+        "netPerWorkedHour": 87.52479048496622,
+        "km": 39.275835543766576,
+        "completed": 4,
+        "late": 2,
+        "delayMinutes": 17.466666666666665,
+        "etaErrorMinutes": 19.633333333333333,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150047,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 214.28949999999998,
+        "netPerWorkedHour": 61.007686832740205,
+        "km": 104.94899999999998,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 15.683333333333334,
+        "etaErrorMinutes": 26.266666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 276.5107047244094,
+        "netPerWorkedHour": 84.20933398256271,
+        "km": 70.68873228346457,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 7.566666666666666,
+        "etaErrorMinutes": 7.766666666666667,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150048,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 56.01100000000008,
+        "netPerWorkedHour": 16.185551452881704,
+        "km": 112.98200000000003,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 3.833333333333333,
+        "etaErrorMinutes": 12.45,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 380.44341226600255,
+        "netPerWorkedHour": 126.81447075533418,
+        "km": 74.15479727422164,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 5.6,
+        "etaErrorMinutes": 7.0166666666666675,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150049,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 70.07150000000001,
+        "netPerWorkedHour": 21.07941840060166,
+        "km": 107.17300000000002,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 10.683333333333334,
+        "etaErrorMinutes": 23,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 356.901,
+        "netPerWorkedHour": 110.00373287671233,
+        "km": 69.322,
+        "completed": 6,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 4.216666666666667,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150050,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 117.60450000000014,
+        "netPerWorkedHour": 35.66775063184503,
+        "km": 108.57899999999998,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 4.766666666666667,
+        "etaErrorMinutes": 12.483333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 247.26845412418908,
+        "netPerWorkedHour": 82.42281804139635,
+        "km": 60.86701019462465,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 4.5,
+        "etaErrorMinutes": 8.55,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150051,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 79.39199999999994,
+        "netPerWorkedHour": 25.05357643758764,
+        "km": 107.10399999999998,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 2.8,
+        "etaErrorMinutes": 12.033333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 272.1764999999999,
+        "netPerWorkedHour": 87.65748792270529,
+        "km": 59.40299999999999,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 11.450000000000001,
+        "etaErrorMinutes": 11.850000000000001,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150052,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 62.53700000000015,
+        "netPerWorkedHour": 18.75797367105487,
+        "km": 108.75399999999999,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 14.15,
+        "etaErrorMinutes": 18.78333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 372.9204999999997,
+        "netPerWorkedHour": 119.27094882729203,
+        "km": 86.031,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 5.4,
+        "etaErrorMinutes": 15.383333333333333,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150053,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 87.5385,
+        "netPerWorkedHour": 29.1795,
+        "km": 87.40700000000002,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 14.916666666666666,
+        "etaErrorMinutes": 14.916666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 352.9958556338028,
+        "netPerWorkedHour": 117.6652852112676,
+        "km": 63.96314319248828,
+        "completed": 6,
+        "late": 3,
+        "delayMinutes": 7.866666666666666,
+        "etaErrorMinutes": 12.366666666666665,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150054,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "BASELINE": {
+        "net": 199.03399999999993,
+        "netPerWorkedHour": 62.84181722504822,
+        "km": 84.508,
+        "completed": 6,
+        "late": 3,
+        "delayMinutes": 7.300000000000001,
+        "etaErrorMinutes": 10.733333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 412.55914122137415,
+        "netPerWorkedHour": 129.67894074888213,
+        "km": 63.080190839694644,
+        "completed": 7,
+        "late": 3,
+        "delayMinutes": 6.883333333333333,
+        "etaErrorMinutes": 6.883333333333333,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150037,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 91.39443845303867,
+        "netPerWorkedHour": 28.19848975239452,
+        "km": 90.28345812154696,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 10.75,
+        "etaErrorMinutes": 18.016666666666666,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 192.4116794169998,
+        "netPerWorkedHour": 64.13722647233327,
+        "km": 64.52407124066671,
+        "completed": 4,
+        "late": 2,
+        "delayMinutes": 5.766666666666667,
+        "etaErrorMinutes": 9.366666666666667,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150038,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": -11.007297334268628,
+        "netPerWorkedHour": -3.547879882117205,
+        "km": 95.67495496317085,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 4.75,
+        "etaErrorMinutes": 25.7,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 425.4891936480822,
+        "netPerWorkedHour": 120.64910973008003,
+        "km": 71.14684585598171,
+        "completed": 6,
+        "late": 4,
+        "delayMinutes": 17.28333333333333,
+        "etaErrorMinutes": 17.28333333333333,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150039,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": -17.296426005961223,
+        "netPerWorkedHour": -5.234291662866545,
+        "km": 110.92365022354691,
+        "completed": 6,
+        "late": 3,
+        "delayMinutes": 17.416666666666668,
+        "etaErrorMinutes": 17.416666666666668,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 355.50304740717525,
+        "netPerWorkedHour": 118.50101580239175,
+        "km": 48.16821168729438,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 3.9499999999999997,
+        "etaErrorMinutes": 11.416666666666666,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150040,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": -34.574262250166896,
+        "netPerWorkedHour": -10.336102316940776,
+        "km": 99.7365027222593,
+        "completed": 6,
+        "late": 3,
+        "delayMinutes": 21,
+        "etaErrorMinutes": 51.4,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 127.45089631728045,
+        "netPerWorkedHour": 42.48363210576015,
+        "km": 13.835356373937676,
+        "completed": 2,
+        "late": 2,
+        "delayMinutes": 4.05,
+        "etaErrorMinutes": 4.05,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150041,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 303.92481086724223,
+        "netPerWorkedHour": 88.2291201614444,
+        "km": 97.96115314061284,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 6.5,
+        "etaErrorMinutes": 18.433333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 463.70901853110774,
+        "netPerWorkedHour": 154.5696728437026,
+        "km": 55.37577365975385,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 6.233333333333333,
+        "etaErrorMinutes": 10.333333333333332,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150042,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 69.811260278997,
+        "netPerWorkedHour": 19.292280417931156,
+        "km": 115.91083104911178,
+        "completed": 7,
+        "late": 2,
+        "delayMinutes": 12.483333333333334,
+        "etaErrorMinutes": 22.933333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 45.34682272727274,
+        "netPerWorkedHour": 15.11560757575758,
+        "km": 18.027372727272724,
+        "completed": 1,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 2.6,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150043,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 297.5911338798878,
+        "netPerWorkedHour": 88.91427354698283,
+        "km": 104.55308136002489,
+        "completed": 6,
+        "late": 1,
+        "delayMinutes": 12.983333333333334,
+        "etaErrorMinutes": 25.933333333333337,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 341.6141338798878,
+        "netPerWorkedHour": 113.8713779599626,
+        "km": 81.25908136002491,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 12.983333333333334,
+        "etaErrorMinutes": 22.333333333333336,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150044,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 27.46208320015677,
+        "netPerWorkedHour": 8.277252136684893,
+        "km": 112.83731484440963,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 23.916666666666668,
+        "etaErrorMinutes": 52.9,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 357.49848067078545,
+        "netPerWorkedHour": 119.16616022359516,
+        "km": 65.75367096204765,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 5.833333333333333,
+        "etaErrorMinutes": 6.533333333333332,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150045,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 334.8942453739612,
+        "netPerWorkedHour": 108.00136910743171,
+        "km": 88.5523899168975,
+        "completed": 7,
+        "late": 1,
+        "delayMinutes": 6.416666666666667,
+        "etaErrorMinutes": 8.633333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 312.7067160051217,
+        "netPerWorkedHour": 96.92158223146258,
+        "km": 68.4985075544174,
+        "completed": 6,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 5.1,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150046,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": -70.73335623711421,
+        "netPerWorkedHour": -21.135465011089902,
+        "km": 109.11407916380318,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 16.183333333333334,
+        "etaErrorMinutes": 40.15,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 176.87329784172655,
+        "netPerWorkedHour": 55.57199094346444,
+        "km": 38.92593381294964,
+        "completed": 4,
+        "late": 0,
+        "delayMinutes": 0,
+        "etaErrorMinutes": 1.4500000000000002,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150047,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": -13.309791229041593,
+        "netPerWorkedHour": -4.013338506118581,
+        "km": 123.44662027312037,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 4.416666666666667,
+        "etaErrorMinutes": 21.7,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 296.96845398953747,
+        "netPerWorkedHour": 90.43959346606336,
+        "km": 65.64034355788051,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 8.2,
+        "etaErrorMinutes": 9.933333333333334,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150048,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 131.28180829174408,
+        "netPerWorkedHour": 41.8094930865427,
+        "km": 111.45737593516802,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 21.400000000000002,
+        "etaErrorMinutes": 34.733333333333334,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 329.72051432706223,
+        "netPerWorkedHour": 109.90683810902074,
+        "km": 69.4909968162084,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 7.85,
+        "etaErrorMinutes": 18.866666666666667,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150049,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": -76.3017065749595,
+        "netPerWorkedHour": -25.113013683475423,
+        "km": 107.08926812776869,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 3.5166666666666666,
+        "etaErrorMinutes": 36.449999999999996,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 146.7614891089109,
+        "netPerWorkedHour": 48.920496369636965,
+        "km": 43.51078019801981,
+        "completed": 3,
+        "late": 2,
+        "delayMinutes": 12.05,
+        "etaErrorMinutes": 12.05,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150050,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 74.75175714285729,
+        "netPerWorkedHour": 22.347311552423704,
+        "km": 115.19960952380953,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 7.1,
+        "etaErrorMinutes": 45.25,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 190.4958000000001,
+        "netPerWorkedHour": 61.23626038039114,
+        "km": 47.427600000000005,
+        "completed": 4,
+        "late": 1,
+        "delayMinutes": 9.316666666666666,
+        "etaErrorMinutes": 10.299999999999999,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150051,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 118.0441942990202,
+        "netPerWorkedHour": 39.348064766340066,
+        "km": 103.85462348910664,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 5.1,
+        "etaErrorMinutes": 25.46666666666667,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 396.07742685934977,
+        "netPerWorkedHour": 127.56116807064404,
+        "km": 60.26946069792225,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 4,
+        "etaErrorMinutes": 16.25,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150052,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 75.30629897138266,
+        "netPerWorkedHour": 24.778601251894486,
+        "km": 101.503044673026,
+        "completed": 5,
+        "late": 1,
+        "delayMinutes": 3.7666666666666666,
+        "etaErrorMinutes": 15.816666666666665,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 391.43573412155985,
+        "netPerWorkedHour": 130.47857804051995,
+        "km": 70.3898368618756,
+        "completed": 6,
+        "late": 3,
+        "delayMinutes": 5.8999999999999995,
+        "etaErrorMinutes": 5.8999999999999995,
+        "batched": 1
+      }
+    },
+    {
+      "seed": 150053,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": -28.737268127751122,
+        "netPerWorkedHour": -8.292919058910144,
+        "km": 127.70383736172246,
+        "completed": 5,
+        "late": 2,
+        "delayMinutes": 6.033333333333333,
+        "etaErrorMinutes": 19.383333333333333,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 166.9568,
+        "netPerWorkedHour": 55.65226666666666,
+        "km": 42.14960000000001,
+        "completed": 3,
+        "late": 1,
+        "delayMinutes": 1.25,
+        "etaErrorMinutes": 8.3,
+        "batched": 0
+      }
+    },
+    {
+      "seed": 150054,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "BASELINE": {
+        "net": 183.78325055035265,
+        "netPerWorkedHour": 57.702747425542434,
+        "km": 90.97483321103273,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 6.983333333333333,
+        "etaErrorMinutes": 10.966666666666667,
+        "batched": 0
+      },
+      "SMARTCOURIER": {
+        "net": 281.52470611764704,
+        "netPerWorkedHour": 88.49113263105993,
+        "km": 62.59228752941175,
+        "completed": 6,
+        "late": 2,
+        "delayMinutes": 6.866666666666667,
+        "etaErrorMinutes": 16.033333333333335,
+        "batched": 0
+      }
+    }
+  ]
+}

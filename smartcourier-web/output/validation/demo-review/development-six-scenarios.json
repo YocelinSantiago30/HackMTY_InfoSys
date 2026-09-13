@@ -1,0 +1,232 @@
+{
+  "summary": {
+    "runs": 6,
+    "beforeMean": 483.33,
+    "afterMean": 449.5,
+    "baselineMean": 264.02,
+    "positive": 6,
+    "wins": 6,
+    "ties": 0,
+    "losses": 0,
+    "beforeLate": 4,
+    "afterLate": 5
+  },
+  "rows": [
+    {
+      "seed": 161001,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "routeSources": [
+        "ROUTED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 408.74,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 15
+        },
+        "SMARTCOURIER": {
+          "net": 696.57,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 39.23
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 408.74,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 15
+        },
+        "SMARTCOURIER": {
+          "net": 612.67,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 40.28
+        }
+      }
+    },
+    {
+      "seed": 161002,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "routeSources": [
+        "ROUTED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 281.27,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 6.63
+        },
+        "SMARTCOURIER": {
+          "net": 487.14,
+          "completed": 5,
+          "late": 0,
+          "idleMinutes": 27.43
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 281.27,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 6.63
+        },
+        "SMARTCOURIER": {
+          "net": 316.35,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 20.23
+        }
+      }
+    },
+    {
+      "seed": 161003,
+      "vehicle": "car",
+      "scenario": "normal",
+      "routeSources": [
+        "ROUTED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 180.23,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 13.75
+        },
+        "SMARTCOURIER": {
+          "net": 576.61,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 53.25
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 180.23,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 13.75
+        },
+        "SMARTCOURIER": {
+          "net": 576.61,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 53.25
+        }
+      }
+    },
+    {
+      "seed": 161004,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "routeSources": [
+        "ROUTED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 382.68,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 10.6
+        },
+        "SMARTCOURIER": {
+          "net": 384.22,
+          "completed": 4,
+          "late": 0,
+          "idleMinutes": 61.7
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 382.68,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 10.6
+        },
+        "SMARTCOURIER": {
+          "net": 425.87,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 37.48
+        }
+      }
+    },
+    {
+      "seed": 161005,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "routeSources": [
+        "ROUTED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 285.04,
+          "completed": 2,
+          "late": 1,
+          "idleMinutes": 6.83
+        },
+        "SMARTCOURIER": {
+          "net": 456.03,
+          "completed": 2,
+          "late": 0,
+          "idleMinutes": 57.7
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 285.04,
+          "completed": 2,
+          "late": 1,
+          "idleMinutes": 6.83
+        },
+        "SMARTCOURIER": {
+          "net": 405.71,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 17.1
+        }
+      }
+    },
+    {
+      "seed": 161006,
+      "vehicle": "car",
+      "scenario": "normal",
+      "routeSources": [
+        "ROUTED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 46.18,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 14.17
+        },
+        "SMARTCOURIER": {
+          "net": 299.42,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 41.97
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 46.18,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 14.17
+        },
+        "SMARTCOURIER": {
+          "net": 359.8,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 60.53
+        }
+      }
+    }
+  ]
+}

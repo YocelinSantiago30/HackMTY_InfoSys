@@ -1,0 +1,63 @@
+{
+  "date": "2026-09-12",
+  "scope": "Solo la copia smartcourier-web. Autorizado al retomar pruebas y mejorar decisiones.",
+  "files": {
+    "backend/src/courier/trip.js": {
+      "sha256": "d503675e5c0e0b9abbb1ee4e90e351af39be02dc68c143637cd701e0a8f2d7b4",
+      "reason": "Corrige costo marginal al terminar primero el pedido anterior y comprueba plazos de entrega."
+    },
+    "backend/src/courier/fastPath.js": {
+      "sha256": "f587da616e58c33fdf617c253875abeaa56d337158dc468567049cbbeeeb2cb2",
+      "reason": "Valida entradas económicas y veta viajes cuyo pago base no supera combustible, sin depender de propinas."
+    },
+    "backend/src/routes/index.js": {
+      "sha256": "31262fb384bb6e810497a83ffd9f5f2830fe2876dad59661f597b759b628f4b4",
+      "reason": "Expone el laboratorio web autenticado bajo /api/courier."
+    },
+    "backend/src/services/simulation.service.js": {
+      "sha256": "e570fe091394a1cfa610fed2d4f22c4b597432887585836ff7a568471a76668f",
+      "reason": "Añade visualState desde snapshot confirmado para recuperar el mapa en pausa."
+    },
+    "backend/scripts/compareStrategies.js": {
+      "sha256": "3f0ef9157be5f4bdcb6ca7a225dc815b40bcf76759d695d12b5732364f8afbf1",
+      "reason": "Exporta funciones de evaluación para el holdout reproducible del comparador."
+    },
+    "backend/test/courier.test.js": {
+      "sha256": "791e1856215fd20ca2ac5e55faba910bde2c7c1c4de67cbb031b0bd0e50bff01",
+      "reason": "Pruebas de pérdida sin propinas, costo marginal, entradas inválidas y plazos."
+    },
+    "backend/test/courierEndpoint.integration.test.js": {
+      "sha256": "878bbbe915048c578067f1a13ece7b4e5e611eeaabdf9c65fa2d95e29476d08f",
+      "reason": "Prueba el laboratorio web con autenticación, modelo Python real y aislamiento del turno."
+    },
+    "models/courier/strategy_model.json": {
+      "sha256": "39e9935cbfd1fe9459846ee53137a8a8c0e951389fdaa2d8b09368370e0e2bbc",
+      "reason": "Congela y versiona la selección de entrenamiento; conserva los parámetros porque las alternativas empeoraron."
+    },
+    "models/courier/training_report.json": {
+      "sha256": "5351c8ccfd6f03272931fe033a06ddafc7d128cab95afd1d6a3a4e518ff71f1c",
+      "reason": "Registra candidatos, exclusión de seeds de reporte y trazabilidad del ajuste."
+    },
+    "backend/src/agents/lookaheadPlanner.js": {
+      "reason": "Acota el horizonte al fin del turno y calcula un margen por error de muestreo pareado, aplicable solo cuando el pedido actual cubre el costo de oportunidad.",
+      "sha256": "b7b2a4c51d237ccd0ad258f617f24214913722aa4c4a2f88b97cd0bc543d1be5"
+    },
+    "backend/src/agents/smartCourierAgent.js": {
+      "reason": "Utiliza el margen explícito de incertidumbre para no esperar por diferencias débiles; conserva restricciones y cálculo de puntaje.",
+      "sha256": "68d5ec13e9ce8cd2128a9464c9653c2a91ab41f2844e2d33dbc0f54fc3fd24ca"
+    },
+    "backend/src/simulation/SimulationCore.js": {
+      "reason": "Mantiene geometría y paradas visuales de la asignación al avanzar o cambiar ETA; mide el costo marginal del batch contra la ruta real ya comprometida.",
+      "sha256": "1dc2b742ea2472ff6a0a95eb9330ffa952099dfd7da27e0dce6dc20bd3f4ec67"
+    },
+    "backend/test/smartCourierAgent.test.js": {
+      "reason": "Prueba decisiones ante pronósticos inciertos y precedencia de restricciones.",
+      "sha256": "75c080bc868a514a3ff54b1db44b9b99082142ba2d03652e9c6f81490a1ffb20"
+    },
+    "backend/test/simulationCore.test.js": {
+      "reason": "Verifica geometría fija, ausencia de consultas nuevas por tráfico, recuperación y horizonte sin pedidos fuera de turno.",
+      "sha256": "8fbff5a69ded19146c8a9cce63e965377d427696008054c80a9b33ba2a553df1"
+    }
+  },
+  "updated": "2026-09-13"
+}

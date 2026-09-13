@@ -1,0 +1,115 @@
+{
+  "runs": 1,
+  "summary": {
+    "baseline": {
+      "mean": 809.66,
+      "positive": 1,
+      "wins": 0,
+      "ties": 1,
+      "late": 1,
+      "completed": 8
+    },
+    "before": {
+      "mean": 809.66,
+      "positive": 1,
+      "wins": 0,
+      "ties": 1,
+      "late": 1,
+      "completed": 8
+    },
+    "lookahead": {
+      "mean": 686.6,
+      "positive": 1,
+      "wins": 0,
+      "ties": 0,
+      "late": 2,
+      "completed": 7
+    },
+    "score": {
+      "mean": 686.6,
+      "positive": 1,
+      "wins": 0,
+      "ties": 0,
+      "late": 2,
+      "completed": 7
+    }
+  },
+  "rows": [
+    {
+      "seed": 42026,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "routeSources": [
+        "ROUTED"
+      ],
+      "baseline": {
+        "grossEarnings": 1050.26,
+        "operatingCost": 240.60000000000002,
+        "distanceKm": 120.30000000000001,
+        "activeMinutes": 172.2833333333333,
+        "acceptedOrders": 8,
+        "rejectedOrders": 38,
+        "completedOrders": 8,
+        "cancelledOrders": 0,
+        "batchedOrders": 0,
+        "repositions": 0,
+        "lateDeliveries": 1,
+        "totalDelayMinutes": 3.4,
+        "totalEtaErrorMinutes": 5.05,
+        "overtimeMinutes": 3.1166666666666667,
+        "net": 809.66
+      },
+      "before": {
+        "grossEarnings": 1050.26,
+        "operatingCost": 240.60000000000002,
+        "distanceKm": 120.30000000000001,
+        "activeMinutes": 172.2833333333333,
+        "acceptedOrders": 8,
+        "rejectedOrders": 38,
+        "completedOrders": 8,
+        "cancelledOrders": 0,
+        "batchedOrders": 0,
+        "repositions": 0,
+        "lateDeliveries": 1,
+        "totalDelayMinutes": 3.4,
+        "totalEtaErrorMinutes": 5.05,
+        "overtimeMinutes": 3.1166666666666667,
+        "net": 809.66
+      },
+      "lookahead": {
+        "grossEarnings": 918.05,
+        "operatingCost": 231.45400000000006,
+        "distanceKm": 115.72700000000003,
+        "activeMinutes": 152.79999999999995,
+        "acceptedOrders": 7,
+        "rejectedOrders": 39,
+        "completedOrders": 7,
+        "cancelledOrders": 0,
+        "batchedOrders": 2,
+        "repositions": 0,
+        "lateDeliveries": 2,
+        "totalDelayMinutes": 3.2,
+        "totalEtaErrorMinutes": 7.6,
+        "overtimeMinutes": 0,
+        "net": 686.6
+      },
+      "score": {
+        "grossEarnings": 918.05,
+        "operatingCost": 231.45400000000006,
+        "distanceKm": 115.72700000000003,
+        "activeMinutes": 152.79999999999995,
+        "acceptedOrders": 7,
+        "rejectedOrders": 39,
+        "completedOrders": 7,
+        "cancelledOrders": 0,
+        "batchedOrders": 2,
+        "repositions": 0,
+        "lateDeliveries": 2,
+        "totalDelayMinutes": 3.2,
+        "totalEtaErrorMinutes": 7.6,
+        "overtimeMinutes": 0,
+        "net": 686.6
+      }
+    }
+  ]
+}

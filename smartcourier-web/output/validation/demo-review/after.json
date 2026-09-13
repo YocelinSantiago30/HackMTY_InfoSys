@@ -1,0 +1,5894 @@
+{
+  "seed": 42026,
+  "routeSources": [
+    "ROUTED"
+  ],
+  "metrics": {
+    "BASELINE": {
+      "grossEarnings": 1050.26,
+      "operatingCost": 240.60000000000002,
+      "distanceKm": 120.30000000000001,
+      "activeMinutes": 172.2833333333333,
+      "acceptedOrders": 8,
+      "rejectedOrders": 38,
+      "completedOrders": 8,
+      "cancelledOrders": 0,
+      "batchedOrders": 0,
+      "repositions": 0,
+      "lateDeliveries": 1,
+      "totalDelayMinutes": 3.4,
+      "totalEtaErrorMinutes": 5.05,
+      "overtimeMinutes": 3.1166666666666667,
+      "net": 809.66
+    },
+    "SMARTCOURIER": {
+      "grossEarnings": 918.05,
+      "operatingCost": 231.45400000000006,
+      "distanceKm": 115.72700000000003,
+      "activeMinutes": 152.79999999999995,
+      "acceptedOrders": 7,
+      "rejectedOrders": 39,
+      "completedOrders": 7,
+      "cancelledOrders": 0,
+      "batchedOrders": 2,
+      "repositions": 0,
+      "lateDeliveries": 2,
+      "totalDelayMinutes": 3.45,
+      "totalEtaErrorMinutes": 7.316666666666666,
+      "overtimeMinutes": 0,
+      "net": 686.6
+    }
+  },
+  "decisions": [
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 1,
+        "merchant_name": "Pollo Feliz MTY",
+        "pickup_lat": 25.725994347792785,
+        "pickup_lng": -100.30873592252327,
+        "dropoff_lat": 25.705175419631946,
+        "dropoff_lng": -100.2799890581272,
+        "base_payment": 87.87,
+        "surge_multiplier": 1.5,
+        "final_payment": 131.81,
+        "distance_km": 5.683,
+        "estimated_time_minutes": 7.16,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 4.04,
+        "estimated_preparation_minutes": 11,
+        "expiration_seconds": 122,
+        "created_at_simulation_second": 151,
+        "id": "local-1"
+      },
+      "second": 151,
+      "position": {
+        "lat": 25.6866,
+        "lng": -100.3161
+      },
+      "reasons": [
+        {
+          "criterion": "finalPayment",
+          "comparator": ">=",
+          "value": 131.81,
+          "threshold": 0,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerMinute",
+          "comparator": ">=",
+          "value": 18.41,
+          "threshold": 3,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerKm",
+          "comparator": ">=",
+          "value": 23.19,
+          "threshold": 8,
+          "passed": true
+        },
+        {
+          "criterion": "distanceKm",
+          "comparator": "<=",
+          "value": 5.683,
+          "threshold": 15,
+          "passed": true
+        }
+      ],
+      "positiveFactors": [
+        {
+          "criterion": "finalPayment",
+          "comparator": ">=",
+          "value": 131.81,
+          "threshold": 0,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerMinute",
+          "comparator": ">=",
+          "value": 18.41,
+          "threshold": 3,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerKm",
+          "comparator": ">=",
+          "value": 23.19,
+          "threshold": 8,
+          "passed": true
+        },
+        {
+          "criterion": "distanceKm",
+          "comparator": "<=",
+          "value": 5.683,
+          "threshold": 15,
+          "passed": true
+        }
+      ],
+      "negativeFactors": [],
+      "restrictions": [],
+      "estimatedImpact": {
+        "distanceToPickupKm": 4.82,
+        "toPickupMinutes": 5.02,
+        "waitMinutes": 5.98,
+        "deliveryDistanceKm": 5.68,
+        "deliveryMinutes": 7.17,
+        "totalKm": 10.5,
+        "totalMinutes": 18.17,
+        "grossPayment": 131.81,
+        "operatingCost": 21.01,
+        "netProfit": 110.8,
+        "profitPerMinute": 6.1,
+        "profitPerKm": 10.55,
+        "promisedDropoffSecond": 1241
+      },
+      "score": null,
+      "decision": "ACCEPT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 1,
+        "merchant_name": "Pollo Feliz MTY",
+        "pickup_lat": 25.725994347792785,
+        "pickup_lng": -100.30873592252327,
+        "dropoff_lat": 25.705175419631946,
+        "dropoff_lng": -100.2799890581272,
+        "base_payment": 87.87,
+        "surge_multiplier": 1.5,
+        "final_payment": 131.81,
+        "distance_km": 5.683,
+        "estimated_time_minutes": 7.16,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 4.04,
+        "estimated_preparation_minutes": 11,
+        "expiration_seconds": 122,
+        "created_at_simulation_second": 151,
+        "id": "local-1"
+      },
+      "second": 151,
+      "position": {
+        "lat": 25.6866,
+        "lng": -100.3161
+      },
+      "reasons": [
+        {
+          "factor": "PROFIT_PER_MINUTE",
+          "points": 35
+        },
+        {
+          "factor": "NET_PROFIT",
+          "points": 13.85
+        },
+        {
+          "factor": "PROFIT_PER_KM",
+          "points": 12.83
+        },
+        {
+          "factor": "TOTAL_TIME",
+          "points": 9.3
+        },
+        {
+          "factor": "DESTINATION_DEMAND",
+          "points": 10.5
+        },
+        {
+          "factor": "DISTANCE_TO_PICKUP",
+          "points": 3.97
+        }
+      ],
+      "positiveFactors": [
+        {
+          "factor": "PROFIT_PER_MINUTE",
+          "points": 35
+        },
+        {
+          "factor": "NET_PROFIT",
+          "points": 13.85
+        },
+        {
+          "factor": "PROFIT_PER_KM",
+          "points": 12.83
+        },
+        {
+          "factor": "TOTAL_TIME",
+          "points": 9.3
+        },
+        {
+          "factor": "DESTINATION_DEMAND",
+          "points": 10.5
+        }
+      ],
+      "negativeFactors": [
+        {
+          "factor": "DISTANCE_TO_PICKUP",
+          "points": 3.97
+        }
+      ],
+      "restrictions": [],
+      "estimatedImpact": {
+        "distanceToPickupKm": 4.82,
+        "toPickupMinutes": 5.02,
+        "waitMinutes": 5.98,
+        "deliveryDistanceKm": 5.68,
+        "deliveryMinutes": 7.17,
+        "totalKm": 10.5,
+        "totalMinutes": 18.17,
+        "grossPayment": 131.81,
+        "operatingCost": 21.01,
+        "netProfit": 110.8,
+        "profitPerMinute": 6.1,
+        "profitPerKm": 10.55,
+        "promisedDropoffSecond": 1241,
+        "destinationDemandAtArrival": "HIGH",
+        "lookahead": {
+          "horizonMinutes": 45,
+          "scenarios": 6,
+          "opportunityCostPerMinute": 2.5,
+          "accept": {
+            "mean": 243.92,
+            "p10": 156.71,
+            "p90": 362.3,
+            "std": 71.67
+          },
+          "wait": {
+            "mean": 159.11,
+            "p10": 100.59,
+            "p90": 266.27,
+            "std": 54.84
+          },
+          "acceptAdvantage": 84.81,
+          "advantageP10": -62.42,
+          "advantageP90": 245.81,
+          "standardError": 48.61,
+          "waitAdvantageRequired": 48.61,
+          "currentNetPerMinute": 6.1,
+          "decisionRule": "sampling_margin_when_current_rate_covers_opportunity_cost"
+        }
+      },
+      "score": 85,
+      "decision": "ACCEPT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 2,
+        "merchant_name": "Pizza Fresca",
+        "pickup_lat": 25.745987789188806,
+        "pickup_lng": -100.32123283007478,
+        "dropoff_lat": 25.724744387099445,
+        "dropoff_lng": -100.36928792174186,
+        "base_payment": 87.9,
+        "surge_multiplier": 1.1,
+        "final_payment": 96.69,
+        "distance_km": 6.951,
+        "estimated_time_minutes": 8.55,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.76,
+        "estimated_preparation_minutes": 18,
+        "expiration_seconds": 171,
+        "created_at_simulation_second": 281,
+        "id": "local-2"
+      },
+      "second": 281,
+      "position": {
+        "lat": 25.704919947609515,
+        "lng": -100.31516871230022
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 2,
+        "merchant_name": "Pizza Fresca",
+        "pickup_lat": 25.745987789188806,
+        "pickup_lng": -100.32123283007478,
+        "dropoff_lat": 25.724744387099445,
+        "dropoff_lng": -100.36928792174186,
+        "base_payment": 87.9,
+        "surge_multiplier": 1.1,
+        "final_payment": 96.69,
+        "distance_km": 6.951,
+        "estimated_time_minutes": 8.55,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.76,
+        "estimated_preparation_minutes": 18,
+        "expiration_seconds": 171,
+        "created_at_simulation_second": 281,
+        "id": "local-2"
+      },
+      "second": 281,
+      "position": {
+        "lat": 25.704919947609515,
+        "lng": -100.31516871230022
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 19.4 min y 17.1 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 17.05,
+        "additionalTime": 19.4,
+        "additionalRevenue": 96.69,
+        "additionalCost": 34.1,
+        "additionalNetProfit": 62.59,
+        "marginalProfitPerMinute": 3.23,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 2405
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 3,
+        "merchant_name": "Mariscos La Costa",
+        "pickup_lat": 25.763544789392206,
+        "pickup_lng": -100.18872073163394,
+        "dropoff_lat": 25.742589293526397,
+        "dropoff_lng": -100.23385593422582,
+        "base_payment": 88.17,
+        "surge_multiplier": 1,
+        "final_payment": 88.17,
+        "distance_km": 6.186,
+        "estimated_time_minutes": 8.3,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.39,
+        "estimated_preparation_minutes": 12,
+        "expiration_seconds": 125,
+        "created_at_simulation_second": 514,
+        "id": "local-3"
+      },
+      "second": 514,
+      "position": {
+        "lat": 25.725994347792785,
+        "lng": -100.30873592252327
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 3,
+        "merchant_name": "Mariscos La Costa",
+        "pickup_lat": 25.763544789392206,
+        "pickup_lng": -100.18872073163394,
+        "dropoff_lat": 25.742589293526397,
+        "dropoff_lng": -100.23385593422582,
+        "base_payment": 88.17,
+        "surge_multiplier": 1,
+        "final_payment": 88.17,
+        "distance_km": 6.186,
+        "estimated_time_minutes": 8.3,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.39,
+        "estimated_preparation_minutes": 12,
+        "expiration_seconds": 125,
+        "created_at_simulation_second": 514,
+        "id": "local-3"
+      },
+      "second": 514,
+      "position": {
+        "lat": 25.725994347792785,
+        "lng": -100.30873592252327
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 23.9 min y 20.3 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $47.64 netos por 23.9 min extra ($2.00/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 20.27,
+        "additionalTime": 23.87,
+        "additionalRevenue": 88.17,
+        "additionalCost": 40.53,
+        "additionalNetProfit": 47.64,
+        "marginalProfitPerMinute": 2,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 2673
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 4,
+        "merchant_name": "Pizza Fresca",
+        "pickup_lat": 25.69758079086414,
+        "pickup_lng": -100.33400872082704,
+        "dropoff_lat": 25.655956692187335,
+        "dropoff_lng": -100.34748794418215,
+        "base_payment": 94.22,
+        "surge_multiplier": 1,
+        "final_payment": 94.22,
+        "distance_km": 6.537,
+        "estimated_time_minutes": 8,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "HIGH",
+        "package_size": "SMALL",
+        "package_weight": 0.83,
+        "estimated_preparation_minutes": 9,
+        "expiration_seconds": 109,
+        "created_at_simulation_second": 671,
+        "id": "local-4"
+      },
+      "second": 671,
+      "position": {
+        "lat": 25.725994347792785,
+        "lng": -100.30873592252327
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 4,
+        "merchant_name": "Pizza Fresca",
+        "pickup_lat": 25.69758079086414,
+        "pickup_lng": -100.33400872082704,
+        "dropoff_lat": 25.655956692187335,
+        "dropoff_lng": -100.34748794418215,
+        "base_payment": 94.22,
+        "surge_multiplier": 1,
+        "final_payment": 94.22,
+        "distance_km": 6.537,
+        "estimated_time_minutes": 8,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "HIGH",
+        "package_size": "SMALL",
+        "package_weight": 0.83,
+        "estimated_preparation_minutes": 9,
+        "expiration_seconds": 109,
+        "created_at_simulation_second": 671,
+        "id": "local-4"
+      },
+      "second": 671,
+      "position": {
+        "lat": 25.725994347792785,
+        "lng": -100.30873592252327
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 16.8 min y 13.3 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 13.34,
+        "additionalTime": 16.8,
+        "additionalRevenue": 94.22,
+        "additionalCost": 26.69,
+        "additionalNetProfit": 67.53,
+        "marginalProfitPerMinute": 4.02,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 2249
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 5,
+        "merchant_name": "Mariscos La Costa",
+        "pickup_lat": 25.754940205944617,
+        "pickup_lng": -100.29012758787302,
+        "dropoff_lat": 25.728892892750807,
+        "dropoff_lng": -100.2942814881281,
+        "base_payment": 53.82,
+        "surge_multiplier": 1.2,
+        "final_payment": 64.58,
+        "distance_km": 4.037,
+        "estimated_time_minutes": 6.2,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 0.61,
+        "estimated_preparation_minutes": 15,
+        "expiration_seconds": 108,
+        "created_at_simulation_second": 917,
+        "id": "local-5"
+      },
+      "second": 917,
+      "position": {
+        "lat": 25.730262147556044,
+        "lng": -100.3036800777628
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 5,
+        "merchant_name": "Mariscos La Costa",
+        "pickup_lat": 25.754940205944617,
+        "pickup_lng": -100.29012758787302,
+        "dropoff_lat": 25.728892892750807,
+        "dropoff_lng": -100.2942814881281,
+        "base_payment": 53.82,
+        "surge_multiplier": 1.2,
+        "final_payment": 64.58,
+        "distance_km": 4.037,
+        "estimated_time_minutes": 6.2,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 0.61,
+        "estimated_preparation_minutes": 15,
+        "expiration_seconds": 108,
+        "created_at_simulation_second": 917,
+        "id": "local-5"
+      },
+      "second": 917,
+      "position": {
+        "lat": 25.730262147556044,
+        "lng": -100.3036800777628
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 16.6 min y 11.5 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $41.64 netos por 16.6 min extra ($2.51/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 11.47,
+        "additionalTime": 16.62,
+        "additionalRevenue": 64.58,
+        "additionalCost": 22.94,
+        "additionalNetProfit": 41.64,
+        "marginalProfitPerMinute": 2.51,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 2238
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 6,
+        "merchant_name": "Café Barrio",
+        "pickup_lat": 25.777929342364644,
+        "pickup_lng": -100.18214693445405,
+        "dropoff_lat": 25.7857415853666,
+        "dropoff_lng": -100.19636200814247,
+        "base_payment": 47.63,
+        "surge_multiplier": 1,
+        "final_payment": 47.63,
+        "distance_km": 3.008,
+        "estimated_time_minutes": 4.51,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "MEDIUM",
+        "priority": "HIGH",
+        "package_size": "LARGE",
+        "package_weight": 6.87,
+        "estimated_preparation_minutes": 18,
+        "expiration_seconds": 101,
+        "created_at_simulation_second": 1177,
+        "id": "local-6"
+      },
+      "second": 1177,
+      "position": {
+        "lat": 25.71038890397444,
+        "lng": -100.27746866795637
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 6,
+        "merchant_name": "Café Barrio",
+        "pickup_lat": 25.777929342364644,
+        "pickup_lng": -100.18214693445405,
+        "dropoff_lat": 25.7857415853666,
+        "dropoff_lng": -100.19636200814247,
+        "base_payment": 47.63,
+        "surge_multiplier": 1,
+        "final_payment": 47.63,
+        "distance_km": 3.008,
+        "estimated_time_minutes": 4.51,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "MEDIUM",
+        "priority": "HIGH",
+        "package_size": "LARGE",
+        "package_weight": 6.87,
+        "estimated_preparation_minutes": 18,
+        "expiration_seconds": 101,
+        "created_at_simulation_second": 1177,
+        "id": "local-6"
+      },
+      "second": 1177,
+      "position": {
+        "lat": 25.71038890397444,
+        "lng": -100.27746866795637
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 22.6 min y 19.6 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $8.34 netos por 22.6 min extra ($0.37/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 19.65,
+        "additionalTime": 22.58,
+        "additionalRevenue": 47.63,
+        "additionalCost": 39.29,
+        "additionalNetProfit": 8.34,
+        "marginalProfitPerMinute": 0.37,
+        "maxLateMinutesVsPromise": 0.52,
+        "promisedDropoffSecond": 2596
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 7,
+        "merchant_name": "Mariscos La Costa",
+        "pickup_lat": 25.661889392237626,
+        "pickup_lng": -100.32953984526823,
+        "dropoff_lat": 25.685511865902715,
+        "dropoff_lng": -100.28437287076993,
+        "base_payment": 130.05,
+        "surge_multiplier": 1.5,
+        "final_payment": 195.08,
+        "distance_km": 8.964,
+        "estimated_time_minutes": 9.55,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 4.88,
+        "estimated_preparation_minutes": 17,
+        "expiration_seconds": 90,
+        "created_at_simulation_second": 1334,
+        "id": "local-7"
+      },
+      "second": 1334,
+      "position": {
+        "lat": 25.705175419631946,
+        "lng": -100.2799890581272
+      },
+      "reasons": [
+        {
+          "criterion": "finalPayment",
+          "comparator": ">=",
+          "value": 195.08,
+          "threshold": 0,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerMinute",
+          "comparator": ">=",
+          "value": 20.43,
+          "threshold": 3,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerKm",
+          "comparator": ">=",
+          "value": 21.76,
+          "threshold": 8,
+          "passed": true
+        },
+        {
+          "criterion": "distanceKm",
+          "comparator": "<=",
+          "value": 8.964,
+          "threshold": 15,
+          "passed": true
+        }
+      ],
+      "positiveFactors": [
+        {
+          "criterion": "finalPayment",
+          "comparator": ">=",
+          "value": 195.08,
+          "threshold": 0,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerMinute",
+          "comparator": ">=",
+          "value": 20.43,
+          "threshold": 3,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerKm",
+          "comparator": ">=",
+          "value": 21.76,
+          "threshold": 8,
+          "passed": true
+        },
+        {
+          "criterion": "distanceKm",
+          "comparator": "<=",
+          "value": 8.964,
+          "threshold": 15,
+          "passed": true
+        }
+      ],
+      "negativeFactors": [],
+      "restrictions": [],
+      "estimatedImpact": {
+        "distanceToPickupKm": 9.58,
+        "toPickupMinutes": 10.25,
+        "waitMinutes": 6.75,
+        "deliveryDistanceKm": 8.96,
+        "deliveryMinutes": 9.55,
+        "totalKm": 18.54,
+        "totalMinutes": 26.55,
+        "grossPayment": 195.08,
+        "operatingCost": 37.08,
+        "netProfit": 158,
+        "profitPerMinute": 5.95,
+        "profitPerKm": 8.52,
+        "promisedDropoffSecond": 2927
+      },
+      "score": null,
+      "decision": "ACCEPT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 7,
+        "merchant_name": "Mariscos La Costa",
+        "pickup_lat": 25.661889392237626,
+        "pickup_lng": -100.32953984526823,
+        "dropoff_lat": 25.685511865902715,
+        "dropoff_lng": -100.28437287076993,
+        "base_payment": 130.05,
+        "surge_multiplier": 1.5,
+        "final_payment": 195.08,
+        "distance_km": 8.964,
+        "estimated_time_minutes": 9.55,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 4.88,
+        "estimated_preparation_minutes": 17,
+        "expiration_seconds": 90,
+        "created_at_simulation_second": 1334,
+        "id": "local-7"
+      },
+      "second": 1334,
+      "position": {
+        "lat": 25.705175419631946,
+        "lng": -100.2799890581272
+      },
+      "reasons": [
+        {
+          "factor": "PROFIT_PER_MINUTE",
+          "points": 35
+        },
+        {
+          "factor": "NET_PROFIT",
+          "points": 15
+        },
+        {
+          "factor": "PROFIT_PER_KM",
+          "points": 9.78
+        },
+        {
+          "factor": "TOTAL_TIME",
+          "points": 7.43
+        },
+        {
+          "factor": "DESTINATION_DEMAND",
+          "points": 10.5
+        },
+        {
+          "factor": "DISTANCE_TO_PICKUP",
+          "points": 0
+        }
+      ],
+      "positiveFactors": [
+        {
+          "factor": "PROFIT_PER_MINUTE",
+          "points": 35
+        },
+        {
+          "factor": "NET_PROFIT",
+          "points": 15
+        },
+        {
+          "factor": "PROFIT_PER_KM",
+          "points": 9.78
+        },
+        {
+          "factor": "TOTAL_TIME",
+          "points": 7.43
+        },
+        {
+          "factor": "DESTINATION_DEMAND",
+          "points": 10.5
+        }
+      ],
+      "negativeFactors": [
+        {
+          "factor": "DISTANCE_TO_PICKUP",
+          "points": 0
+        }
+      ],
+      "restrictions": [],
+      "estimatedImpact": {
+        "distanceToPickupKm": 9.58,
+        "toPickupMinutes": 10.25,
+        "waitMinutes": 6.75,
+        "deliveryDistanceKm": 8.96,
+        "deliveryMinutes": 9.55,
+        "totalKm": 18.54,
+        "totalMinutes": 26.55,
+        "grossPayment": 195.08,
+        "operatingCost": 37.08,
+        "netProfit": 158,
+        "profitPerMinute": 5.95,
+        "profitPerKm": 8.52,
+        "promisedDropoffSecond": 2927,
+        "destinationDemandAtArrival": "HIGH",
+        "lookahead": {
+          "horizonMinutes": 45,
+          "scenarios": 6,
+          "opportunityCostPerMinute": 2.5,
+          "accept": {
+            "mean": 238.33,
+            "p10": 208.79,
+            "p90": 284.01,
+            "std": 27.34
+          },
+          "wait": {
+            "mean": 132.33,
+            "p10": 60.28,
+            "p90": 195.53,
+            "std": 47.29
+          },
+          "acceptAdvantage": 106,
+          "advantageP10": 31.91,
+          "advantageP90": 148.51,
+          "standardError": 18.89,
+          "waitAdvantageRequired": 18.89,
+          "currentNetPerMinute": 5.95,
+          "decisionRule": "sampling_margin_when_current_rate_covers_opportunity_cost"
+        }
+      },
+      "score": 78,
+      "decision": "ACCEPT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 8,
+        "merchant_name": "Café Barrio",
+        "pickup_lat": 25.735585772216808,
+        "pickup_lng": -100.3498108310163,
+        "dropoff_lat": 25.75873631537565,
+        "dropoff_lng": -100.36816431123842,
+        "base_payment": 57.28,
+        "surge_multiplier": 1,
+        "final_payment": 57.28,
+        "distance_km": 3.746,
+        "estimated_time_minutes": 4,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "LARGE",
+        "package_weight": 7.42,
+        "estimated_preparation_minutes": 13,
+        "expiration_seconds": 120,
+        "created_at_simulation_second": 1492,
+        "id": "local-8"
+      },
+      "second": 1492,
+      "position": {
+        "lat": 25.70406061111409,
+        "lng": -100.30222265137041
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 8,
+        "merchant_name": "Café Barrio",
+        "pickup_lat": 25.735585772216808,
+        "pickup_lng": -100.3498108310163,
+        "dropoff_lat": 25.75873631537565,
+        "dropoff_lng": -100.36816431123842,
+        "base_payment": 57.28,
+        "surge_multiplier": 1,
+        "final_payment": 57.28,
+        "distance_km": 3.746,
+        "estimated_time_minutes": 4,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "LARGE",
+        "package_weight": 7.42,
+        "estimated_preparation_minutes": 13,
+        "expiration_seconds": 120,
+        "created_at_simulation_second": 1492,
+        "id": "local-8"
+      },
+      "second": 1492,
+      "position": {
+        "lat": 25.70406061111409,
+        "lng": -100.30222265137041
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 16.6 min y 14.9 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $27.43 netos por 16.6 min extra ($1.65/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 14.93,
+        "additionalTime": 16.62,
+        "additionalRevenue": 57.28,
+        "additionalCost": 29.85,
+        "additionalNetProfit": 27.43,
+        "marginalProfitPerMinute": 1.65,
+        "maxLateMinutesVsPromise": 0.78,
+        "promisedDropoffSecond": 3924
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 9,
+        "merchant_name": "Café Barrio",
+        "pickup_lat": 25.70328045401433,
+        "pickup_lng": -100.26890015635034,
+        "dropoff_lat": 25.681912987887653,
+        "dropoff_lng": -100.22118256337082,
+        "base_payment": 112.66,
+        "surge_multiplier": 1.1,
+        "final_payment": 123.93,
+        "distance_km": 8.927,
+        "estimated_time_minutes": 10.54,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 4.64,
+        "estimated_preparation_minutes": 7,
+        "expiration_seconds": 178,
+        "created_at_simulation_second": 1686,
+        "id": "local-9"
+      },
+      "second": 1686,
+      "position": {
+        "lat": 25.689936962656034,
+        "lng": -100.3168966603713
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 9,
+        "merchant_name": "Café Barrio",
+        "pickup_lat": 25.70328045401433,
+        "pickup_lng": -100.26890015635034,
+        "dropoff_lat": 25.681912987887653,
+        "dropoff_lng": -100.22118256337082,
+        "base_payment": 112.66,
+        "surge_multiplier": 1.1,
+        "final_payment": 123.93,
+        "distance_km": 8.927,
+        "estimated_time_minutes": 10.54,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 4.64,
+        "estimated_preparation_minutes": 7,
+        "expiration_seconds": 178,
+        "created_at_simulation_second": 1686,
+        "id": "local-9"
+      },
+      "second": 1686,
+      "position": {
+        "lat": 25.689936962656034,
+        "lng": -100.3168966603713
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [],
+      "estimatedImpact": {
+        "strategy": "NEXT_ORDER",
+        "additionalDistance": 12.44,
+        "emptyPickupKm": 3.51,
+        "additionalTime": 16.08,
+        "additionalRevenue": 123.93,
+        "additionalCost": 24.88,
+        "additionalNetProfit": 99.05,
+        "marginalProfitPerMinute": 6.16,
+        "maxLateMinutesVsPromise": 0,
+        "addedDelayToCurrentMinutes": 0,
+        "promisedDropoffSecond": 3892
+      },
+      "score": null,
+      "decision": "BATCH"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 10,
+        "merchant_name": "Pasta Bella",
+        "pickup_lat": 25.74295744145464,
+        "pickup_lng": -100.27850698352613,
+        "dropoff_lat": 25.730136360603755,
+        "dropoff_lng": -100.30597060796931,
+        "base_payment": 88.28,
+        "surge_multiplier": 1,
+        "final_payment": 88.28,
+        "distance_km": 5.58,
+        "estimated_time_minutes": 6.91,
+        "route_source": "ROUTED",
+        "traffic_level": "LOW",
+        "destination_demand": "HIGH",
+        "priority": "HIGH",
+        "package_size": "MEDIUM",
+        "package_weight": 2.65,
+        "estimated_preparation_minutes": 8,
+        "expiration_seconds": 149,
+        "created_at_simulation_second": 2017,
+        "id": "local-10"
+      },
+      "second": 2017,
+      "position": {
+        "lat": 25.661889392237626,
+        "lng": -100.32953984526823
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 10,
+        "merchant_name": "Pasta Bella",
+        "pickup_lat": 25.74295744145464,
+        "pickup_lng": -100.27850698352613,
+        "dropoff_lat": 25.730136360603755,
+        "dropoff_lng": -100.30597060796931,
+        "base_payment": 88.28,
+        "surge_multiplier": 1,
+        "final_payment": 88.28,
+        "distance_km": 5.58,
+        "estimated_time_minutes": 6.91,
+        "route_source": "ROUTED",
+        "traffic_level": "LOW",
+        "destination_demand": "HIGH",
+        "priority": "HIGH",
+        "package_size": "MEDIUM",
+        "package_weight": 2.65,
+        "estimated_preparation_minutes": 8,
+        "expiration_seconds": 149,
+        "created_at_simulation_second": 2017,
+        "id": "local-10"
+      },
+      "second": 2017,
+      "position": {
+        "lat": 25.661889392237626,
+        "lng": -100.32953984526823
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "MAX_ORDERS_IN_ROUTE",
+          "message": "Ya lleva 2 pedidos en ruta (máximo 2)"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 22.7 min y 17.8 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $52.63 netos por 22.7 min extra ($2.32/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 17.82,
+        "additionalTime": 22.67,
+        "additionalRevenue": 88.28,
+        "additionalCost": 35.65,
+        "additionalNetProfit": 52.63,
+        "marginalProfitPerMinute": 2.32,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 5124
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 11,
+        "merchant_name": "Café Barrio",
+        "pickup_lat": 25.66750597710523,
+        "pickup_lng": -100.3164856168607,
+        "dropoff_lat": 25.62896326715642,
+        "dropoff_lng": -100.34742228861285,
+        "base_payment": 115.61,
+        "surge_multiplier": 1,
+        "final_payment": 115.61,
+        "distance_km": 8.786,
+        "estimated_time_minutes": 11.76,
+        "route_source": "ROUTED",
+        "traffic_level": "LOW",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 2.21,
+        "estimated_preparation_minutes": 12,
+        "expiration_seconds": 124,
+        "created_at_simulation_second": 2353,
+        "id": "local-11"
+      },
+      "second": 2353,
+      "position": {
+        "lat": 25.661889392237626,
+        "lng": -100.32953984526823
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 11,
+        "merchant_name": "Café Barrio",
+        "pickup_lat": 25.66750597710523,
+        "pickup_lng": -100.3164856168607,
+        "dropoff_lat": 25.62896326715642,
+        "dropoff_lng": -100.34742228861285,
+        "base_payment": 115.61,
+        "surge_multiplier": 1,
+        "final_payment": 115.61,
+        "distance_km": 8.786,
+        "estimated_time_minutes": 11.76,
+        "route_source": "ROUTED",
+        "traffic_level": "LOW",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 2.21,
+        "estimated_preparation_minutes": 12,
+        "expiration_seconds": 124,
+        "created_at_simulation_second": 2353,
+        "id": "local-11"
+      },
+      "second": 2353,
+      "position": {
+        "lat": 25.661889392237626,
+        "lng": -100.32953984526823
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "MAX_ORDERS_IN_ROUTE",
+          "message": "Ya lleva 2 pedidos en ruta (máximo 2)"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 23.3 min y 22.1 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 22.13,
+        "additionalTime": 23.32,
+        "additionalRevenue": 115.61,
+        "additionalCost": 44.25,
+        "additionalNetProfit": 71.36,
+        "marginalProfitPerMinute": 3.06,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 5163
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 12,
+        "merchant_name": "Burger Norte",
+        "pickup_lat": 25.66155185756197,
+        "pickup_lng": -100.2603370227878,
+        "dropoff_lat": 25.666322462753275,
+        "dropoff_lng": -100.31758228002359,
+        "base_payment": 104.84,
+        "surge_multiplier": 1.2,
+        "final_payment": 125.81,
+        "distance_km": 8.015,
+        "estimated_time_minutes": 8.87,
+        "route_source": "ROUTED",
+        "traffic_level": "LOW",
+        "destination_demand": "VERY_HIGH",
+        "priority": "NORMAL",
+        "package_size": "LARGE",
+        "package_weight": 6.31,
+        "estimated_preparation_minutes": 20,
+        "expiration_seconds": 106,
+        "created_at_simulation_second": 2610,
+        "id": "local-12"
+      },
+      "second": 2610,
+      "position": {
+        "lat": 25.668089665600284,
+        "lng": -100.29442166279152
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 12,
+        "merchant_name": "Burger Norte",
+        "pickup_lat": 25.66155185756197,
+        "pickup_lng": -100.2603370227878,
+        "dropoff_lat": 25.666322462753275,
+        "dropoff_lng": -100.31758228002359,
+        "base_payment": 104.84,
+        "surge_multiplier": 1.2,
+        "final_payment": 125.81,
+        "distance_km": 8.015,
+        "estimated_time_minutes": 8.87,
+        "route_source": "ROUTED",
+        "traffic_level": "LOW",
+        "destination_demand": "VERY_HIGH",
+        "priority": "NORMAL",
+        "package_size": "LARGE",
+        "package_weight": 6.31,
+        "estimated_preparation_minutes": 20,
+        "expiration_seconds": 106,
+        "created_at_simulation_second": 2610,
+        "id": "local-12"
+      },
+      "second": 2610,
+      "position": {
+        "lat": 25.668089665600284,
+        "lng": -100.29442166279152
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "MAX_ORDERS_IN_ROUTE",
+          "message": "Ya lleva 2 pedidos en ruta (máximo 2)"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 16.7 min y 14.4 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 14.45,
+        "additionalTime": 16.72,
+        "additionalRevenue": 125.81,
+        "additionalCost": 28.89,
+        "additionalNetProfit": 96.92,
+        "marginalProfitPerMinute": 5.8,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 4767
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 13,
+        "merchant_name": "Tortas Don Beto",
+        "pickup_lat": 25.658992020641335,
+        "pickup_lng": -100.33399099748576,
+        "dropoff_lat": 25.690450231171543,
+        "dropoff_lng": -100.31276928261656,
+        "base_payment": 82.77,
+        "surge_multiplier": 1.2,
+        "final_payment": 99.32,
+        "distance_km": 5.641,
+        "estimated_time_minutes": 6.95,
+        "route_source": "ROUTED",
+        "traffic_level": "LOW",
+        "destination_demand": "VERY_HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 3.71,
+        "estimated_preparation_minutes": 5,
+        "expiration_seconds": 152,
+        "created_at_simulation_second": 2883,
+        "id": "local-13"
+      },
+      "second": 2883,
+      "position": {
+        "lat": 25.685511865902715,
+        "lng": -100.28437287076993
+      },
+      "reasons": [
+        {
+          "criterion": "finalPayment",
+          "comparator": ">=",
+          "value": 99.32,
+          "threshold": 0,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerMinute",
+          "comparator": ">=",
+          "value": 14.29,
+          "threshold": 3,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerKm",
+          "comparator": ">=",
+          "value": 17.61,
+          "threshold": 8,
+          "passed": true
+        },
+        {
+          "criterion": "distanceKm",
+          "comparator": "<=",
+          "value": 5.641,
+          "threshold": 15,
+          "passed": true
+        }
+      ],
+      "positiveFactors": [
+        {
+          "criterion": "finalPayment",
+          "comparator": ">=",
+          "value": 99.32,
+          "threshold": 0,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerMinute",
+          "comparator": ">=",
+          "value": 14.29,
+          "threshold": 3,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerKm",
+          "comparator": ">=",
+          "value": 17.61,
+          "threshold": 8,
+          "passed": true
+        },
+        {
+          "criterion": "distanceKm",
+          "comparator": "<=",
+          "value": 5.641,
+          "threshold": 15,
+          "passed": true
+        }
+      ],
+      "negativeFactors": [],
+      "restrictions": [],
+      "estimatedImpact": {
+        "distanceToPickupKm": 7.94,
+        "toPickupMinutes": 8.13,
+        "waitMinutes": 0,
+        "deliveryDistanceKm": 5.64,
+        "deliveryMinutes": 6.95,
+        "totalKm": 13.58,
+        "totalMinutes": 15.08,
+        "grossPayment": 99.32,
+        "operatingCost": 27.17,
+        "netProfit": 72.15,
+        "profitPerMinute": 4.78,
+        "profitPerKm": 5.31,
+        "promisedDropoffSecond": 3788
+      },
+      "score": null,
+      "decision": "ACCEPT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 13,
+        "merchant_name": "Tortas Don Beto",
+        "pickup_lat": 25.658992020641335,
+        "pickup_lng": -100.33399099748576,
+        "dropoff_lat": 25.690450231171543,
+        "dropoff_lng": -100.31276928261656,
+        "base_payment": 82.77,
+        "surge_multiplier": 1.2,
+        "final_payment": 99.32,
+        "distance_km": 5.641,
+        "estimated_time_minutes": 6.95,
+        "route_source": "ROUTED",
+        "traffic_level": "LOW",
+        "destination_demand": "VERY_HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 3.71,
+        "estimated_preparation_minutes": 5,
+        "expiration_seconds": 152,
+        "created_at_simulation_second": 2883,
+        "id": "local-13"
+      },
+      "second": 2883,
+      "position": {
+        "lat": 25.685793790705464,
+        "lng": -100.28433258975193
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 21.6 min y 20.8 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $57.67 netos por 21.6 min extra ($2.67/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 20.82,
+        "additionalTime": 21.57,
+        "additionalRevenue": 99.32,
+        "additionalCost": 41.65,
+        "additionalNetProfit": 57.67,
+        "marginalProfitPerMinute": 2.67,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 5058
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 14,
+        "merchant_name": "Tortas Don Beto",
+        "pickup_lat": 25.623530509716986,
+        "pickup_lng": -100.32252029607729,
+        "dropoff_lat": 25.634440822850433,
+        "dropoff_lng": -100.26383657929627,
+        "base_payment": 150.82,
+        "surge_multiplier": 1,
+        "final_payment": 150.82,
+        "distance_km": 9.176,
+        "estimated_time_minutes": 11.76,
+        "route_source": "ROUTED",
+        "traffic_level": "LOW",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 3.95,
+        "estimated_preparation_minutes": 7,
+        "expiration_seconds": 136,
+        "created_at_simulation_second": 3213,
+        "id": "local-14"
+      },
+      "second": 3213,
+      "position": {
+        "lat": 25.669863004189114,
+        "lng": -100.32008273776965
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 14,
+        "merchant_name": "Tortas Don Beto",
+        "pickup_lat": 25.623530509716986,
+        "pickup_lng": -100.32252029607729,
+        "dropoff_lat": 25.634440822850433,
+        "dropoff_lng": -100.26383657929627,
+        "base_payment": 150.82,
+        "surge_multiplier": 1,
+        "final_payment": 150.82,
+        "distance_km": 9.176,
+        "estimated_time_minutes": 11.76,
+        "route_source": "ROUTED",
+        "traffic_level": "LOW",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 3.95,
+        "estimated_preparation_minutes": 7,
+        "expiration_seconds": 136,
+        "created_at_simulation_second": 3213,
+        "id": "local-14"
+      },
+      "second": 3213,
+      "position": {
+        "lat": 25.69958909123089,
+        "lng": -100.26836909341066
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 31.1 min y 29.6 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $91.57 netos por 31.1 min extra ($2.94/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 29.63,
+        "additionalTime": 31.15,
+        "additionalRevenue": 150.82,
+        "additionalCost": 59.25,
+        "additionalNetProfit": 91.57,
+        "marginalProfitPerMinute": 2.94,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 5633
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 15,
+        "merchant_name": "Mariscos La Costa",
+        "pickup_lat": 25.645854118424303,
+        "pickup_lng": -100.38675681814894,
+        "dropoff_lat": 25.638641164578054,
+        "dropoff_lng": -100.42777144991456,
+        "base_payment": 93.72,
+        "surge_multiplier": 2,
+        "final_payment": 187.44,
+        "distance_km": 7.579,
+        "estimated_time_minutes": 12.38,
+        "route_source": "ROUTED",
+        "traffic_level": "LOW",
+        "destination_demand": "VERY_HIGH",
+        "priority": "HIGH",
+        "package_size": "SMALL",
+        "package_weight": 1.24,
+        "estimated_preparation_minutes": 10,
+        "expiration_seconds": 93,
+        "created_at_simulation_second": 3477,
+        "id": "local-15"
+      },
+      "second": 3477,
+      "position": {
+        "lat": 25.664717852245165,
+        "lng": -100.32764013000069
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 15,
+        "merchant_name": "Mariscos La Costa",
+        "pickup_lat": 25.645854118424303,
+        "pickup_lng": -100.38675681814894,
+        "dropoff_lat": 25.638641164578054,
+        "dropoff_lng": -100.42777144991456,
+        "base_payment": 93.72,
+        "surge_multiplier": 2,
+        "final_payment": 187.44,
+        "distance_km": 7.579,
+        "estimated_time_minutes": 12.38,
+        "route_source": "ROUTED",
+        "traffic_level": "LOW",
+        "destination_demand": "VERY_HIGH",
+        "priority": "HIGH",
+        "package_size": "SMALL",
+        "package_weight": 1.24,
+        "estimated_preparation_minutes": 10,
+        "expiration_seconds": 93,
+        "created_at_simulation_second": 3477,
+        "id": "local-15"
+      },
+      "second": 3477,
+      "position": {
+        "lat": 25.67973450509424,
+        "lng": -100.25146929353131
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 32.4 min y 29.0 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 29.02,
+        "additionalTime": 32.4,
+        "additionalRevenue": 187.44,
+        "additionalCost": 58.05,
+        "additionalNetProfit": 129.39,
+        "marginalProfitPerMinute": 3.99,
+        "maxLateMinutesVsPromise": 0.38,
+        "promisedDropoffSecond": 5708
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 16,
+        "merchant_name": "Café Barrio",
+        "pickup_lat": 25.661794883906147,
+        "pickup_lng": -100.39209109311251,
+        "dropoff_lat": 25.614001767273752,
+        "dropoff_lng": -100.36557343893037,
+        "base_payment": 190.77,
+        "surge_multiplier": 1,
+        "final_payment": 190.77,
+        "distance_km": 11.957,
+        "estimated_time_minutes": 19.52,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 2.63,
+        "estimated_preparation_minutes": 10,
+        "expiration_seconds": 137,
+        "created_at_simulation_second": 3638,
+        "id": "local-16"
+      },
+      "second": 3638,
+      "position": {
+        "lat": 25.67575566540061,
+        "lng": -100.3183949627033
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 16,
+        "merchant_name": "Café Barrio",
+        "pickup_lat": 25.661794883906147,
+        "pickup_lng": -100.39209109311251,
+        "dropoff_lat": 25.614001767273752,
+        "dropoff_lng": -100.36557343893037,
+        "base_payment": 190.77,
+        "surge_multiplier": 1,
+        "final_payment": 190.77,
+        "distance_km": 11.957,
+        "estimated_time_minutes": 19.52,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 2.63,
+        "estimated_preparation_minutes": 10,
+        "expiration_seconds": 137,
+        "created_at_simulation_second": 3638,
+        "id": "local-16"
+      },
+      "second": 3638,
+      "position": {
+        "lat": 25.680709717506538,
+        "lng": -100.23065721876934
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 41.0 min y 33.8 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 33.85,
+        "additionalTime": 41,
+        "additionalRevenue": 190.77,
+        "additionalCost": 67.7,
+        "additionalNetProfit": 123.07,
+        "marginalProfitPerMinute": 3,
+        "maxLateMinutesVsPromise": 0.92,
+        "promisedDropoffSecond": 6239
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 17,
+        "merchant_name": "Tacos El Rey",
+        "pickup_lat": 25.739416533946308,
+        "pickup_lng": -100.3598268831116,
+        "dropoff_lat": 25.724027471653063,
+        "dropoff_lng": -100.3088518518328,
+        "base_payment": 88.74,
+        "surge_multiplier": 1.1,
+        "final_payment": 97.61,
+        "distance_km": 7.168,
+        "estimated_time_minutes": 9.22,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.24,
+        "estimated_preparation_minutes": 9,
+        "expiration_seconds": 121,
+        "created_at_simulation_second": 3996,
+        "id": "local-17"
+      },
+      "second": 3996,
+      "position": {
+        "lat": 25.690450231171543,
+        "lng": -100.31276928261656
+      },
+      "reasons": [
+        {
+          "criterion": "finalPayment",
+          "comparator": ">=",
+          "value": 97.61,
+          "threshold": 0,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerMinute",
+          "comparator": ">=",
+          "value": 10.59,
+          "threshold": 3,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerKm",
+          "comparator": ">=",
+          "value": 13.62,
+          "threshold": 8,
+          "passed": true
+        },
+        {
+          "criterion": "distanceKm",
+          "comparator": "<=",
+          "value": 7.168,
+          "threshold": 15,
+          "passed": true
+        }
+      ],
+      "positiveFactors": [
+        {
+          "criterion": "finalPayment",
+          "comparator": ">=",
+          "value": 97.61,
+          "threshold": 0,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerMinute",
+          "comparator": ">=",
+          "value": 10.59,
+          "threshold": 3,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerKm",
+          "comparator": ">=",
+          "value": 13.62,
+          "threshold": 8,
+          "passed": true
+        },
+        {
+          "criterion": "distanceKm",
+          "comparator": "<=",
+          "value": 7.168,
+          "threshold": 15,
+          "passed": true
+        }
+      ],
+      "negativeFactors": [],
+      "restrictions": [],
+      "estimatedImpact": {
+        "distanceToPickupKm": 8.61,
+        "toPickupMinutes": 11.33,
+        "waitMinutes": 0,
+        "deliveryDistanceKm": 7.17,
+        "deliveryMinutes": 9.22,
+        "totalKm": 15.78,
+        "totalMinutes": 20.55,
+        "grossPayment": 97.61,
+        "operatingCost": 31.56,
+        "netProfit": 66.05,
+        "profitPerMinute": 3.21,
+        "profitPerKm": 4.18,
+        "promisedDropoffSecond": 5229
+      },
+      "score": null,
+      "decision": "ACCEPT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 17,
+        "merchant_name": "Tacos El Rey",
+        "pickup_lat": 25.739416533946308,
+        "pickup_lng": -100.3598268831116,
+        "dropoff_lat": 25.724027471653063,
+        "dropoff_lng": -100.3088518518328,
+        "base_payment": 88.74,
+        "surge_multiplier": 1.1,
+        "final_payment": 97.61,
+        "distance_km": 7.168,
+        "estimated_time_minutes": 9.22,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.24,
+        "estimated_preparation_minutes": 9,
+        "expiration_seconds": 121,
+        "created_at_simulation_second": 3996,
+        "id": "local-17"
+      },
+      "second": 3996,
+      "position": {
+        "lat": 25.681912987887653,
+        "lng": -100.22118256337082
+      },
+      "reasons": [
+        {
+          "factor": "TOTAL_TIME",
+          "points": 6.21
+        },
+        {
+          "factor": "DESTINATION_DEMAND",
+          "points": 10.5
+        },
+        {
+          "factor": "PROFIT_PER_MINUTE",
+          "points": 8.8
+        },
+        {
+          "factor": "NET_PROFIT",
+          "points": 5.54
+        },
+        {
+          "factor": "PROFIT_PER_KM",
+          "points": 0
+        },
+        {
+          "factor": "DISTANCE_TO_PICKUP",
+          "points": 0
+        }
+      ],
+      "positiveFactors": [
+        {
+          "factor": "TOTAL_TIME",
+          "points": 6.21
+        },
+        {
+          "factor": "DESTINATION_DEMAND",
+          "points": 10.5
+        }
+      ],
+      "negativeFactors": [
+        {
+          "factor": "PROFIT_PER_MINUTE",
+          "points": 8.8
+        },
+        {
+          "factor": "NET_PROFIT",
+          "points": 5.54
+        },
+        {
+          "factor": "PROFIT_PER_KM",
+          "points": 0
+        },
+        {
+          "factor": "DISTANCE_TO_PICKUP",
+          "points": 0
+        }
+      ],
+      "restrictions": [],
+      "estimatedImpact": {
+        "distanceToPickupKm": 19.46,
+        "toPickupMinutes": 22.85,
+        "waitMinutes": 0,
+        "deliveryDistanceKm": 7.17,
+        "deliveryMinutes": 9.22,
+        "totalKm": 26.63,
+        "totalMinutes": 32.07,
+        "grossPayment": 97.61,
+        "operatingCost": 53.26,
+        "netProfit": 44.35,
+        "profitPerMinute": 1.38,
+        "profitPerKm": 1.67,
+        "promisedDropoffSecond": 5920,
+        "destinationDemandAtArrival": "HIGH",
+        "lookahead": {
+          "horizonMinutes": 45,
+          "scenarios": 6,
+          "opportunityCostPerMinute": 2.5,
+          "accept": {
+            "mean": 123.55,
+            "p10": 76.5,
+            "p90": 177.4,
+            "std": 33.97
+          },
+          "wait": {
+            "mean": 162.26,
+            "p10": 101.62,
+            "p90": 274.47,
+            "std": 55.37
+          },
+          "acceptAdvantage": -38.71,
+          "advantageP10": -130.61,
+          "advantageP90": 49.65,
+          "standardError": 27.15,
+          "waitAdvantageRequired": 0,
+          "currentNetPerMinute": 1.38,
+          "decisionRule": "sampling_margin_when_current_rate_covers_opportunity_cost"
+        }
+      },
+      "score": 31,
+      "decision": "WAIT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 18,
+        "merchant_name": "Pasta Bella",
+        "pickup_lat": 25.66540937770566,
+        "pickup_lng": -100.31963707009041,
+        "dropoff_lat": 25.694553205220732,
+        "dropoff_lng": -100.33392257435726,
+        "base_payment": 62.92,
+        "surge_multiplier": 1.2,
+        "final_payment": 75.5,
+        "distance_km": 4.864,
+        "estimated_time_minutes": 5.83,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "VERY_HIGH",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.02,
+        "estimated_preparation_minutes": 12,
+        "expiration_seconds": 76,
+        "created_at_simulation_second": 4309,
+        "id": "local-18"
+      },
+      "second": 4309,
+      "position": {
+        "lat": 25.71961473969874,
+        "lng": -100.329730174691
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 18,
+        "merchant_name": "Pasta Bella",
+        "pickup_lat": 25.66540937770566,
+        "pickup_lng": -100.31963707009041,
+        "dropoff_lat": 25.694553205220732,
+        "dropoff_lng": -100.33392257435726,
+        "base_payment": 62.92,
+        "surge_multiplier": 1.2,
+        "final_payment": 75.5,
+        "distance_km": 4.864,
+        "estimated_time_minutes": 5.83,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "VERY_HIGH",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.02,
+        "estimated_preparation_minutes": 12,
+        "expiration_seconds": 76,
+        "created_at_simulation_second": 4309,
+        "id": "local-18"
+      },
+      "second": 4309,
+      "position": {
+        "lat": 25.681912987887653,
+        "lng": -100.22118256337082
+      },
+      "reasons": [
+        {
+          "factor": "PROFIT_PER_MINUTE",
+          "points": 17.6
+        },
+        {
+          "factor": "TOTAL_TIME",
+          "points": 9.37
+        },
+        {
+          "factor": "DESTINATION_DEMAND",
+          "points": 15
+        },
+        {
+          "factor": "NET_PROFIT",
+          "points": 5.04
+        },
+        {
+          "factor": "PROFIT_PER_KM",
+          "points": 0.44
+        },
+        {
+          "factor": "DISTANCE_TO_PICKUP",
+          "points": 0
+        }
+      ],
+      "positiveFactors": [
+        {
+          "factor": "PROFIT_PER_MINUTE",
+          "points": 17.6
+        },
+        {
+          "factor": "TOTAL_TIME",
+          "points": 9.37
+        },
+        {
+          "factor": "DESTINATION_DEMAND",
+          "points": 15
+        }
+      ],
+      "negativeFactors": [
+        {
+          "factor": "NET_PROFIT",
+          "points": 5.04
+        },
+        {
+          "factor": "PROFIT_PER_KM",
+          "points": 0.44
+        },
+        {
+          "factor": "DISTANCE_TO_PICKUP",
+          "points": 0
+        }
+      ],
+      "restrictions": [],
+      "estimatedImpact": {
+        "distanceToPickupKm": 12.72,
+        "toPickupMinutes": 11.52,
+        "waitMinutes": 0.48,
+        "deliveryDistanceKm": 4.86,
+        "deliveryMinutes": 5.83,
+        "totalKm": 17.58,
+        "totalMinutes": 17.83,
+        "grossPayment": 75.5,
+        "operatingCost": 35.17,
+        "netProfit": 40.33,
+        "profitPerMinute": 2.26,
+        "profitPerKm": 2.29,
+        "promisedDropoffSecond": 5379,
+        "destinationDemandAtArrival": "VERY_HIGH",
+        "lookahead": {
+          "horizonMinutes": 45,
+          "scenarios": 6,
+          "opportunityCostPerMinute": 2.5,
+          "accept": {
+            "mean": 181.42,
+            "p10": 145.47,
+            "p90": 250.76,
+            "std": 38.46
+          },
+          "wait": {
+            "mean": 153.36,
+            "p10": 83.85,
+            "p90": 218.28,
+            "std": 58.12
+          },
+          "acceptAdvantage": 28.06,
+          "advantageP10": -61.86,
+          "advantageP90": 127.84,
+          "standardError": 28.37,
+          "waitAdvantageRequired": 0,
+          "currentNetPerMinute": 2.26,
+          "decisionRule": "sampling_margin_when_current_rate_covers_opportunity_cost"
+        }
+      },
+      "score": 47,
+      "decision": "ACCEPT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 19,
+        "merchant_name": "Tacos El Rey",
+        "pickup_lat": 25.664734339547387,
+        "pickup_lng": -100.31367678917222,
+        "dropoff_lat": 25.630700879459674,
+        "dropoff_lng": -100.32764099395666,
+        "base_payment": 103.34,
+        "surge_multiplier": 1,
+        "final_payment": 103.34,
+        "distance_km": 7.896,
+        "estimated_time_minutes": 11.11,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "LARGE",
+        "package_weight": 8.47,
+        "estimated_preparation_minutes": 20,
+        "expiration_seconds": 66,
+        "created_at_simulation_second": 4652,
+        "id": "local-19"
+      },
+      "second": 4652,
+      "position": {
+        "lat": 25.738371817886016,
+        "lng": -100.35773849232638
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 19,
+        "merchant_name": "Tacos El Rey",
+        "pickup_lat": 25.664734339547387,
+        "pickup_lng": -100.31367678917222,
+        "dropoff_lat": 25.630700879459674,
+        "dropoff_lng": -100.32764099395666,
+        "base_payment": 103.34,
+        "surge_multiplier": 1,
+        "final_payment": 103.34,
+        "distance_km": 7.896,
+        "estimated_time_minutes": 11.11,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "LARGE",
+        "package_weight": 8.47,
+        "estimated_preparation_minutes": 20,
+        "expiration_seconds": 66,
+        "created_at_simulation_second": 4652,
+        "id": "local-19"
+      },
+      "second": 4652,
+      "position": {
+        "lat": 25.682664135259415,
+        "lng": -100.2630883459398
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [],
+      "estimatedImpact": {
+        "strategy": "NEXT_ORDER",
+        "additionalDistance": 13.26,
+        "emptyPickupKm": 5.37,
+        "additionalTime": 19,
+        "additionalRevenue": 103.34,
+        "additionalCost": 26.52,
+        "additionalNetProfit": 76.82,
+        "marginalProfitPerMinute": 4.04,
+        "maxLateMinutesVsPromise": 0,
+        "addedDelayToCurrentMinutes": 0,
+        "promisedDropoffSecond": 6519
+      },
+      "score": null,
+      "decision": "BATCH"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 20,
+        "merchant_name": "Sushi Roma",
+        "pickup_lat": 25.655743582842266,
+        "pickup_lng": -100.4185055213179,
+        "dropoff_lat": 25.676051394891513,
+        "dropoff_lng": -100.47064771986246,
+        "base_payment": 99.11,
+        "surge_multiplier": 1.1,
+        "final_payment": 109.02,
+        "distance_km": 8.146,
+        "estimated_time_minutes": 12.78,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "HIGH",
+        "package_size": "MEDIUM",
+        "package_weight": 4.41,
+        "estimated_preparation_minutes": 11,
+        "expiration_seconds": 156,
+        "created_at_simulation_second": 4773,
+        "id": "local-20"
+      },
+      "second": 4773,
+      "position": {
+        "lat": 25.737864387400833,
+        "lng": -100.35105386440061
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 20,
+        "merchant_name": "Sushi Roma",
+        "pickup_lat": 25.655743582842266,
+        "pickup_lng": -100.4185055213179,
+        "dropoff_lat": 25.676051394891513,
+        "dropoff_lng": -100.47064771986246,
+        "base_payment": 99.11,
+        "surge_multiplier": 1.1,
+        "final_payment": 109.02,
+        "distance_km": 8.146,
+        "estimated_time_minutes": 12.78,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "HIGH",
+        "package_size": "MEDIUM",
+        "package_weight": 4.41,
+        "estimated_preparation_minutes": 11,
+        "expiration_seconds": 156,
+        "created_at_simulation_second": 4773,
+        "id": "local-20"
+      },
+      "second": 4773,
+      "position": {
+        "lat": 25.674658923356457,
+        "lng": -100.2815212682698
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "MAX_ORDERS_IN_ROUTE",
+          "message": "Ya lleva 2 pedidos en ruta (máximo 2)"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 31.9 min y 22.4 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $64.25 netos por 31.9 min extra ($2.01/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 22.38,
+        "additionalTime": 31.95,
+        "additionalRevenue": 109.02,
+        "additionalCost": 44.77,
+        "additionalNetProfit": 64.25,
+        "marginalProfitPerMinute": 2.01,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 8436
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 21,
+        "merchant_name": "Pollo Feliz MTY",
+        "pickup_lat": 25.62988131880803,
+        "pickup_lng": -100.30248195398883,
+        "dropoff_lat": 25.63937869610409,
+        "dropoff_lng": -100.28313560116614,
+        "base_payment": 45.14,
+        "surge_multiplier": 1,
+        "final_payment": 45.14,
+        "distance_km": 2.59,
+        "estimated_time_minutes": 3.62,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 4.94,
+        "estimated_preparation_minutes": 12,
+        "expiration_seconds": 66,
+        "created_at_simulation_second": 5031,
+        "id": "local-21"
+      },
+      "second": 5031,
+      "position": {
+        "lat": 25.724259664896845,
+        "lng": -100.32677965385615
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 21,
+        "merchant_name": "Pollo Feliz MTY",
+        "pickup_lat": 25.62988131880803,
+        "pickup_lng": -100.30248195398883,
+        "dropoff_lat": 25.63937869610409,
+        "dropoff_lng": -100.28313560116614,
+        "base_payment": 45.14,
+        "surge_multiplier": 1,
+        "final_payment": 45.14,
+        "distance_km": 2.59,
+        "estimated_time_minutes": 3.62,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 4.94,
+        "estimated_preparation_minutes": 12,
+        "expiration_seconds": 66,
+        "created_at_simulation_second": 5031,
+        "id": "local-21"
+      },
+      "second": 5031,
+      "position": {
+        "lat": 25.665625820429042,
+        "lng": -100.319589
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "MAX_ORDERS_IN_ROUTE",
+          "message": "Ya lleva 2 pedidos en ruta (máximo 2)"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 12.4 min y 9.2 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $26.73 netos por 12.4 min extra ($2.16/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 9.21,
+        "additionalTime": 12.38,
+        "additionalRevenue": 45.14,
+        "additionalCost": 18.41,
+        "additionalNetProfit": 26.73,
+        "marginalProfitPerMinute": 2.16,
+        "maxLateMinutesVsPromise": 0.02,
+        "promisedDropoffSecond": 7262
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 22,
+        "merchant_name": "Mariscos La Costa",
+        "pickup_lat": 25.686563943365798,
+        "pickup_lng": -100.26074426120893,
+        "dropoff_lat": 25.64778963602609,
+        "dropoff_lng": -100.29859831539345,
+        "base_payment": 91.27,
+        "surge_multiplier": 1.2,
+        "final_payment": 109.52,
+        "distance_km": 7.513,
+        "estimated_time_minutes": 7.9,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "VERY_HIGH",
+        "priority": "HIGH",
+        "package_size": "SMALL",
+        "package_weight": 1.31,
+        "estimated_preparation_minutes": 9,
+        "expiration_seconds": 72,
+        "created_at_simulation_second": 5297,
+        "id": "local-22"
+      },
+      "second": 5297,
+      "position": {
+        "lat": 25.724027471653063,
+        "lng": -100.3088518518328
+      },
+      "reasons": [
+        {
+          "criterion": "finalPayment",
+          "comparator": ">=",
+          "value": 109.52,
+          "threshold": 0,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerMinute",
+          "comparator": ">=",
+          "value": 13.86,
+          "threshold": 3,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerKm",
+          "comparator": ">=",
+          "value": 14.58,
+          "threshold": 8,
+          "passed": true
+        },
+        {
+          "criterion": "distanceKm",
+          "comparator": "<=",
+          "value": 7.513,
+          "threshold": 15,
+          "passed": true
+        }
+      ],
+      "positiveFactors": [
+        {
+          "criterion": "finalPayment",
+          "comparator": ">=",
+          "value": 109.52,
+          "threshold": 0,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerMinute",
+          "comparator": ">=",
+          "value": 13.86,
+          "threshold": 3,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerKm",
+          "comparator": ">=",
+          "value": 14.58,
+          "threshold": 8,
+          "passed": true
+        },
+        {
+          "criterion": "distanceKm",
+          "comparator": "<=",
+          "value": 7.513,
+          "threshold": 15,
+          "passed": true
+        }
+      ],
+      "negativeFactors": [],
+      "restrictions": [],
+      "estimatedImpact": {
+        "distanceToPickupKm": 9.25,
+        "toPickupMinutes": 9.88,
+        "waitMinutes": 0,
+        "deliveryDistanceKm": 7.51,
+        "deliveryMinutes": 7.9,
+        "totalKm": 16.76,
+        "totalMinutes": 17.78,
+        "grossPayment": 109.52,
+        "operatingCost": 33.52,
+        "netProfit": 76,
+        "profitPerMinute": 4.27,
+        "profitPerKm": 4.53,
+        "promisedDropoffSecond": 6364
+      },
+      "score": null,
+      "decision": "ACCEPT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 22,
+        "merchant_name": "Mariscos La Costa",
+        "pickup_lat": 25.686563943365798,
+        "pickup_lng": -100.26074426120893,
+        "dropoff_lat": 25.64778963602609,
+        "dropoff_lng": -100.29859831539345,
+        "base_payment": 91.27,
+        "surge_multiplier": 1.2,
+        "final_payment": 109.52,
+        "distance_km": 7.513,
+        "estimated_time_minutes": 7.9,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "VERY_HIGH",
+        "priority": "HIGH",
+        "package_size": "SMALL",
+        "package_weight": 1.31,
+        "estimated_preparation_minutes": 9,
+        "expiration_seconds": 72,
+        "created_at_simulation_second": 5297,
+        "id": "local-22"
+      },
+      "second": 5297,
+      "position": {
+        "lat": 25.686900637922896,
+        "lng": -100.3309918152303
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "MAX_ORDERS_IN_ROUTE",
+          "message": "Ya lleva 2 pedidos en ruta (máximo 2)"
+        },
+        {
+          "code": "BATCH_BREAKS_PROMISE",
+          "message": "Un pedido ya aceptado llegaría 11.2 min después de su hora comprometida (tolerancia 10)"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 23.1 min y 19.0 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 19.04,
+        "additionalTime": 23.07,
+        "additionalRevenue": 109.52,
+        "additionalCost": 38.08,
+        "additionalNetProfit": 71.44,
+        "marginalProfitPerMinute": 3.1,
+        "maxLateMinutesVsPromise": 11.17,
+        "promisedDropoffSecond": 7903
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 23,
+        "merchant_name": "Wok Express",
+        "pickup_lat": 25.679436909654097,
+        "pickup_lng": -100.32522926391441,
+        "dropoff_lat": 25.685089903499914,
+        "dropoff_lng": -100.30211739321803,
+        "base_payment": 50.75,
+        "surge_multiplier": 1.5,
+        "final_payment": 76.13,
+        "distance_km": 3.166,
+        "estimated_time_minutes": 6.47,
+        "route_source": "ROUTED",
+        "traffic_level": "SEVERE",
+        "destination_demand": "VERY_HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 3.32,
+        "estimated_preparation_minutes": 17,
+        "expiration_seconds": 128,
+        "created_at_simulation_second": 5577,
+        "id": "local-23"
+      },
+      "second": 5577,
+      "position": {
+        "lat": 25.71468475076335,
+        "lng": -100.28253699645065
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 23,
+        "merchant_name": "Wok Express",
+        "pickup_lat": 25.679436909654097,
+        "pickup_lng": -100.32522926391441,
+        "dropoff_lat": 25.685089903499914,
+        "dropoff_lng": -100.30211739321803,
+        "base_payment": 50.75,
+        "surge_multiplier": 1.5,
+        "final_payment": 76.13,
+        "distance_km": 3.166,
+        "estimated_time_minutes": 6.47,
+        "route_source": "ROUTED",
+        "traffic_level": "SEVERE",
+        "destination_demand": "VERY_HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 3.32,
+        "estimated_preparation_minutes": 17,
+        "expiration_seconds": 128,
+        "created_at_simulation_second": 5577,
+        "id": "local-23"
+      },
+      "second": 5577,
+      "position": {
+        "lat": 25.684837578375262,
+        "lng": -100.32223320537737
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 18.4 min y 10.3 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 10.31,
+        "additionalTime": 18.4,
+        "additionalRevenue": 76.13,
+        "additionalCost": 20.61,
+        "additionalNetProfit": 55.52,
+        "marginalProfitPerMinute": 3.02,
+        "maxLateMinutesVsPromise": 1.53,
+        "promisedDropoffSecond": 7811
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 24,
+        "merchant_name": "Sushi Roma",
+        "pickup_lat": 25.671867120175225,
+        "pickup_lng": -100.31405601489001,
+        "dropoff_lat": 25.694413466856112,
+        "dropoff_lng": -100.32678387284233,
+        "base_payment": 63.03,
+        "surge_multiplier": 2,
+        "final_payment": 126.06,
+        "distance_km": 3.814,
+        "estimated_time_minutes": 6.65,
+        "route_source": "ROUTED",
+        "traffic_level": "SEVERE",
+        "destination_demand": "VERY_HIGH",
+        "priority": "NORMAL",
+        "package_size": "LARGE",
+        "package_weight": 9.38,
+        "estimated_preparation_minutes": 15,
+        "expiration_seconds": 157,
+        "created_at_simulation_second": 5888,
+        "id": "local-24"
+      },
+      "second": 5888,
+      "position": {
+        "lat": 25.689431406486715,
+        "lng": -100.26848346030535
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 24,
+        "merchant_name": "Sushi Roma",
+        "pickup_lat": 25.671867120175225,
+        "pickup_lng": -100.31405601489001,
+        "dropoff_lat": 25.694413466856112,
+        "dropoff_lng": -100.32678387284233,
+        "base_payment": 63.03,
+        "surge_multiplier": 2,
+        "final_payment": 126.06,
+        "distance_km": 3.814,
+        "estimated_time_minutes": 6.65,
+        "route_source": "ROUTED",
+        "traffic_level": "SEVERE",
+        "destination_demand": "VERY_HIGH",
+        "priority": "NORMAL",
+        "package_size": "LARGE",
+        "package_weight": 9.38,
+        "estimated_preparation_minutes": 15,
+        "expiration_seconds": 157,
+        "created_at_simulation_second": 5888,
+        "id": "local-24"
+      },
+      "second": 5888,
+      "position": {
+        "lat": 25.66448703788799,
+        "lng": -100.3145535542374
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 20.5 min y 12.0 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 12.04,
+        "additionalTime": 20.47,
+        "additionalRevenue": 126.06,
+        "additionalCost": 24.08,
+        "additionalNetProfit": 101.98,
+        "marginalProfitPerMinute": 4.98,
+        "maxLateMinutesVsPromise": 1.7,
+        "promisedDropoffSecond": 7935
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 25,
+        "merchant_name": "Pasta Bella",
+        "pickup_lat": 25.64350943725656,
+        "pickup_lng": -100.2651832123178,
+        "dropoff_lat": 25.67202237915567,
+        "dropoff_lng": -100.2447280692648,
+        "base_payment": 73.52,
+        "surge_multiplier": 1.2,
+        "final_payment": 88.22,
+        "distance_km": 4.469,
+        "estimated_time_minutes": 6.81,
+        "route_source": "ROUTED",
+        "traffic_level": "SEVERE",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 0.91,
+        "estimated_preparation_minutes": 14,
+        "expiration_seconds": 127,
+        "created_at_simulation_second": 6113,
+        "id": "local-25"
+      },
+      "second": 6113,
+      "position": {
+        "lat": 25.682642017091457,
+        "lng": -100.2700931431784
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 25,
+        "merchant_name": "Pasta Bella",
+        "pickup_lat": 25.64350943725656,
+        "pickup_lng": -100.2651832123178,
+        "dropoff_lat": 25.67202237915567,
+        "dropoff_lng": -100.2447280692648,
+        "base_payment": 73.52,
+        "surge_multiplier": 1.2,
+        "final_payment": 88.22,
+        "distance_km": 4.469,
+        "estimated_time_minutes": 6.81,
+        "route_source": "ROUTED",
+        "traffic_level": "SEVERE",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 0.91,
+        "estimated_preparation_minutes": 14,
+        "expiration_seconds": 127,
+        "created_at_simulation_second": 6113,
+        "id": "local-25"
+      },
+      "second": 6113,
+      "position": {
+        "lat": 25.666340227328845,
+        "lng": -100.33479003388307
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 26.3 min y 16.2 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $55.84 netos por 26.3 min extra ($2.13/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 16.19,
+        "additionalTime": 26.25,
+        "additionalRevenue": 88.22,
+        "additionalCost": 32.38,
+        "additionalNetProfit": 55.84,
+        "marginalProfitPerMinute": 2.13,
+        "maxLateMinutesVsPromise": 2.15,
+        "promisedDropoffSecond": 8282
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 26,
+        "merchant_name": "Sushi Roma",
+        "pickup_lat": 25.66303424676775,
+        "pickup_lng": -100.40049159340589,
+        "dropoff_lat": 25.6947309523238,
+        "dropoff_lng": -100.43844375408051,
+        "base_payment": 130.01,
+        "surge_multiplier": 1,
+        "final_payment": 130.01,
+        "distance_km": 7.904,
+        "estimated_time_minutes": 14.03,
+        "route_source": "ROUTED",
+        "traffic_level": "SEVERE",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.92,
+        "estimated_preparation_minutes": 5,
+        "expiration_seconds": 71,
+        "created_at_simulation_second": 6281,
+        "id": "local-26"
+      },
+      "second": 6281,
+      "position": {
+        "lat": 25.67283887999937,
+        "lng": -100.2871492597032
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 26,
+        "merchant_name": "Sushi Roma",
+        "pickup_lat": 25.66303424676775,
+        "pickup_lng": -100.40049159340589,
+        "dropoff_lat": 25.6947309523238,
+        "dropoff_lng": -100.43844375408051,
+        "base_payment": 130.01,
+        "surge_multiplier": 1,
+        "final_payment": 130.01,
+        "distance_km": 7.904,
+        "estimated_time_minutes": 14.03,
+        "route_source": "ROUTED",
+        "traffic_level": "SEVERE",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.92,
+        "estimated_preparation_minutes": 5,
+        "expiration_seconds": 71,
+        "created_at_simulation_second": 6281,
+        "id": "local-26"
+      },
+      "second": 6281,
+      "position": {
+        "lat": 25.652754764858003,
+        "lng": -100.33644825493184
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 31.3 min y 17.8 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 17.76,
+        "additionalTime": 31.25,
+        "additionalRevenue": 130.01,
+        "additionalCost": 35.51,
+        "additionalNetProfit": 94.5,
+        "marginalProfitPerMinute": 3.02,
+        "maxLateMinutesVsPromise": 2.88,
+        "promisedDropoffSecond": 8582
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 27,
+        "merchant_name": "Tortas Don Beto",
+        "pickup_lat": 25.6893901732089,
+        "pickup_lng": -100.29947524763905,
+        "dropoff_lat": 25.655375314263104,
+        "dropoff_lng": -100.33110656021493,
+        "base_payment": 122.76,
+        "surge_multiplier": 1.5,
+        "final_payment": 184.14,
+        "distance_km": 8.011,
+        "estimated_time_minutes": 14.25,
+        "route_source": "ROUTED",
+        "traffic_level": "SEVERE",
+        "destination_demand": "VERY_HIGH",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.11,
+        "estimated_preparation_minutes": 18,
+        "expiration_seconds": 127,
+        "created_at_simulation_second": 6412,
+        "id": "local-27"
+      },
+      "second": 6412,
+      "position": {
+        "lat": 25.666361250044694,
+        "lng": -100.29746831251714
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 27,
+        "merchant_name": "Tortas Don Beto",
+        "pickup_lat": 25.6893901732089,
+        "pickup_lng": -100.29947524763905,
+        "dropoff_lat": 25.655375314263104,
+        "dropoff_lng": -100.33110656021493,
+        "base_payment": 122.76,
+        "surge_multiplier": 1.5,
+        "final_payment": 184.14,
+        "distance_km": 8.011,
+        "estimated_time_minutes": 14.25,
+        "route_source": "ROUTED",
+        "traffic_level": "SEVERE",
+        "destination_demand": "VERY_HIGH",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.11,
+        "estimated_preparation_minutes": 18,
+        "expiration_seconds": 127,
+        "created_at_simulation_second": 6412,
+        "id": "local-27"
+      },
+      "second": 6412,
+      "position": {
+        "lat": 25.64638727290622,
+        "lng": -100.3392537417603
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 34.2 min y 19.0 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 18.99,
+        "additionalTime": 34.2,
+        "additionalRevenue": 184.14,
+        "additionalCost": 37.97,
+        "additionalNetProfit": 146.17,
+        "marginalProfitPerMinute": 4.27,
+        "maxLateMinutesVsPromise": 2.83,
+        "promisedDropoffSecond": 8759
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 28,
+        "merchant_name": "Café Barrio",
+        "pickup_lat": 25.68210893998585,
+        "pickup_lng": -100.24889771839709,
+        "dropoff_lat": 25.66637256018988,
+        "dropoff_lng": -100.29557144310085,
+        "base_payment": 147,
+        "surge_multiplier": 1.5,
+        "final_payment": 220.5,
+        "distance_km": 9.573,
+        "estimated_time_minutes": 9.95,
+        "route_source": "ROUTED",
+        "traffic_level": "SEVERE",
+        "destination_demand": "VERY_HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 4.82,
+        "estimated_preparation_minutes": 8,
+        "expiration_seconds": 162,
+        "created_at_simulation_second": 6692,
+        "id": "local-28"
+      },
+      "second": 6692,
+      "position": {
+        "lat": 25.64778963602609,
+        "lng": -100.29859831539345
+      },
+      "reasons": [
+        {
+          "criterion": "finalPayment",
+          "comparator": ">=",
+          "value": 220.5,
+          "threshold": 0,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerMinute",
+          "comparator": ">=",
+          "value": 22.16,
+          "threshold": 3,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerKm",
+          "comparator": ">=",
+          "value": 23.03,
+          "threshold": 8,
+          "passed": true
+        },
+        {
+          "criterion": "distanceKm",
+          "comparator": "<=",
+          "value": 9.573,
+          "threshold": 15,
+          "passed": true
+        }
+      ],
+      "positiveFactors": [
+        {
+          "criterion": "finalPayment",
+          "comparator": ">=",
+          "value": 220.5,
+          "threshold": 0,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerMinute",
+          "comparator": ">=",
+          "value": 22.16,
+          "threshold": 3,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerKm",
+          "comparator": ">=",
+          "value": 23.03,
+          "threshold": 8,
+          "passed": true
+        },
+        {
+          "criterion": "distanceKm",
+          "comparator": "<=",
+          "value": 9.573,
+          "threshold": 15,
+          "passed": true
+        }
+      ],
+      "negativeFactors": [],
+      "restrictions": [],
+      "estimatedImpact": {
+        "distanceToPickupKm": 8.19,
+        "toPickupMinutes": 10.75,
+        "waitMinutes": 0,
+        "deliveryDistanceKm": 9.57,
+        "deliveryMinutes": 9.95,
+        "totalKm": 17.76,
+        "totalMinutes": 20.7,
+        "grossPayment": 220.5,
+        "operatingCost": 35.52,
+        "netProfit": 184.98,
+        "profitPerMinute": 8.94,
+        "profitPerKm": 10.42,
+        "promisedDropoffSecond": 7934
+      },
+      "score": null,
+      "decision": "ACCEPT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 28,
+        "merchant_name": "Café Barrio",
+        "pickup_lat": 25.68210893998585,
+        "pickup_lng": -100.24889771839709,
+        "dropoff_lat": 25.66637256018988,
+        "dropoff_lng": -100.29557144310085,
+        "base_payment": 147,
+        "surge_multiplier": 1.5,
+        "final_payment": 220.5,
+        "distance_km": 9.573,
+        "estimated_time_minutes": 9.95,
+        "route_source": "ROUTED",
+        "traffic_level": "SEVERE",
+        "destination_demand": "VERY_HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 4.82,
+        "estimated_preparation_minutes": 8,
+        "expiration_seconds": 162,
+        "created_at_simulation_second": 6692,
+        "id": "local-28"
+      },
+      "second": 6692,
+      "position": {
+        "lat": 25.630282190441072,
+        "lng": -100.3290130987515
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 30.0 min y 23.9 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 23.95,
+        "additionalTime": 30.02,
+        "additionalRevenue": 220.5,
+        "additionalCost": 47.9,
+        "additionalNetProfit": 172.6,
+        "marginalProfitPerMinute": 5.75,
+        "maxLateMinutesVsPromise": 1.67,
+        "promisedDropoffSecond": 8508
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 29,
+        "merchant_name": "Sushi Roma",
+        "pickup_lat": 25.73238084347086,
+        "pickup_lng": -100.36534830436666,
+        "dropoff_lat": 25.726500460126204,
+        "dropoff_lng": -100.31279486447407,
+        "base_payment": 115.51,
+        "surge_multiplier": 1.1,
+        "final_payment": 127.06,
+        "distance_km": 7.695,
+        "estimated_time_minutes": 15.02,
+        "route_source": "ROUTED",
+        "traffic_level": "SEVERE",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.97,
+        "estimated_preparation_minutes": 18,
+        "expiration_seconds": 175,
+        "created_at_simulation_second": 6830,
+        "id": "local-29"
+      },
+      "second": 6830,
+      "position": {
+        "lat": 25.65930669402441,
+        "lng": -100.29693053779697
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 29,
+        "merchant_name": "Sushi Roma",
+        "pickup_lat": 25.73238084347086,
+        "pickup_lng": -100.36534830436666,
+        "dropoff_lat": 25.726500460126204,
+        "dropoff_lng": -100.31279486447407,
+        "base_payment": 115.51,
+        "surge_multiplier": 1.1,
+        "final_payment": 127.06,
+        "distance_km": 7.695,
+        "estimated_time_minutes": 15.02,
+        "route_source": "ROUTED",
+        "traffic_level": "SEVERE",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.97,
+        "estimated_preparation_minutes": 18,
+        "expiration_seconds": 175,
+        "created_at_simulation_second": 6830,
+        "id": "local-29"
+      },
+      "second": 6830,
+      "position": {
+        "lat": 25.630700879459674,
+        "lng": -100.32764099395666
+      },
+      "reasons": [
+        {
+          "factor": "PROFIT_PER_MINUTE",
+          "points": 15
+        },
+        {
+          "factor": "NET_PROFIT",
+          "points": 9.99
+        },
+        {
+          "factor": "TOTAL_TIME",
+          "points": 4.46
+        },
+        {
+          "factor": "DESTINATION_DEMAND",
+          "points": 6
+        },
+        {
+          "factor": "PROFIT_PER_KM",
+          "points": 2.08
+        },
+        {
+          "factor": "DISTANCE_TO_PICKUP",
+          "points": 0
+        }
+      ],
+      "positiveFactors": [
+        {
+          "factor": "PROFIT_PER_MINUTE",
+          "points": 15
+        },
+        {
+          "factor": "NET_PROFIT",
+          "points": 9.99
+        },
+        {
+          "factor": "TOTAL_TIME",
+          "points": 4.46
+        },
+        {
+          "factor": "DESTINATION_DEMAND",
+          "points": 6
+        }
+      ],
+      "negativeFactors": [
+        {
+          "factor": "PROFIT_PER_KM",
+          "points": 2.08
+        },
+        {
+          "factor": "DISTANCE_TO_PICKUP",
+          "points": 0
+        }
+      ],
+      "restrictions": [],
+      "estimatedImpact": {
+        "distanceToPickupKm": 15.88,
+        "toPickupMinutes": 24.93,
+        "waitMinutes": 0,
+        "deliveryDistanceKm": 7.7,
+        "deliveryMinutes": 15.02,
+        "totalKm": 23.57,
+        "totalMinutes": 39.95,
+        "grossPayment": 127.06,
+        "operatingCost": 47.15,
+        "netProfit": 79.91,
+        "profitPerMinute": 2,
+        "profitPerKm": 3.39,
+        "promisedDropoffSecond": 9227,
+        "destinationDemandAtArrival": "MEDIUM",
+        "lookahead": {
+          "horizonMinutes": 45,
+          "scenarios": 6,
+          "opportunityCostPerMinute": 2.5,
+          "accept": {
+            "mean": 92.86,
+            "p10": 79.91,
+            "p90": 115.94,
+            "std": 13.9
+          },
+          "wait": {
+            "mean": 158.73,
+            "p10": 83.43,
+            "p90": 267.11,
+            "std": 63.87
+          },
+          "acceptAdvantage": -65.88,
+          "advantageP10": -151.17,
+          "advantageP90": 16.96,
+          "standardError": 28.23,
+          "waitAdvantageRequired": 0,
+          "currentNetPerMinute": 2,
+          "decisionRule": "sampling_margin_when_current_rate_covers_opportunity_cost"
+        }
+      },
+      "score": 38,
+      "decision": "WAIT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 30,
+        "merchant_name": "Sushi Roma",
+        "pickup_lat": 25.664080139428318,
+        "pickup_lng": -100.30230854352459,
+        "dropoff_lat": 25.61743153870303,
+        "dropoff_lng": -100.30581963053895,
+        "base_payment": 130.63,
+        "surge_multiplier": 1,
+        "final_payment": 130.63,
+        "distance_km": 11.459,
+        "estimated_time_minutes": 15.87,
+        "route_source": "ROUTED",
+        "traffic_level": "SEVERE",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 3.83,
+        "estimated_preparation_minutes": 6,
+        "expiration_seconds": 78,
+        "created_at_simulation_second": 7137,
+        "id": "local-30"
+      },
+      "second": 7137,
+      "position": {
+        "lat": 25.680272942096536,
+        "lng": -100.2717973500995
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 30,
+        "merchant_name": "Sushi Roma",
+        "pickup_lat": 25.664080139428318,
+        "pickup_lng": -100.30230854352459,
+        "dropoff_lat": 25.61743153870303,
+        "dropoff_lng": -100.30581963053895,
+        "base_payment": 130.63,
+        "surge_multiplier": 1,
+        "final_payment": 130.63,
+        "distance_km": 11.459,
+        "estimated_time_minutes": 15.87,
+        "route_source": "ROUTED",
+        "traffic_level": "SEVERE",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 3.83,
+        "estimated_preparation_minutes": 6,
+        "expiration_seconds": 78,
+        "created_at_simulation_second": 7137,
+        "id": "local-30"
+      },
+      "second": 7137,
+      "position": {
+        "lat": 25.630700879459674,
+        "lng": -100.32764099395666
+      },
+      "reasons": [
+        {
+          "factor": "PROFIT_PER_MINUTE",
+          "points": 25.9
+        },
+        {
+          "factor": "NET_PROFIT",
+          "points": 11.34
+        },
+        {
+          "factor": "TOTAL_TIME",
+          "points": 6.82
+        },
+        {
+          "factor": "PROFIT_PER_KM",
+          "points": 3.83
+        },
+        {
+          "factor": "DISTANCE_TO_PICKUP",
+          "points": 0
+        },
+        {
+          "factor": "DESTINATION_DEMAND",
+          "points": 0
+        }
+      ],
+      "positiveFactors": [
+        {
+          "factor": "PROFIT_PER_MINUTE",
+          "points": 25.9
+        },
+        {
+          "factor": "NET_PROFIT",
+          "points": 11.34
+        },
+        {
+          "factor": "TOTAL_TIME",
+          "points": 6.82
+        }
+      ],
+      "negativeFactors": [
+        {
+          "factor": "PROFIT_PER_KM",
+          "points": 3.83
+        },
+        {
+          "factor": "DISTANCE_TO_PICKUP",
+          "points": 0
+        },
+        {
+          "factor": "DESTINATION_DEMAND",
+          "points": 0
+        }
+      ],
+      "restrictions": [],
+      "estimatedImpact": {
+        "distanceToPickupKm": 8.49,
+        "toPickupMinutes": 13.47,
+        "waitMinutes": 0,
+        "deliveryDistanceKm": 11.46,
+        "deliveryMinutes": 15.87,
+        "totalKm": 19.95,
+        "totalMinutes": 29.33,
+        "grossPayment": 130.63,
+        "operatingCost": 39.89,
+        "netProfit": 90.74,
+        "profitPerMinute": 3.09,
+        "profitPerKm": 4.55,
+        "promisedDropoffSecond": 8897,
+        "destinationDemandAtArrival": "LOW",
+        "lookahead": {
+          "horizonMinutes": 45,
+          "scenarios": 6,
+          "opportunityCostPerMinute": 2.5,
+          "accept": {
+            "mean": 178.16,
+            "p10": 112.98,
+            "p90": 304.07,
+            "std": 59.53
+          },
+          "wait": {
+            "mean": 166.07,
+            "p10": 132.2,
+            "p90": 195.44,
+            "std": 23.7
+          },
+          "acceptAdvantage": 12.09,
+          "advantageP10": -23.92,
+          "advantageP90": 117.47,
+          "standardError": 21.89,
+          "waitAdvantageRequired": 21.89,
+          "currentNetPerMinute": 3.09,
+          "decisionRule": "sampling_margin_when_current_rate_covers_opportunity_cost"
+        }
+      },
+      "score": 48,
+      "decision": "ACCEPT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 31,
+        "merchant_name": "Burger Norte",
+        "pickup_lat": 25.745775773324233,
+        "pickup_lng": -100.30310382925501,
+        "dropoff_lat": 25.756709813780898,
+        "dropoff_lng": -100.29550815044271,
+        "base_payment": 42.5,
+        "surge_multiplier": 1.2,
+        "final_payment": 51,
+        "distance_km": 1.802,
+        "estimated_time_minutes": 2.71,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "MEDIUM",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 2.85,
+        "estimated_preparation_minutes": 14,
+        "expiration_seconds": 180,
+        "created_at_simulation_second": 7281,
+        "id": "local-31"
+      },
+      "second": 7281,
+      "position": {
+        "lat": 25.683680922552824,
+        "lng": -100.25212472364626
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 31,
+        "merchant_name": "Burger Norte",
+        "pickup_lat": 25.745775773324233,
+        "pickup_lng": -100.30310382925501,
+        "dropoff_lat": 25.756709813780898,
+        "dropoff_lng": -100.29550815044271,
+        "base_payment": 42.5,
+        "surge_multiplier": 1.2,
+        "final_payment": 51,
+        "distance_km": 1.802,
+        "estimated_time_minutes": 2.71,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "MEDIUM",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 2.85,
+        "estimated_preparation_minutes": 14,
+        "expiration_seconds": 180,
+        "created_at_simulation_second": 7281,
+        "id": "local-31"
+      },
+      "second": 7281,
+      "position": {
+        "lat": 25.636926751121205,
+        "lng": -100.33762045324242
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 21.6 min y 20.4 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $10.18 netos por 21.6 min extra ($0.47/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 20.41,
+        "additionalTime": 21.63,
+        "additionalRevenue": 51,
+        "additionalCost": 40.82,
+        "additionalNetProfit": 10.18,
+        "marginalProfitPerMinute": 0.47,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 9858
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 32,
+        "merchant_name": "Mariscos La Costa",
+        "pickup_lat": 25.75704566312856,
+        "pickup_lng": -100.3019270564223,
+        "dropoff_lat": 25.703213232228663,
+        "dropoff_lng": -100.29860259746609,
+        "base_payment": 126.95,
+        "surge_multiplier": 1.2,
+        "final_payment": 152.34,
+        "distance_km": 9.115,
+        "estimated_time_minutes": 9.58,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 2.66,
+        "estimated_preparation_minutes": 15,
+        "expiration_seconds": 65,
+        "created_at_simulation_second": 7444,
+        "id": "local-32"
+      },
+      "second": 7444,
+      "position": {
+        "lat": 25.685320971518657,
+        "lng": -100.25115123428935
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 32,
+        "merchant_name": "Mariscos La Costa",
+        "pickup_lat": 25.75704566312856,
+        "pickup_lng": -100.3019270564223,
+        "dropoff_lat": 25.703213232228663,
+        "dropoff_lng": -100.29860259746609,
+        "base_payment": 126.95,
+        "surge_multiplier": 1.2,
+        "final_payment": 152.34,
+        "distance_km": 9.115,
+        "estimated_time_minutes": 9.58,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 2.66,
+        "estimated_preparation_minutes": 15,
+        "expiration_seconds": 65,
+        "created_at_simulation_second": 7444,
+        "id": "local-32"
+      },
+      "second": 7444,
+      "position": {
+        "lat": 25.65587599080384,
+        "lng": -100.33728444938315
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 29.4 min y 29.2 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 29.24,
+        "additionalTime": 29.45,
+        "additionalRevenue": 152.34,
+        "additionalCost": 58.48,
+        "additionalNetProfit": 93.86,
+        "marginalProfitPerMinute": 3.19,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 10327
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 33,
+        "merchant_name": "Pizza Fresca",
+        "pickup_lat": 25.70564003271323,
+        "pickup_lng": -100.34960910839762,
+        "dropoff_lat": 25.74615067065823,
+        "dropoff_lng": -100.38122403628456,
+        "base_payment": 108.45,
+        "surge_multiplier": 1,
+        "final_payment": 108.45,
+        "distance_km": 6.157,
+        "estimated_time_minutes": 9.78,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "HIGH",
+        "package_size": "MEDIUM",
+        "package_weight": 3.63,
+        "estimated_preparation_minutes": 15,
+        "expiration_seconds": 164,
+        "created_at_simulation_second": 7616,
+        "id": "local-33"
+      },
+      "second": 7616,
+      "position": {
+        "lat": 25.67478054703371,
+        "lng": -100.28064944138578
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 33,
+        "merchant_name": "Pizza Fresca",
+        "pickup_lat": 25.70564003271323,
+        "pickup_lng": -100.34960910839762,
+        "dropoff_lat": 25.74615067065823,
+        "dropoff_lng": -100.38122403628456,
+        "base_payment": 108.45,
+        "surge_multiplier": 1,
+        "final_payment": 108.45,
+        "distance_km": 6.157,
+        "estimated_time_minutes": 9.78,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "HIGH",
+        "package_size": "MEDIUM",
+        "package_weight": 3.63,
+        "estimated_preparation_minutes": 15,
+        "expiration_seconds": 164,
+        "created_at_simulation_second": 7616,
+        "id": "local-33"
+      },
+      "second": 7616,
+      "position": {
+        "lat": 25.663908509647747,
+        "lng": -100.32327664573724
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 23.5 min y 20.6 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $67.33 netos por 23.5 min extra ($2.87/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 20.56,
+        "additionalTime": 23.48,
+        "additionalRevenue": 108.45,
+        "additionalCost": 41.12,
+        "additionalNetProfit": 67.33,
+        "marginalProfitPerMinute": 2.87,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 9969
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 34,
+        "merchant_name": "Wok Express",
+        "pickup_lat": 25.667622150825174,
+        "pickup_lng": -100.39110389011567,
+        "dropoff_lat": 25.674912826511882,
+        "dropoff_lng": -100.3860363381174,
+        "base_payment": 52.46,
+        "surge_multiplier": 1.5,
+        "final_payment": 78.69,
+        "distance_km": 2.832,
+        "estimated_time_minutes": 5.07,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 2.78,
+        "estimated_preparation_minutes": 7,
+        "expiration_seconds": 78,
+        "created_at_simulation_second": 7819,
+        "id": "local-34"
+      },
+      "second": 7819,
+      "position": {
+        "lat": 25.66637256018988,
+        "lng": -100.29557144310085
+      },
+      "reasons": [
+        {
+          "criterion": "finalPayment",
+          "comparator": ">=",
+          "value": 78.69,
+          "threshold": 0,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerMinute",
+          "comparator": ">=",
+          "value": 15.52,
+          "threshold": 3,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerKm",
+          "comparator": ">=",
+          "value": 27.79,
+          "threshold": 8,
+          "passed": true
+        },
+        {
+          "criterion": "distanceKm",
+          "comparator": "<=",
+          "value": 2.832,
+          "threshold": 15,
+          "passed": true
+        }
+      ],
+      "positiveFactors": [
+        {
+          "criterion": "finalPayment",
+          "comparator": ">=",
+          "value": 78.69,
+          "threshold": 0,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerMinute",
+          "comparator": ">=",
+          "value": 15.52,
+          "threshold": 3,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerKm",
+          "comparator": ">=",
+          "value": 27.79,
+          "threshold": 8,
+          "passed": true
+        },
+        {
+          "criterion": "distanceKm",
+          "comparator": "<=",
+          "value": 2.832,
+          "threshold": 15,
+          "passed": true
+        }
+      ],
+      "negativeFactors": [],
+      "restrictions": [],
+      "estimatedImpact": {
+        "distanceToPickupKm": 13.82,
+        "toPickupMinutes": 14.63,
+        "waitMinutes": 0,
+        "deliveryDistanceKm": 2.83,
+        "deliveryMinutes": 5.07,
+        "totalKm": 16.66,
+        "totalMinutes": 19.7,
+        "grossPayment": 78.69,
+        "operatingCost": 33.31,
+        "netProfit": 45.38,
+        "profitPerMinute": 2.3,
+        "profitPerKm": 2.72,
+        "promisedDropoffSecond": 9001
+      },
+      "score": null,
+      "decision": "ACCEPT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 34,
+        "merchant_name": "Wok Express",
+        "pickup_lat": 25.667622150825174,
+        "pickup_lng": -100.39110389011567,
+        "dropoff_lat": 25.674912826511882,
+        "dropoff_lng": -100.3860363381174,
+        "base_payment": 52.46,
+        "surge_multiplier": 1.5,
+        "final_payment": 78.69,
+        "distance_km": 2.832,
+        "estimated_time_minutes": 5.07,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 2.78,
+        "estimated_preparation_minutes": 7,
+        "expiration_seconds": 78,
+        "created_at_simulation_second": 7819,
+        "id": "local-34"
+      },
+      "second": 7819,
+      "position": {
+        "lat": 25.66422714900368,
+        "lng": -100.30516279564876
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 21.4 min y 15.7 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $47.35 netos por 21.4 min extra ($2.21/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 15.67,
+        "additionalTime": 21.43,
+        "additionalRevenue": 78.69,
+        "additionalCost": 31.34,
+        "additionalNetProfit": 47.35,
+        "marginalProfitPerMinute": 2.21,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 9846
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 35,
+        "merchant_name": "Burger Norte",
+        "pickup_lat": 25.78412149825636,
+        "pickup_lng": -100.20757893774794,
+        "dropoff_lat": 25.80203815817288,
+        "dropoff_lng": -100.17266549371584,
+        "base_payment": 98.5,
+        "surge_multiplier": 1,
+        "final_payment": 98.5,
+        "distance_km": 5.386,
+        "estimated_time_minutes": 9.65,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 0.53,
+        "estimated_preparation_minutes": 8,
+        "expiration_seconds": 95,
+        "created_at_simulation_second": 7975,
+        "id": "local-35"
+      },
+      "second": 7975,
+      "position": {
+        "lat": 25.664083173559025,
+        "lng": -100.31299640012071
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 35,
+        "merchant_name": "Burger Norte",
+        "pickup_lat": 25.78412149825636,
+        "pickup_lng": -100.20757893774794,
+        "dropoff_lat": 25.80203815817288,
+        "dropoff_lng": -100.17266549371584,
+        "base_payment": 98.5,
+        "surge_multiplier": 1,
+        "final_payment": 98.5,
+        "distance_km": 5.386,
+        "estimated_time_minutes": 9.65,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 0.53,
+        "estimated_preparation_minutes": 8,
+        "expiration_seconds": 95,
+        "created_at_simulation_second": 7975,
+        "id": "local-35"
+      },
+      "second": 7975,
+      "position": {
+        "lat": 25.666609241469104,
+        "lng": -100.32788280162391
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 39.3 min y 34.1 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $30.35 netos por 39.3 min extra ($0.77/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 34.07,
+        "additionalTime": 39.3,
+        "additionalRevenue": 98.5,
+        "additionalCost": 68.15,
+        "additionalNetProfit": 30.35,
+        "marginalProfitPerMinute": 0.77,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 10918
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 36,
+        "merchant_name": "Sushi Roma",
+        "pickup_lat": 25.746306230416966,
+        "pickup_lng": -100.2969100348264,
+        "dropoff_lat": 25.77211938622984,
+        "dropoff_lng": -100.25642394876843,
+        "base_payment": 107.08,
+        "surge_multiplier": 1,
+        "final_payment": 107.08,
+        "distance_km": 6.765,
+        "estimated_time_minutes": 9.99,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.91,
+        "estimated_preparation_minutes": 7,
+        "expiration_seconds": 167,
+        "created_at_simulation_second": 8218,
+        "id": "local-36"
+      },
+      "second": 8218,
+      "position": {
+        "lat": 25.671699653270988,
+        "lng": -100.35021109821096
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 36,
+        "merchant_name": "Sushi Roma",
+        "pickup_lat": 25.746306230416966,
+        "pickup_lng": -100.2969100348264,
+        "dropoff_lat": 25.77211938622984,
+        "dropoff_lng": -100.25642394876843,
+        "base_payment": 107.08,
+        "surge_multiplier": 1,
+        "final_payment": 107.08,
+        "distance_km": 6.765,
+        "estimated_time_minutes": 9.99,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.91,
+        "estimated_preparation_minutes": 7,
+        "expiration_seconds": 167,
+        "created_at_simulation_second": 8218,
+        "id": "local-36"
+      },
+      "second": 8218,
+      "position": {
+        "lat": 25.646940197673903,
+        "lng": -100.32619345024517
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 31.5 min y 25.9 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $55.22 netos por 31.5 min extra ($1.75/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 25.93,
+        "additionalTime": 31.47,
+        "additionalRevenue": 107.08,
+        "additionalCost": 51.86,
+        "additionalNetProfit": 55.22,
+        "marginalProfitPerMinute": 1.75,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 10448
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 37,
+        "merchant_name": "Burger Norte",
+        "pickup_lat": 25.637736233282194,
+        "pickup_lng": -100.41323134297515,
+        "dropoff_lat": 25.66368310891802,
+        "dropoff_lng": -100.44710408031993,
+        "base_payment": 136.24,
+        "surge_multiplier": 1,
+        "final_payment": 136.24,
+        "distance_km": 10.043,
+        "estimated_time_minutes": 17.24,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "HIGH",
+        "package_size": "SMALL",
+        "package_weight": 1.19,
+        "estimated_preparation_minutes": 15,
+        "expiration_seconds": 169,
+        "created_at_simulation_second": 8449,
+        "id": "local-37"
+      },
+      "second": 8449,
+      "position": {
+        "lat": 25.670411271569105,
+        "lng": -100.38344274414833
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 37,
+        "merchant_name": "Burger Norte",
+        "pickup_lat": 25.637736233282194,
+        "pickup_lng": -100.41323134297515,
+        "dropoff_lat": 25.66368310891802,
+        "dropoff_lng": -100.44710408031993,
+        "base_payment": 136.24,
+        "surge_multiplier": 1,
+        "final_payment": 136.24,
+        "distance_km": 10.043,
+        "estimated_time_minutes": 17.24,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "HIGH",
+        "package_size": "SMALL",
+        "package_weight": 1.19,
+        "estimated_preparation_minutes": 15,
+        "expiration_seconds": 169,
+        "created_at_simulation_second": 8449,
+        "id": "local-37"
+      },
+      "second": 8449,
+      "position": {
+        "lat": 25.628292784668087,
+        "lng": -100.29898918220039
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 42.9 min y 27.4 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $81.45 netos por 42.9 min extra ($1.90/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 27.39,
+        "additionalTime": 42.88,
+        "additionalRevenue": 136.24,
+        "additionalCost": 54.79,
+        "additionalNetProfit": 81.45,
+        "marginalProfitPerMinute": 1.9,
+        "maxLateMinutesVsPromise": 0,
+        "promisedDropoffSecond": 11133
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 38,
+        "merchant_name": "Wok Express",
+        "pickup_lat": 25.67534197973355,
+        "pickup_lng": -100.38553313292711,
+        "dropoff_lat": 25.71959877440575,
+        "dropoff_lng": -100.35458744646199,
+        "base_payment": 143.42,
+        "surge_multiplier": 1.1,
+        "final_payment": 157.76,
+        "distance_km": 9.991,
+        "estimated_time_minutes": 11.55,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.89,
+        "estimated_preparation_minutes": 8,
+        "expiration_seconds": 135,
+        "created_at_simulation_second": 8738,
+        "id": "local-38"
+      },
+      "second": 8738,
+      "position": {
+        "lat": 25.665641058556744,
+        "lng": -100.3908747121875
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 38,
+        "merchant_name": "Wok Express",
+        "pickup_lat": 25.67534197973355,
+        "pickup_lng": -100.38553313292711,
+        "dropoff_lat": 25.71959877440575,
+        "dropoff_lng": -100.35458744646199,
+        "base_payment": 143.42,
+        "surge_multiplier": 1.1,
+        "final_payment": 157.76,
+        "distance_km": 9.991,
+        "estimated_time_minutes": 11.55,
+        "route_source": "ROUTED",
+        "traffic_level": "MEDIUM",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.89,
+        "estimated_preparation_minutes": 8,
+        "expiration_seconds": 135,
+        "created_at_simulation_second": 8738,
+        "id": "local-38"
+      },
+      "second": 8738,
+      "position": {
+        "lat": 25.61743153870303,
+        "lng": -100.30581963053895
+      },
+      "reasons": [
+        {
+          "factor": "PROFIT_PER_MINUTE",
+          "points": 35
+        },
+        {
+          "factor": "NET_PROFIT",
+          "points": 13.86
+        },
+        {
+          "factor": "TOTAL_TIME",
+          "points": 7.19
+        },
+        {
+          "factor": "PROFIT_PER_KM",
+          "points": 4.1
+        },
+        {
+          "factor": "DISTANCE_TO_PICKUP",
+          "points": 0
+        },
+        {
+          "factor": "DESTINATION_DEMAND",
+          "points": 0
+        }
+      ],
+      "positiveFactors": [
+        {
+          "factor": "PROFIT_PER_MINUTE",
+          "points": 35
+        },
+        {
+          "factor": "NET_PROFIT",
+          "points": 13.86
+        },
+        {
+          "factor": "TOTAL_TIME",
+          "points": 7.19
+        }
+      ],
+      "negativeFactors": [
+        {
+          "factor": "PROFIT_PER_KM",
+          "points": 4.1
+        },
+        {
+          "factor": "DISTANCE_TO_PICKUP",
+          "points": 0
+        },
+        {
+          "factor": "DESTINATION_DEMAND",
+          "points": 0
+        }
+      ],
+      "restrictions": [],
+      "estimatedImpact": {
+        "distanceToPickupKm": 13.46,
+        "toPickupMinutes": 16.08,
+        "waitMinutes": 0,
+        "deliveryDistanceKm": 9.99,
+        "deliveryMinutes": 11.55,
+        "totalKm": 23.45,
+        "totalMinutes": 27.63,
+        "grossPayment": 157.76,
+        "operatingCost": 46.91,
+        "netProfit": 110.85,
+        "profitPerMinute": 4.01,
+        "profitPerKm": 4.73,
+        "promisedDropoffSecond": 10396,
+        "destinationDemandAtArrival": "LOW",
+        "lookahead": {
+          "horizonMinutes": 34.37,
+          "scenarios": 6,
+          "opportunityCostPerMinute": 2.5,
+          "accept": {
+            "mean": 142.56,
+            "p10": 110.85,
+            "p90": 202.46,
+            "std": 29.34
+          },
+          "wait": {
+            "mean": 77.7,
+            "p10": 22.7,
+            "p90": 153.85,
+            "std": 38.97
+          },
+          "acceptAdvantage": 64.86,
+          "advantageP10": -34.05,
+          "advantageP90": 179.76,
+          "standardError": 28.2,
+          "waitAdvantageRequired": 28.2,
+          "currentNetPerMinute": 4.01,
+          "decisionRule": "sampling_margin_when_current_rate_covers_opportunity_cost"
+        }
+      },
+      "score": 60,
+      "decision": "ACCEPT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 39,
+        "merchant_name": "Tacos El Rey",
+        "pickup_lat": 25.677631626089276,
+        "pickup_lng": -100.38690578144131,
+        "dropoff_lat": 25.689622562239652,
+        "dropoff_lng": -100.43154329469817,
+        "base_payment": 117.73,
+        "surge_multiplier": 1,
+        "final_payment": 117.73,
+        "distance_km": 8.075,
+        "estimated_time_minutes": 13.02,
+        "route_source": "ROUTED",
+        "traffic_level": "HIGH",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.64,
+        "estimated_preparation_minutes": 20,
+        "expiration_seconds": 76,
+        "created_at_simulation_second": 9026,
+        "id": "local-39"
+      },
+      "second": 9026,
+      "position": {
+        "lat": 25.674912826511882,
+        "lng": -100.3860363381174
+      },
+      "reasons": [
+        {
+          "criterion": "finalPayment",
+          "comparator": ">=",
+          "value": 117.73,
+          "threshold": 0,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerMinute",
+          "comparator": ">=",
+          "value": 9.04,
+          "threshold": 3,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerKm",
+          "comparator": ">=",
+          "value": 14.58,
+          "threshold": 8,
+          "passed": true
+        },
+        {
+          "criterion": "distanceKm",
+          "comparator": "<=",
+          "value": 8.075,
+          "threshold": 15,
+          "passed": true
+        }
+      ],
+      "positiveFactors": [
+        {
+          "criterion": "finalPayment",
+          "comparator": ">=",
+          "value": 117.73,
+          "threshold": 0,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerMinute",
+          "comparator": ">=",
+          "value": 9.04,
+          "threshold": 3,
+          "passed": true
+        },
+        {
+          "criterion": "paymentPerKm",
+          "comparator": ">=",
+          "value": 14.58,
+          "threshold": 8,
+          "passed": true
+        },
+        {
+          "criterion": "distanceKm",
+          "comparator": "<=",
+          "value": 8.075,
+          "threshold": 15,
+          "passed": true
+        }
+      ],
+      "negativeFactors": [],
+      "restrictions": [],
+      "estimatedImpact": {
+        "distanceToPickupKm": 2.64,
+        "toPickupMinutes": 6.65,
+        "waitMinutes": 13.35,
+        "deliveryDistanceKm": 8.07,
+        "deliveryMinutes": 13.02,
+        "totalKm": 10.72,
+        "totalMinutes": 33.02,
+        "grossPayment": 117.73,
+        "operatingCost": 21.44,
+        "netProfit": 96.29,
+        "profitPerMinute": 2.92,
+        "profitPerKm": 8.98,
+        "promisedDropoffSecond": 11007
+      },
+      "score": null,
+      "decision": "ACCEPT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 39,
+        "merchant_name": "Tacos El Rey",
+        "pickup_lat": 25.677631626089276,
+        "pickup_lng": -100.38690578144131,
+        "dropoff_lat": 25.689622562239652,
+        "dropoff_lng": -100.43154329469817,
+        "base_payment": 117.73,
+        "surge_multiplier": 1,
+        "final_payment": 117.73,
+        "distance_km": 8.075,
+        "estimated_time_minutes": 13.02,
+        "route_source": "ROUTED",
+        "traffic_level": "HIGH",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.64,
+        "estimated_preparation_minutes": 20,
+        "expiration_seconds": 76,
+        "created_at_simulation_second": 9026,
+        "id": "local-39"
+      },
+      "second": 9026,
+      "position": {
+        "lat": 25.64105555325564,
+        "lng": -100.3166719385955
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 27.9 min y 17.6 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $82.50 netos por 27.9 min extra ($2.96/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 17.61,
+        "additionalTime": 27.85,
+        "additionalRevenue": 117.73,
+        "additionalCost": 35.23,
+        "additionalNetProfit": 82.5,
+        "marginalProfitPerMinute": 2.96,
+        "maxLateMinutesVsPromise": 0.65,
+        "promisedDropoffSecond": 12221
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 40,
+        "merchant_name": "Tortas Don Beto",
+        "pickup_lat": 25.67665149506695,
+        "pickup_lng": -100.2526131519247,
+        "dropoff_lat": 25.699352963050025,
+        "dropoff_lng": -100.2481267275346,
+        "base_payment": 56.25,
+        "surge_multiplier": 1,
+        "final_payment": 56.25,
+        "distance_km": 3.7,
+        "estimated_time_minutes": 5.57,
+        "route_source": "ROUTED",
+        "traffic_level": "HIGH",
+        "destination_demand": "MEDIUM",
+        "priority": "HIGH",
+        "package_size": "MEDIUM",
+        "package_weight": 2.86,
+        "estimated_preparation_minutes": 16,
+        "expiration_seconds": 172,
+        "created_at_simulation_second": 9261,
+        "id": "local-40"
+      },
+      "second": 9261,
+      "position": {
+        "lat": 25.67370086945547,
+        "lng": -100.38191739351521
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 40,
+        "merchant_name": "Tortas Don Beto",
+        "pickup_lat": 25.67665149506695,
+        "pickup_lng": -100.2526131519247,
+        "dropoff_lat": 25.699352963050025,
+        "dropoff_lng": -100.2481267275346,
+        "base_payment": 56.25,
+        "surge_multiplier": 1,
+        "final_payment": 56.25,
+        "distance_km": 3.7,
+        "estimated_time_minutes": 5.57,
+        "route_source": "ROUTED",
+        "traffic_level": "HIGH",
+        "destination_demand": "MEDIUM",
+        "priority": "HIGH",
+        "package_size": "MEDIUM",
+        "package_weight": 2.86,
+        "estimated_preparation_minutes": 16,
+        "expiration_seconds": 172,
+        "created_at_simulation_second": 9261,
+        "id": "local-40"
+      },
+      "second": 9261,
+      "position": {
+        "lat": 25.656408299162294,
+        "lng": -100.34071259051515
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 26.8 min y 21.3 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $13.62 netos por 26.8 min extra ($0.51/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 21.32,
+        "additionalTime": 26.75,
+        "additionalRevenue": 56.25,
+        "additionalCost": 42.63,
+        "additionalNetProfit": 13.62,
+        "marginalProfitPerMinute": 0.51,
+        "maxLateMinutesVsPromise": 1.93,
+        "promisedDropoffSecond": 12155
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 41,
+        "merchant_name": "Sushi Roma",
+        "pickup_lat": 25.639372874513477,
+        "pickup_lng": -100.39644663503228,
+        "dropoff_lat": 25.66730774939133,
+        "dropoff_lng": -100.43327400502542,
+        "base_payment": 129.77,
+        "surge_multiplier": 1.2,
+        "final_payment": 155.72,
+        "distance_km": 8.721,
+        "estimated_time_minutes": 13.03,
+        "route_source": "ROUTED",
+        "traffic_level": "HIGH",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.54,
+        "estimated_preparation_minutes": 9,
+        "expiration_seconds": 142,
+        "created_at_simulation_second": 9527,
+        "id": "local-41"
+      },
+      "second": 9527,
+      "position": {
+        "lat": 25.677631626089276,
+        "lng": -100.38690578144131
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 41,
+        "merchant_name": "Sushi Roma",
+        "pickup_lat": 25.639372874513477,
+        "pickup_lng": -100.39644663503228,
+        "dropoff_lat": 25.66730774939133,
+        "dropoff_lng": -100.43327400502542,
+        "base_payment": 129.77,
+        "surge_multiplier": 1.2,
+        "final_payment": 155.72,
+        "distance_km": 8.721,
+        "estimated_time_minutes": 13.03,
+        "route_source": "ROUTED",
+        "traffic_level": "HIGH",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "SMALL",
+        "package_weight": 1.54,
+        "estimated_preparation_minutes": 9,
+        "expiration_seconds": 142,
+        "created_at_simulation_second": 9527,
+        "id": "local-41"
+      },
+      "second": 9527,
+      "position": {
+        "lat": 25.673923368603717,
+        "lng": -100.35509463868826
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 33.7 min y 22.0 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 21.95,
+        "additionalTime": 33.68,
+        "additionalRevenue": 155.72,
+        "additionalCost": 43.91,
+        "additionalNetProfit": 111.81,
+        "marginalProfitPerMinute": 3.32,
+        "maxLateMinutesVsPromise": 3.07,
+        "promisedDropoffSecond": 12571
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 42,
+        "merchant_name": "Pollo Feliz MTY",
+        "pickup_lat": 25.670407942048378,
+        "pickup_lng": -100.30342747737238,
+        "dropoff_lat": 25.662332708574464,
+        "dropoff_lng": -100.30503771682514,
+        "base_payment": 43.08,
+        "surge_multiplier": 1.1,
+        "final_payment": 47.39,
+        "distance_km": 2.614,
+        "estimated_time_minutes": 3.68,
+        "route_source": "ROUTED",
+        "traffic_level": "HIGH",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 2.08,
+        "estimated_preparation_minutes": 9,
+        "expiration_seconds": 69,
+        "created_at_simulation_second": 9782,
+        "id": "local-42"
+      },
+      "second": 9782,
+      "position": {
+        "lat": 25.677631626089276,
+        "lng": -100.38690578144131
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 42,
+        "merchant_name": "Pollo Feliz MTY",
+        "pickup_lat": 25.670407942048378,
+        "pickup_lng": -100.30342747737238,
+        "dropoff_lat": 25.662332708574464,
+        "dropoff_lng": -100.30503771682514,
+        "base_payment": 43.08,
+        "surge_multiplier": 1.1,
+        "final_payment": 47.39,
+        "distance_km": 2.614,
+        "estimated_time_minutes": 3.68,
+        "route_source": "ROUTED",
+        "traffic_level": "HIGH",
+        "destination_demand": "HIGH",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 2.08,
+        "estimated_preparation_minutes": 9,
+        "expiration_seconds": 69,
+        "created_at_simulation_second": 9782,
+        "id": "local-42"
+      },
+      "second": 9782,
+      "position": {
+        "lat": 25.675312421278463,
+        "lng": -100.3853158382661
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 19.6 min y 15.4 km (máximo 20 min / 6 km)"
+        },
+        {
+          "code": "BATCH_NOT_PROFITABLE",
+          "message": "Agrupar deja $16.57 netos por 19.6 min extra ($0.84/min, mínimo $3/min)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 15.41,
+        "additionalTime": 19.63,
+        "additionalRevenue": 47.39,
+        "additionalCost": 30.82,
+        "additionalNetProfit": 16.57,
+        "marginalProfitPerMinute": 0.84,
+        "maxLateMinutesVsPromise": 1.22,
+        "promisedDropoffSecond": 11728
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 43,
+        "merchant_name": "Burger Norte",
+        "pickup_lat": 25.741383473110908,
+        "pickup_lng": -100.3605527489236,
+        "dropoff_lat": 25.700864177459827,
+        "dropoff_lng": -100.39951711105336,
+        "base_payment": 108.01,
+        "surge_multiplier": 1,
+        "final_payment": 108.01,
+        "distance_km": 8.74,
+        "estimated_time_minutes": 12.66,
+        "route_source": "ROUTED",
+        "traffic_level": "HIGH",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 2.36,
+        "estimated_preparation_minutes": 8,
+        "expiration_seconds": 71,
+        "created_at_simulation_second": 10002,
+        "id": "local-43"
+      },
+      "second": 10002,
+      "position": {
+        "lat": 25.677631626089276,
+        "lng": -100.38690578144131
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 43,
+        "merchant_name": "Burger Norte",
+        "pickup_lat": 25.741383473110908,
+        "pickup_lng": -100.3605527489236,
+        "dropoff_lat": 25.700864177459827,
+        "dropoff_lng": -100.39951711105336,
+        "base_payment": 108.01,
+        "surge_multiplier": 1,
+        "final_payment": 108.01,
+        "distance_km": 8.74,
+        "estimated_time_minutes": 12.66,
+        "route_source": "ROUTED",
+        "traffic_level": "HIGH",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 2.36,
+        "estimated_preparation_minutes": 8,
+        "expiration_seconds": 71,
+        "created_at_simulation_second": 10002,
+        "id": "local-43"
+      },
+      "second": 10002,
+      "position": {
+        "lat": 25.672973264218918,
+        "lng": -100.36343772918006
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 18.9 min y 13.4 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 13.44,
+        "additionalTime": 18.88,
+        "additionalRevenue": 108.01,
+        "additionalCost": 26.87,
+        "additionalNetProfit": 81.14,
+        "marginalProfitPerMinute": 4.3,
+        "maxLateMinutesVsPromise": 0.48,
+        "promisedDropoffSecond": 11683
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 44,
+        "merchant_name": "Burger Norte",
+        "pickup_lat": 25.741465578128658,
+        "pickup_lng": -100.2994137526847,
+        "dropoff_lat": 25.725739602191954,
+        "dropoff_lng": -100.25059380737453,
+        "base_payment": 118.92,
+        "surge_multiplier": 1,
+        "final_payment": 118.92,
+        "distance_km": 9.589,
+        "estimated_time_minutes": 12.85,
+        "route_source": "ROUTED",
+        "traffic_level": "HIGH",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 3.99,
+        "estimated_preparation_minutes": 5,
+        "expiration_seconds": 120,
+        "created_at_simulation_second": 10264,
+        "id": "local-44"
+      },
+      "second": 10264,
+      "position": {
+        "lat": 25.675317756507543,
+        "lng": -100.38563403190857
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 44,
+        "merchant_name": "Burger Norte",
+        "pickup_lat": 25.741465578128658,
+        "pickup_lng": -100.2994137526847,
+        "dropoff_lat": 25.725739602191954,
+        "dropoff_lng": -100.25059380737453,
+        "base_payment": 118.92,
+        "surge_multiplier": 1,
+        "final_payment": 118.92,
+        "distance_km": 9.589,
+        "estimated_time_minutes": 12.85,
+        "route_source": "ROUTED",
+        "traffic_level": "HIGH",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 3.99,
+        "estimated_preparation_minutes": 5,
+        "expiration_seconds": 120,
+        "created_at_simulation_second": 10264,
+        "id": "local-44"
+      },
+      "second": 10264,
+      "position": {
+        "lat": 25.68922358087122,
+        "lng": -100.35156083541625
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 23.6 min y 17.4 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 17.41,
+        "additionalTime": 23.55,
+        "additionalRevenue": 118.92,
+        "additionalCost": 34.81,
+        "additionalNetProfit": 84.11,
+        "marginalProfitPerMinute": 3.57,
+        "maxLateMinutesVsPromise": 1.47,
+        "promisedDropoffSecond": 11963
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 45,
+        "merchant_name": "Pasta Bella",
+        "pickup_lat": 25.7408703157211,
+        "pickup_lng": -100.29746231952831,
+        "dropoff_lat": 25.705428645984643,
+        "dropoff_lng": -100.33928975812715,
+        "base_payment": 120.23,
+        "surge_multiplier": 1,
+        "final_payment": 120.23,
+        "distance_km": 7.883,
+        "estimated_time_minutes": 9.21,
+        "route_source": "ROUTED",
+        "traffic_level": "HIGH",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 3.39,
+        "estimated_preparation_minutes": 7,
+        "expiration_seconds": 143,
+        "created_at_simulation_second": 10435,
+        "id": "local-45"
+      },
+      "second": 10435,
+      "position": {
+        "lat": 25.673806160777104,
+        "lng": -100.38897152982011
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 45,
+        "merchant_name": "Pasta Bella",
+        "pickup_lat": 25.7408703157211,
+        "pickup_lng": -100.29746231952831,
+        "dropoff_lat": 25.705428645984643,
+        "dropoff_lng": -100.33928975812715,
+        "base_payment": 120.23,
+        "surge_multiplier": 1,
+        "final_payment": 120.23,
+        "distance_km": 7.883,
+        "estimated_time_minutes": 9.21,
+        "route_source": "ROUTED",
+        "traffic_level": "HIGH",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 3.39,
+        "estimated_preparation_minutes": 7,
+        "expiration_seconds": 143,
+        "created_at_simulation_second": 10435,
+        "id": "local-45"
+      },
+      "second": 10435,
+      "position": {
+        "lat": 25.709044514695318,
+        "lng": -100.35013906054121
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        },
+        {
+          "code": "BATCH_DETOUR_TOO_LONG",
+          "message": "El desvío agrega 21.5 min y 15.9 km (máximo 20 min / 6 km)"
+        }
+      ],
+      "estimatedImpact": {
+        "additionalDistance": 15.91,
+        "additionalTime": 21.48,
+        "additionalRevenue": 120.23,
+        "additionalCost": 31.82,
+        "additionalNetProfit": 88.41,
+        "marginalProfitPerMinute": 4.12,
+        "maxLateMinutesVsPromise": 2.55,
+        "promisedDropoffSecond": 11839
+      },
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "BASELINE",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 46,
+        "merchant_name": "Pollo Feliz MTY",
+        "pickup_lat": 25.673002056724602,
+        "pickup_lng": -100.31405163720606,
+        "dropoff_lat": 25.671859262561632,
+        "dropoff_lng": -100.35090491917735,
+        "base_payment": 85.55,
+        "surge_multiplier": 1,
+        "final_payment": 85.55,
+        "distance_km": 4.645,
+        "estimated_time_minutes": 5.34,
+        "route_source": "ROUTED",
+        "traffic_level": "HIGH",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 3.03,
+        "estimated_preparation_minutes": 18,
+        "expiration_seconds": 143,
+        "created_at_simulation_second": 10599,
+        "id": "local-46"
+      },
+      "second": 10599,
+      "position": {
+        "lat": 25.674892432184556,
+        "lng": -100.40557001159439
+      },
+      "reasons": [],
+      "positiveFactors": [],
+      "negativeFactors": [],
+      "restrictions": [
+        {
+          "code": "AGENT_BUSY",
+          "message": "El repartidor sigue ocupado con otro pedido"
+        }
+      ],
+      "estimatedImpact": {},
+      "score": null,
+      "decision": "REJECT"
+    },
+    {
+      "agentCode": "SMARTCOURIER",
+      "order": {
+        "simulation_id": "demo-audit",
+        "external_order_number": 46,
+        "merchant_name": "Pollo Feliz MTY",
+        "pickup_lat": 25.673002056724602,
+        "pickup_lng": -100.31405163720606,
+        "dropoff_lat": 25.671859262561632,
+        "dropoff_lng": -100.35090491917735,
+        "base_payment": 85.55,
+        "surge_multiplier": 1,
+        "final_payment": 85.55,
+        "distance_km": 4.645,
+        "estimated_time_minutes": 5.34,
+        "route_source": "ROUTED",
+        "traffic_level": "HIGH",
+        "destination_demand": "LOW",
+        "priority": "NORMAL",
+        "package_size": "MEDIUM",
+        "package_weight": 3.03,
+        "estimated_preparation_minutes": 18,
+        "expiration_seconds": 143,
+        "created_at_simulation_second": 10599,
+        "id": "local-46"
+      },
+      "second": 10599,
+      "position": {
+        "lat": 25.71959877440575,
+        "lng": -100.35458744646199
+      },
+      "reasons": [
+        {
+          "factor": "PROFIT_PER_MINUTE",
+          "points": 17.9
+        },
+        {
+          "factor": "NET_PROFIT",
+          "points": 6.69
+        },
+        {
+          "factor": "TOTAL_TIME",
+          "points": 8.15
+        },
+        {
+          "factor": "PROFIT_PER_KM",
+          "points": 2.01
+        },
+        {
+          "factor": "DISTANCE_TO_PICKUP",
+          "points": 0
+        },
+        {
+          "factor": "DESTINATION_DEMAND",
+          "points": 0
+        }
+      ],
+      "positiveFactors": [
+        {
+          "factor": "PROFIT_PER_MINUTE",
+          "points": 17.9
+        },
+        {
+          "factor": "NET_PROFIT",
+          "points": 6.69
+        },
+        {
+          "factor": "TOTAL_TIME",
+          "points": 8.15
+        }
+      ],
+      "negativeFactors": [
+        {
+          "factor": "PROFIT_PER_KM",
+          "points": 2.01
+        },
+        {
+          "factor": "DISTANCE_TO_PICKUP",
+          "points": 0
+        },
+        {
+          "factor": "DESTINATION_DEMAND",
+          "points": 0
+        }
+      ],
+      "restrictions": [],
+      "estimatedImpact": {
+        "distanceToPickupKm": 11.38,
+        "toPickupMinutes": 14.08,
+        "waitMinutes": 3.92,
+        "deliveryDistanceKm": 4.64,
+        "deliveryMinutes": 5.33,
+        "totalKm": 16.03,
+        "totalMinutes": 23.33,
+        "grossPayment": 85.55,
+        "operatingCost": 32.06,
+        "netProfit": 53.49,
+        "profitPerMinute": 2.29,
+        "profitPerKm": 3.34,
+        "promisedDropoffSecond": 11999,
+        "destinationDemandAtArrival": "LOW",
+        "lookahead": {
+          "horizonMinutes": 3.35,
+          "scenarios": 6,
+          "opportunityCostPerMinute": 2.5,
+          "accept": {
+            "mean": 3.53,
+            "p10": 3.53,
+            "p90": 3.53,
+            "std": 0
+          },
+          "wait": {
+            "mean": 4.91,
+            "p10": 0,
+            "p90": 29.47,
+            "std": 10.98
+          },
+          "acceptAdvantage": -1.38,
+          "advantageP10": -25.93,
+          "advantageP90": 3.53,
+          "standardError": 4.91,
+          "waitAdvantageRequired": 0,
+          "currentNetPerMinute": 2.29,
+          "decisionRule": "sampling_margin_when_current_rate_covers_opportunity_cost"
+        }
+      },
+      "score": 35,
+      "decision": "WAIT"
+    }
+  ]
+}

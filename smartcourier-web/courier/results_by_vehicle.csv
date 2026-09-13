@@ -1,0 +1,26 @@
+# Same reporting seeds, split by vehicle.
+policy,mean_earnings_mxn,median_earnings_mxn,mean_mxn_per_hr,accept_rate_pct,orders_completed,deadhead_pct_of_km,deadline_misses,safety_violations
+AcceptAll:moto,591.79,531.13,97.63,100,9.2,36.83,0,27
+HighestPay:moto,621.14,589.72,104.87,57.59,7.7,30.49,0,22
+NearestFirst:moto,550.56,534.82,92.76,37.71,8.5,19.13,1,17
+GreedyRate:moto,625.85,538.44,102.91,93.08,9.2,33.01,0,26
+AcceptAll+Safety:moto,551.81,542.43,93.95,52.93,9.2,39.02,0,0
+GreedyRate+Safety:moto,548.21,540.78,93.46,50.86,9.2,38.21,0,0
+OurAgent:moto,562.74,542.97,96.11,30.48,8.1,32.56,0,0
+Oracle:moto,776.49,779.72,131.18,44.56,11.4,36.5,0,50
+AcceptAll:car,504.26,475.7,77.64,100,8.7,31.37,1,24
+HighestPay:car,458.74,452.25,72.3,73.44,7.2,28.09,1,16
+NearestFirst:car,448.19,420.02,72.09,37.87,7.8,17.2,0,13
+GreedyRate:car,528.01,508.56,81.86,67.53,8.7,28.95,0,20
+AcceptAll+Safety:car,391.7,378.76,67.05,48.6,8.1,39.16,0,0
+GreedyRate+Safety:car,428.85,437.75,71.66,39.69,7.6,34.14,0,0
+OurAgent:car,440.12,483.89,74.18,20.89,7.3,31.11,0,0
+Oracle:car,662.72,667.77,114.23,33.36,11.9,38.76,0,53
+AcceptAll:bike,535.08,531.02,87.01,100,7.4,23.49,1,36
+HighestPay:bike,497.5,496.72,83.1,85.21,6.2,20.44,1,33
+NearestFirst:bike,500.71,515.6,83.41,82.32,6.2,16.08,0,29
+GreedyRate:bike,523.54,524.57,88.07,93.86,7.3,23.98,0,33
+AcceptAll+Safety:bike,401.66,432.76,67.42,44.64,6.2,27.61,0,0
+GreedyRate+Safety:bike,398.01,433.75,66.52,41.7,6.1,28.12,0,0
+OurAgent:bike,395.66,438.56,66.36,42.17,5.9,25.56,0,0
+Oracle:bike,523.78,515.4,89.71,50.29,7.2,25.13,0,26

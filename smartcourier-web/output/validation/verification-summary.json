@@ -1,0 +1,33 @@
+{
+  "verified_at": "2026-09-13T00:15:42.757559-06:00",
+  "backend_tests": {
+    "passed": 80,
+    "failed": 0
+  },
+  "browser_tests": {
+    "passed": 4,
+    "failed": 0,
+    "includes": "3 browser journeys and 1 state regression"
+  },
+  "build": "passed",
+  "courier_holdout": "passed: 108 shifts, 0 safety violations, 0 losing shifts",
+  "comparison_holdout": "passed: 162 positive shifts",
+  "pdf_pages": {
+    "validation": 4,
+    "improvements": 1
+  },
+  "original_snapshot_99_files": "unchanged",
+  "copy_amendments": 14,
+  "services": {
+    "web": "http://127.0.0.1:5173",
+    "api": "http://127.0.0.1:5002",
+    "model": "http://127.0.0.1:8001"
+  },
+  "scope": "Local demo, synthetic evaluation. No guarantee of universal profit.",
+  "latest_report": "output/validation/demo-review/CORRECCION_MAPA_DEMO.md",
+  "demo_result": {
+    "baseline": 809.66,
+    "smartcourier": 809.66
+  },
+  "previous_reports": "Dated 2026-09-12; retained as history."
+}

@@ -1,0 +1,2932 @@
+{
+  "summary": {
+    "runs": 81,
+    "beforeMean": 439.7,
+    "afterMean": 432.79,
+    "baselineMean": 261.59,
+    "positive": 81,
+    "wins": 74,
+    "ties": 0,
+    "losses": 7,
+    "beforeLate": 92,
+    "afterLate": 90
+  },
+  "rows": [
+    {
+      "seed": 171001,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 523.23,
+          "completed": 8,
+          "late": 1,
+          "idleMinutes": 12.48
+        },
+        "SMARTCOURIER": {
+          "net": 656.14,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 43.67
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 523.23,
+          "completed": 8,
+          "late": 1,
+          "idleMinutes": 12.48
+        },
+        "SMARTCOURIER": {
+          "net": 629.98,
+          "completed": 8,
+          "late": 1,
+          "idleMinutes": 20.52
+        }
+      }
+    },
+    {
+      "seed": 171001,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 530.92,
+          "completed": 8,
+          "late": 0,
+          "idleMinutes": 13.02
+        },
+        "SMARTCOURIER": {
+          "net": 599.74,
+          "completed": 8,
+          "late": 1,
+          "idleMinutes": 35.1
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 530.92,
+          "completed": 8,
+          "late": 0,
+          "idleMinutes": 13.02
+        },
+        "SMARTCOURIER": {
+          "net": 656.14,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 40.68
+        }
+      }
+    },
+    {
+      "seed": 171001,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 311.4,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 16.07
+        },
+        "SMARTCOURIER": {
+          "net": 641.76,
+          "completed": 7,
+          "late": 2,
+          "idleMinutes": 25.02
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 311.4,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 16.07
+        },
+        "SMARTCOURIER": {
+          "net": 641.76,
+          "completed": 7,
+          "late": 2,
+          "idleMinutes": 25.02
+        }
+      }
+    },
+    {
+      "seed": 171002,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 273.33,
+          "completed": 3,
+          "late": 2,
+          "idleMinutes": 4.43
+        },
+        "SMARTCOURIER": {
+          "net": 327.32,
+          "completed": 3,
+          "late": 2,
+          "idleMinutes": 21.68
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 273.33,
+          "completed": 3,
+          "late": 2,
+          "idleMinutes": 4.43
+        },
+        "SMARTCOURIER": {
+          "net": 327.32,
+          "completed": 3,
+          "late": 2,
+          "idleMinutes": 21.68
+        }
+      }
+    },
+    {
+      "seed": 171002,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 273.33,
+          "completed": 3,
+          "late": 2,
+          "idleMinutes": 3.93
+        },
+        "SMARTCOURIER": {
+          "net": 327.32,
+          "completed": 3,
+          "late": 2,
+          "idleMinutes": 21.18
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 273.33,
+          "completed": 3,
+          "late": 2,
+          "idleMinutes": 3.93
+        },
+        "SMARTCOURIER": {
+          "net": 327.32,
+          "completed": 3,
+          "late": 2,
+          "idleMinutes": 21.18
+        }
+      }
+    },
+    {
+      "seed": 171002,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 260.65,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 11.05
+        },
+        "SMARTCOURIER": {
+          "net": 244.89,
+          "completed": 2,
+          "late": 1,
+          "idleMinutes": 35.67
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 260.65,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 11.05
+        },
+        "SMARTCOURIER": {
+          "net": 244.89,
+          "completed": 2,
+          "late": 1,
+          "idleMinutes": 35.67
+        }
+      }
+    },
+    {
+      "seed": 171003,
+      "vehicle": "car",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 83.54,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 10.08
+        },
+        "SMARTCOURIER": {
+          "net": 376.58,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 63.05
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 83.54,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 10.08
+        },
+        "SMARTCOURIER": {
+          "net": 317.14,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 70.08
+        }
+      }
+    },
+    {
+      "seed": 171003,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": -33.68,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 9.48
+        },
+        "SMARTCOURIER": {
+          "net": 227.87,
+          "completed": 4,
+          "late": 0,
+          "idleMinutes": 74.37
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": -33.68,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 9.48
+        },
+        "SMARTCOURIER": {
+          "net": 230.3,
+          "completed": 4,
+          "late": 0,
+          "idleMinutes": 68.32
+        }
+      }
+    },
+    {
+      "seed": 171003,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": -0.26,
+          "completed": 5,
+          "late": 3,
+          "idleMinutes": 17.57
+        },
+        "SMARTCOURIER": {
+          "net": 375.02,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 48.27
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": -0.26,
+          "completed": 5,
+          "late": 3,
+          "idleMinutes": 17.57
+        },
+        "SMARTCOURIER": {
+          "net": 315.58,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 55.3
+        }
+      }
+    },
+    {
+      "seed": 171004,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 529.41,
+          "completed": 8,
+          "late": 0,
+          "idleMinutes": 21.03
+        },
+        "SMARTCOURIER": {
+          "net": 715.03,
+          "completed": 9,
+          "late": 1,
+          "idleMinutes": 42.62
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 529.41,
+          "completed": 8,
+          "late": 0,
+          "idleMinutes": 21.03
+        },
+        "SMARTCOURIER": {
+          "net": 715.03,
+          "completed": 9,
+          "late": 1,
+          "idleMinutes": 42.62
+        }
+      }
+    },
+    {
+      "seed": 171004,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 498.14,
+          "completed": 9,
+          "late": 2,
+          "idleMinutes": 21.12
+        },
+        "SMARTCOURIER": {
+          "net": 541.47,
+          "completed": 7,
+          "late": 0,
+          "idleMinutes": 52.67
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 498.14,
+          "completed": 9,
+          "late": 2,
+          "idleMinutes": 21.12
+        },
+        "SMARTCOURIER": {
+          "net": 657.18,
+          "completed": 9,
+          "late": 1,
+          "idleMinutes": 43.28
+        }
+      }
+    },
+    {
+      "seed": 171004,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 477.92,
+          "completed": 7,
+          "late": 2,
+          "idleMinutes": 16.38
+        },
+        "SMARTCOURIER": {
+          "net": 643.76,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 53.52
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 477.92,
+          "completed": 7,
+          "late": 2,
+          "idleMinutes": 16.38
+        },
+        "SMARTCOURIER": {
+          "net": 643.76,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 53.52
+        }
+      }
+    },
+    {
+      "seed": 171005,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 426,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 7.8
+        },
+        "SMARTCOURIER": {
+          "net": 427.91,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 38.87
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 426,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 7.8
+        },
+        "SMARTCOURIER": {
+          "net": 427.91,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 38.87
+        }
+      }
+    },
+    {
+      "seed": 171005,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 426,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 7.27
+        },
+        "SMARTCOURIER": {
+          "net": 427.91,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 38.35
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 426,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 7.27
+        },
+        "SMARTCOURIER": {
+          "net": 427.91,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 38.35
+        }
+      }
+    },
+    {
+      "seed": 171005,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 318.14,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 6.67
+        },
+        "SMARTCOURIER": {
+          "net": 364.7,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 29.17
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 318.14,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 6.67
+        },
+        "SMARTCOURIER": {
+          "net": 364.7,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 29.17
+        }
+      }
+    },
+    {
+      "seed": 171006,
+      "vehicle": "car",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 143.09,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 13.9
+        },
+        "SMARTCOURIER": {
+          "net": 355.07,
+          "completed": 4,
+          "late": 2,
+          "idleMinutes": 93.17
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 143.09,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 13.9
+        },
+        "SMARTCOURIER": {
+          "net": 355.07,
+          "completed": 4,
+          "late": 2,
+          "idleMinutes": 93.17
+        }
+      }
+    },
+    {
+      "seed": 171006,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 183.57,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 16.85
+        },
+        "SMARTCOURIER": {
+          "net": 355.07,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 83.25
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 183.57,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 16.85
+        },
+        "SMARTCOURIER": {
+          "net": 355.07,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 83.25
+        }
+      }
+    },
+    {
+      "seed": 171006,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 253.48,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 15.43
+        },
+        "SMARTCOURIER": {
+          "net": 225.16,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 99.78
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 253.48,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 15.43
+        },
+        "SMARTCOURIER": {
+          "net": 225.16,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 99.78
+        }
+      }
+    },
+    {
+      "seed": 171007,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 321.41,
+          "completed": 7,
+          "late": 0,
+          "idleMinutes": 15.72
+        },
+        "SMARTCOURIER": {
+          "net": 545.54,
+          "completed": 7,
+          "late": 0,
+          "idleMinutes": 52.83
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 321.41,
+          "completed": 7,
+          "late": 0,
+          "idleMinutes": 15.72
+        },
+        "SMARTCOURIER": {
+          "net": 447.81,
+          "completed": 7,
+          "late": 0,
+          "idleMinutes": 40.88
+        }
+      }
+    },
+    {
+      "seed": 171007,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 345.65,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 17.37
+        },
+        "SMARTCOURIER": {
+          "net": 545.54,
+          "completed": 7,
+          "late": 0,
+          "idleMinutes": 48.95
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 345.65,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 17.37
+        },
+        "SMARTCOURIER": {
+          "net": 391.17,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 37.4
+        }
+      }
+    },
+    {
+      "seed": 171007,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 282.65,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 13.28
+        },
+        "SMARTCOURIER": {
+          "net": 374.47,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 61.2
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 282.65,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 13.28
+        },
+        "SMARTCOURIER": {
+          "net": 272.06,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 40.2
+        }
+      }
+    },
+    {
+      "seed": 171008,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 202.48,
+          "completed": 2,
+          "late": 0,
+          "idleMinutes": 3.87
+        },
+        "SMARTCOURIER": {
+          "net": 452.82,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 31.32
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 202.48,
+          "completed": 2,
+          "late": 0,
+          "idleMinutes": 3.87
+        },
+        "SMARTCOURIER": {
+          "net": 452.82,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 31.32
+        }
+      }
+    },
+    {
+      "seed": 171008,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 202.48,
+          "completed": 2,
+          "late": 0,
+          "idleMinutes": 3.87
+        },
+        "SMARTCOURIER": {
+          "net": 335.12,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 42.42
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 202.48,
+          "completed": 2,
+          "late": 0,
+          "idleMinutes": 3.87
+        },
+        "SMARTCOURIER": {
+          "net": 335.12,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 42.42
+        }
+      }
+    },
+    {
+      "seed": 171008,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 163.97,
+          "completed": 2,
+          "late": 1,
+          "idleMinutes": 4.87
+        },
+        "SMARTCOURIER": {
+          "net": 335.43,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 40.62
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 163.97,
+          "completed": 2,
+          "late": 1,
+          "idleMinutes": 4.87
+        },
+        "SMARTCOURIER": {
+          "net": 335.43,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 40.62
+        }
+      }
+    },
+    {
+      "seed": 171009,
+      "vehicle": "car",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 289.89,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 15.57
+        },
+        "SMARTCOURIER": {
+          "net": 297.08,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 54.13
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 289.89,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 15.57
+        },
+        "SMARTCOURIER": {
+          "net": 297.08,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 54.13
+        }
+      }
+    },
+    {
+      "seed": 171009,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 236.75,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 11.47
+        },
+        "SMARTCOURIER": {
+          "net": 297.08,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 46.35
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 236.75,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 11.47
+        },
+        "SMARTCOURIER": {
+          "net": 297.08,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 46.35
+        }
+      }
+    },
+    {
+      "seed": 171009,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 66.01,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 18.15
+        },
+        "SMARTCOURIER": {
+          "net": 270.39,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 59.05
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 66.01,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 18.15
+        },
+        "SMARTCOURIER": {
+          "net": 270.39,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 59.05
+        }
+      }
+    },
+    {
+      "seed": 171010,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 520.86,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 18.93
+        },
+        "SMARTCOURIER": {
+          "net": 496.08,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 43.9
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 520.86,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 18.93
+        },
+        "SMARTCOURIER": {
+          "net": 496.08,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 43.9
+        }
+      }
+    },
+    {
+      "seed": 171010,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 520.86,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 18.67
+        },
+        "SMARTCOURIER": {
+          "net": 390.82,
+          "completed": 7,
+          "late": 0,
+          "idleMinutes": 57.53
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 520.86,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 18.67
+        },
+        "SMARTCOURIER": {
+          "net": 496.08,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 43.9
+        }
+      }
+    },
+    {
+      "seed": 171010,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 301.31,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 14.68
+        },
+        "SMARTCOURIER": {
+          "net": 411.66,
+          "completed": 6,
+          "late": 3,
+          "idleMinutes": 64.1
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 301.31,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 14.68
+        },
+        "SMARTCOURIER": {
+          "net": 556.37,
+          "completed": 8,
+          "late": 3,
+          "idleMinutes": 50.98
+        }
+      }
+    },
+    {
+      "seed": 171011,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 275.07,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 12.65
+        },
+        "SMARTCOURIER": {
+          "net": 339.27,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 25.65
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 275.07,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 12.65
+        },
+        "SMARTCOURIER": {
+          "net": 339.27,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 25.65
+        }
+      }
+    },
+    {
+      "seed": 171011,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 275.07,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 11.18
+        },
+        "SMARTCOURIER": {
+          "net": 339.27,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 24.12
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 275.07,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 11.18
+        },
+        "SMARTCOURIER": {
+          "net": 339.27,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 24.12
+        }
+      }
+    },
+    {
+      "seed": 171011,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 204.17,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 8.12
+        },
+        "SMARTCOURIER": {
+          "net": 325.97,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 37.5
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 204.17,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 8.12
+        },
+        "SMARTCOURIER": {
+          "net": 325.97,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 37.5
+        }
+      }
+    },
+    {
+      "seed": 171012,
+      "vehicle": "car",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 161.46,
+          "completed": 6,
+          "late": 3,
+          "idleMinutes": 12.63
+        },
+        "SMARTCOURIER": {
+          "net": 475.26,
+          "completed": 7,
+          "late": 2,
+          "idleMinutes": 50.12
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 161.46,
+          "completed": 6,
+          "late": 3,
+          "idleMinutes": 12.63
+        },
+        "SMARTCOURIER": {
+          "net": 475.26,
+          "completed": 7,
+          "late": 2,
+          "idleMinutes": 50.12
+        }
+      }
+    },
+    {
+      "seed": 171012,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 150.67,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 15.03
+        },
+        "SMARTCOURIER": {
+          "net": 475.26,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 48.98
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 150.67,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 15.03
+        },
+        "SMARTCOURIER": {
+          "net": 475.26,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 48.98
+        }
+      }
+    },
+    {
+      "seed": 171012,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 4.78,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 18.93
+        },
+        "SMARTCOURIER": {
+          "net": 429.22,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 54.97
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 4.78,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 18.93
+        },
+        "SMARTCOURIER": {
+          "net": 429.22,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 54.97
+        }
+      }
+    },
+    {
+      "seed": 171013,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 377.18,
+          "completed": 7,
+          "late": 0,
+          "idleMinutes": 21.78
+        },
+        "SMARTCOURIER": {
+          "net": 788.43,
+          "completed": 8,
+          "late": 1,
+          "idleMinutes": 33.33
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 377.18,
+          "completed": 7,
+          "late": 0,
+          "idleMinutes": 21.78
+        },
+        "SMARTCOURIER": {
+          "net": 548.65,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 29.1
+        }
+      }
+    },
+    {
+      "seed": 171013,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 341.17,
+          "completed": 7,
+          "late": 0,
+          "idleMinutes": 27.52
+        },
+        "SMARTCOURIER": {
+          "net": 788.43,
+          "completed": 8,
+          "late": 1,
+          "idleMinutes": 31.97
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 341.17,
+          "completed": 7,
+          "late": 0,
+          "idleMinutes": 27.52
+        },
+        "SMARTCOURIER": {
+          "net": 548.65,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 26.4
+        }
+      }
+    },
+    {
+      "seed": 171013,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 292.31,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 16.37
+        },
+        "SMARTCOURIER": {
+          "net": 611.94,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 60.53
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 292.31,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 16.37
+        },
+        "SMARTCOURIER": {
+          "net": 409.41,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 34.05
+        }
+      }
+    },
+    {
+      "seed": 171014,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 297.58,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 13
+        },
+        "SMARTCOURIER": {
+          "net": 329.09,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 55.23
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 297.58,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 13
+        },
+        "SMARTCOURIER": {
+          "net": 329.09,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 55.23
+        }
+      }
+    },
+    {
+      "seed": 171014,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 297.58,
+          "completed": 3,
+          "late": 2,
+          "idleMinutes": 11.5
+        },
+        "SMARTCOURIER": {
+          "net": 329.09,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 53.9
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 297.58,
+          "completed": 3,
+          "late": 2,
+          "idleMinutes": 11.5
+        },
+        "SMARTCOURIER": {
+          "net": 329.09,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 53.9
+        }
+      }
+    },
+    {
+      "seed": 171014,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 244.13,
+          "completed": 3,
+          "late": 2,
+          "idleMinutes": 8.25
+        },
+        "SMARTCOURIER": {
+          "net": 375.88,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 62.8
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 244.13,
+          "completed": 3,
+          "late": 2,
+          "idleMinutes": 8.25
+        },
+        "SMARTCOURIER": {
+          "net": 375.88,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 62.8
+        }
+      }
+    },
+    {
+      "seed": 171015,
+      "vehicle": "car",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 306.58,
+          "completed": 7,
+          "late": 2,
+          "idleMinutes": 14.5
+        },
+        "SMARTCOURIER": {
+          "net": 475.2,
+          "completed": 7,
+          "late": 2,
+          "idleMinutes": 46.32
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 306.58,
+          "completed": 7,
+          "late": 2,
+          "idleMinutes": 14.5
+        },
+        "SMARTCOURIER": {
+          "net": 475.2,
+          "completed": 7,
+          "late": 2,
+          "idleMinutes": 46.32
+        }
+      }
+    },
+    {
+      "seed": 171015,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 255.35,
+          "completed": 8,
+          "late": 2,
+          "idleMinutes": 12.02
+        },
+        "SMARTCOURIER": {
+          "net": 475.2,
+          "completed": 7,
+          "late": 3,
+          "idleMinutes": 42.48
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 255.35,
+          "completed": 8,
+          "late": 2,
+          "idleMinutes": 12.02
+        },
+        "SMARTCOURIER": {
+          "net": 475.2,
+          "completed": 7,
+          "late": 3,
+          "idleMinutes": 42.48
+        }
+      }
+    },
+    {
+      "seed": 171015,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 189.83,
+          "completed": 5,
+          "late": 3,
+          "idleMinutes": 11.73
+        },
+        "SMARTCOURIER": {
+          "net": 402.38,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 53.27
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 189.83,
+          "completed": 5,
+          "late": 3,
+          "idleMinutes": 11.73
+        },
+        "SMARTCOURIER": {
+          "net": 402.38,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 53.27
+        }
+      }
+    },
+    {
+      "seed": 171016,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 430.82,
+          "completed": 8,
+          "late": 1,
+          "idleMinutes": 12.65
+        },
+        "SMARTCOURIER": {
+          "net": 524.28,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 32.13
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 430.82,
+          "completed": 8,
+          "late": 1,
+          "idleMinutes": 12.65
+        },
+        "SMARTCOURIER": {
+          "net": 568,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 24.55
+        }
+      }
+    },
+    {
+      "seed": 171016,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 309.53,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 7.62
+        },
+        "SMARTCOURIER": {
+          "net": 524.28,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 27
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 309.53,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 7.62
+        },
+        "SMARTCOURIER": {
+          "net": 568,
+          "completed": 7,
+          "late": 2,
+          "idleMinutes": 19.42
+        }
+      }
+    },
+    {
+      "seed": 171016,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 423.22,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 12.83
+        },
+        "SMARTCOURIER": {
+          "net": 515.24,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 52.17
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 423.22,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 12.83
+        },
+        "SMARTCOURIER": {
+          "net": 541.42,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 50.28
+        }
+      }
+    },
+    {
+      "seed": 171017,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 309.74,
+          "completed": 4,
+          "late": 0,
+          "idleMinutes": 10.78
+        },
+        "SMARTCOURIER": {
+          "net": 375.48,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 54.1
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 309.74,
+          "completed": 4,
+          "late": 0,
+          "idleMinutes": 10.78
+        },
+        "SMARTCOURIER": {
+          "net": 375.48,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 54.1
+        }
+      }
+    },
+    {
+      "seed": 171017,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 309.74,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 8.8
+        },
+        "SMARTCOURIER": {
+          "net": 375.48,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 52.37
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 309.74,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 8.8
+        },
+        "SMARTCOURIER": {
+          "net": 375.48,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 52.37
+        }
+      }
+    },
+    {
+      "seed": 171017,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 157.04,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 9.83
+        },
+        "SMARTCOURIER": {
+          "net": 271.54,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 46.07
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 157.04,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 9.83
+        },
+        "SMARTCOURIER": {
+          "net": 247.34,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 38.85
+        }
+      }
+    },
+    {
+      "seed": 171018,
+      "vehicle": "car",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 75.87,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 12.38
+        },
+        "SMARTCOURIER": {
+          "net": 480.02,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 37.73
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 75.87,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 12.38
+        },
+        "SMARTCOURIER": {
+          "net": 480.02,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 37.73
+        }
+      }
+    },
+    {
+      "seed": 171018,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 7.34,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 12.7
+        },
+        "SMARTCOURIER": {
+          "net": 510.83,
+          "completed": 7,
+          "late": 0,
+          "idleMinutes": 31.17
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 7.34,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 12.7
+        },
+        "SMARTCOURIER": {
+          "net": 510.83,
+          "completed": 7,
+          "late": 0,
+          "idleMinutes": 31.17
+        }
+      }
+    },
+    {
+      "seed": 171018,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 183.12,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 13.62
+        },
+        "SMARTCOURIER": {
+          "net": 418.44,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 51.12
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 183.12,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 13.62
+        },
+        "SMARTCOURIER": {
+          "net": 418.44,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 51.12
+        }
+      }
+    },
+    {
+      "seed": 171019,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 377.68,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 14.6
+        },
+        "SMARTCOURIER": {
+          "net": 611.68,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 58.7
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 377.68,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 14.6
+        },
+        "SMARTCOURIER": {
+          "net": 649.91,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 51.82
+        }
+      }
+    },
+    {
+      "seed": 171019,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 283.24,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 15.08
+        },
+        "SMARTCOURIER": {
+          "net": 611.68,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 55.28
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 283.24,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 15.08
+        },
+        "SMARTCOURIER": {
+          "net": 649.91,
+          "completed": 7,
+          "late": 2,
+          "idleMinutes": 48.4
+        }
+      }
+    },
+    {
+      "seed": 171019,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 200.47,
+          "completed": 5,
+          "late": 0,
+          "idleMinutes": 13.07
+        },
+        "SMARTCOURIER": {
+          "net": 718.65,
+          "completed": 7,
+          "late": 2,
+          "idleMinutes": 41.72
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 200.47,
+          "completed": 5,
+          "late": 0,
+          "idleMinutes": 13.07
+        },
+        "SMARTCOURIER": {
+          "net": 718.65,
+          "completed": 7,
+          "late": 2,
+          "idleMinutes": 41.72
+        }
+      }
+    },
+    {
+      "seed": 171020,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 429.39,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 12.47
+        },
+        "SMARTCOURIER": {
+          "net": 621.35,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 27.93
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 429.39,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 12.47
+        },
+        "SMARTCOURIER": {
+          "net": 621.35,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 27.93
+        }
+      }
+    },
+    {
+      "seed": 171020,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 397.44,
+          "completed": 4,
+          "late": 0,
+          "idleMinutes": 12.63
+        },
+        "SMARTCOURIER": {
+          "net": 621.35,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 27.25
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 397.44,
+          "completed": 4,
+          "late": 0,
+          "idleMinutes": 12.63
+        },
+        "SMARTCOURIER": {
+          "net": 621.35,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 27.25
+        }
+      }
+    },
+    {
+      "seed": 171020,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 456.38,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 21.77
+        },
+        "SMARTCOURIER": {
+          "net": 448.73,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 39.32
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 456.38,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 21.77
+        },
+        "SMARTCOURIER": {
+          "net": 448.73,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 39.32
+        }
+      }
+    },
+    {
+      "seed": 171021,
+      "vehicle": "car",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": -85.97,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 15.85
+        },
+        "SMARTCOURIER": {
+          "net": 221.04,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 42.03
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": -85.97,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 15.85
+        },
+        "SMARTCOURIER": {
+          "net": 221.04,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 42.03
+        }
+      }
+    },
+    {
+      "seed": 171021,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 23.34,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 15
+        },
+        "SMARTCOURIER": {
+          "net": 220.66,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 62.48
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 23.34,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 15
+        },
+        "SMARTCOURIER": {
+          "net": 220.66,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 62.48
+        }
+      }
+    },
+    {
+      "seed": 171021,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": -147.69,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 12.07
+        },
+        "SMARTCOURIER": {
+          "net": 116.53,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 90.75
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": -147.69,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 12.07
+        },
+        "SMARTCOURIER": {
+          "net": 116.53,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 90.75
+        }
+      }
+    },
+    {
+      "seed": 171022,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 613.15,
+          "completed": 7,
+          "late": 3,
+          "idleMinutes": 18.13
+        },
+        "SMARTCOURIER": {
+          "net": 776.8,
+          "completed": 8,
+          "late": 2,
+          "idleMinutes": 47.7
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 613.15,
+          "completed": 7,
+          "late": 3,
+          "idleMinutes": 18.13
+        },
+        "SMARTCOURIER": {
+          "net": 756.87,
+          "completed": 7,
+          "late": 3,
+          "idleMinutes": 36.37
+        }
+      }
+    },
+    {
+      "seed": 171022,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 608.92,
+          "completed": 7,
+          "late": 3,
+          "idleMinutes": 14.88
+        },
+        "SMARTCOURIER": {
+          "net": 801.41,
+          "completed": 8,
+          "late": 3,
+          "idleMinutes": 27.27
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 608.92,
+          "completed": 7,
+          "late": 3,
+          "idleMinutes": 14.88
+        },
+        "SMARTCOURIER": {
+          "net": 541.76,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 47.37
+        }
+      }
+    },
+    {
+      "seed": 171022,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 418.58,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 8.92
+        },
+        "SMARTCOURIER": {
+          "net": 731.56,
+          "completed": 7,
+          "late": 3,
+          "idleMinutes": 30.63
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 418.58,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 8.92
+        },
+        "SMARTCOURIER": {
+          "net": 505.46,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 42.22
+        }
+      }
+    },
+    {
+      "seed": 171023,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 220.28,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 10.4
+        },
+        "SMARTCOURIER": {
+          "net": 334.47,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 39.4
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 220.28,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 10.4
+        },
+        "SMARTCOURIER": {
+          "net": 270.31,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 42.45
+        }
+      }
+    },
+    {
+      "seed": 171023,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 220.28,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 9.45
+        },
+        "SMARTCOURIER": {
+          "net": 334.47,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 38.47
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 220.28,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 9.45
+        },
+        "SMARTCOURIER": {
+          "net": 270.31,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 41.52
+        }
+      }
+    },
+    {
+      "seed": 171023,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 202.55,
+          "completed": 2,
+          "late": 1,
+          "idleMinutes": 11.75
+        },
+        "SMARTCOURIER": {
+          "net": 332.05,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 33.17
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 202.55,
+          "completed": 2,
+          "late": 1,
+          "idleMinutes": 11.75
+        },
+        "SMARTCOURIER": {
+          "net": 267.89,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 36.22
+        }
+      }
+    },
+    {
+      "seed": 171024,
+      "vehicle": "car",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 158.81,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 14.95
+        },
+        "SMARTCOURIER": {
+          "net": 316.42,
+          "completed": 5,
+          "late": 0,
+          "idleMinutes": 77.9
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 158.81,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 14.95
+        },
+        "SMARTCOURIER": {
+          "net": 316.42,
+          "completed": 5,
+          "late": 0,
+          "idleMinutes": 77.9
+        }
+      }
+    },
+    {
+      "seed": 171024,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 158.81,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 8.65
+        },
+        "SMARTCOURIER": {
+          "net": 316.42,
+          "completed": 5,
+          "late": 0,
+          "idleMinutes": 67.48
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 158.81,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 8.65
+        },
+        "SMARTCOURIER": {
+          "net": 316.42,
+          "completed": 5,
+          "late": 0,
+          "idleMinutes": 67.48
+        }
+      }
+    },
+    {
+      "seed": 171024,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 109.21,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 11.8
+        },
+        "SMARTCOURIER": {
+          "net": 252.71,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 86.85
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 109.21,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 11.8
+        },
+        "SMARTCOURIER": {
+          "net": 252.71,
+          "completed": 3,
+          "late": 0,
+          "idleMinutes": 86.85
+        }
+      }
+    },
+    {
+      "seed": 171025,
+      "vehicle": "motorcycle",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 322.8,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 9.95
+        },
+        "SMARTCOURIER": {
+          "net": 509.18,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 44.95
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 322.8,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 9.95
+        },
+        "SMARTCOURIER": {
+          "net": 645.49,
+          "completed": 7,
+          "late": 2,
+          "idleMinutes": 63.23
+        }
+      }
+    },
+    {
+      "seed": 171025,
+      "vehicle": "motorcycle",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 344.35,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 17.78
+        },
+        "SMARTCOURIER": {
+          "net": 470.51,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 50.15
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 344.35,
+          "completed": 7,
+          "late": 1,
+          "idleMinutes": 17.78
+        },
+        "SMARTCOURIER": {
+          "net": 645.49,
+          "completed": 7,
+          "late": 3,
+          "idleMinutes": 62.1
+        }
+      }
+    },
+    {
+      "seed": 171025,
+      "vehicle": "motorcycle",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 369.51,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 9.72
+        },
+        "SMARTCOURIER": {
+          "net": 401.04,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 49.45
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 369.51,
+          "completed": 5,
+          "late": 2,
+          "idleMinutes": 9.72
+        },
+        "SMARTCOURIER": {
+          "net": 641.72,
+          "completed": 8,
+          "late": 1,
+          "idleMinutes": 29.37
+        }
+      }
+    },
+    {
+      "seed": 171026,
+      "vehicle": "bike",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 243.63,
+          "completed": 2,
+          "late": 1,
+          "idleMinutes": 4.87
+        },
+        "SMARTCOURIER": {
+          "net": 455.05,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 43.07
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 243.63,
+          "completed": 2,
+          "late": 1,
+          "idleMinutes": 4.87
+        },
+        "SMARTCOURIER": {
+          "net": 496.74,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 39.05
+        }
+      }
+    },
+    {
+      "seed": 171026,
+      "vehicle": "bike",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 170.63,
+          "completed": 2,
+          "late": 1,
+          "idleMinutes": 5.27
+        },
+        "SMARTCOURIER": {
+          "net": 455.05,
+          "completed": 3,
+          "late": 1,
+          "idleMinutes": 41.73
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 170.63,
+          "completed": 2,
+          "late": 1,
+          "idleMinutes": 5.27
+        },
+        "SMARTCOURIER": {
+          "net": 496.74,
+          "completed": 4,
+          "late": 1,
+          "idleMinutes": 37.72
+        }
+      }
+    },
+    {
+      "seed": 171026,
+      "vehicle": "bike",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 203.36,
+          "completed": 2,
+          "late": 1,
+          "idleMinutes": 6.13
+        },
+        "SMARTCOURIER": {
+          "net": 365.58,
+          "completed": 2,
+          "late": 1,
+          "idleMinutes": 22.52
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 203.36,
+          "completed": 2,
+          "late": 1,
+          "idleMinutes": 6.13
+        },
+        "SMARTCOURIER": {
+          "net": 365.58,
+          "completed": 2,
+          "late": 1,
+          "idleMinutes": 22.52
+        }
+      }
+    },
+    {
+      "seed": 171027,
+      "vehicle": "car",
+      "scenario": "normal",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": -23.89,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 13.9
+        },
+        "SMARTCOURIER": {
+          "net": 445.65,
+          "completed": 5,
+          "late": 0,
+          "idleMinutes": 71.88
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": -23.89,
+          "completed": 6,
+          "late": 2,
+          "idleMinutes": 13.9
+        },
+        "SMARTCOURIER": {
+          "net": 420.35,
+          "completed": 5,
+          "late": 0,
+          "idleMinutes": 72.92
+        }
+      }
+    },
+    {
+      "seed": 171027,
+      "vehicle": "car",
+      "scenario": "trafico_severo",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 81.67,
+          "completed": 6,
+          "late": 3,
+          "idleMinutes": 15.83
+        },
+        "SMARTCOURIER": {
+          "net": 355.68,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 72.62
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 81.67,
+          "completed": 6,
+          "late": 3,
+          "idleMinutes": 15.83
+        },
+        "SMARTCOURIER": {
+          "net": 355.68,
+          "completed": 5,
+          "late": 1,
+          "idleMinutes": 72.62
+        }
+      }
+    },
+    {
+      "seed": 171027,
+      "vehicle": "car",
+      "scenario": "cierre_vial",
+      "routeSources": [
+        "ESTIMATED"
+      ],
+      "before": {
+        "BASELINE": {
+          "net": 19.94,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 10.62
+        },
+        "SMARTCOURIER": {
+          "net": 230.05,
+          "completed": 4,
+          "late": 0,
+          "idleMinutes": 80.83
+        }
+      },
+      "after": {
+        "BASELINE": {
+          "net": 19.94,
+          "completed": 6,
+          "late": 1,
+          "idleMinutes": 10.62
+        },
+        "SMARTCOURIER": {
+          "net": 349.66,
+          "completed": 5,
+          "late": 0,
+          "idleMinutes": 70.43
+        }
+      }
+    }
+  ]
+}
