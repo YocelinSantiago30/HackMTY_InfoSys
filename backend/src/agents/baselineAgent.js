@@ -67,6 +67,7 @@ function evaluateBaseline({ order, preferences = {} }) {
       passed: order.distance_km <= maximumDistanceKm,
     },
   ];
+  
 
   const decision = reasons.every((reason) => reason.passed) ? "ACCEPT" : "REJECT";
 

@@ -18,6 +18,7 @@ function validateCredentials({ email, password }, { requireName, name } = {}) {
   }
 }
 
+
 async function register(req, res) {
   const { name, email, password } = req.body;
 
